@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Birds</title>
+</head>
+<body>
+    {% for birds in bird_species %}
+        {{ birds.bird_name }}<br>
+        {{ birds.scientific_name }}<br>
+        {{ birds.length }}cm<br>
+        {{ birds.wingspan }}cm<br>
+        {{ birds.description }}<br>
+        {{ birds.feeding }}<br>
+        {{ birds.where }}<br>
+        {{ birds.image }}<br>
+    {% endfor %}    
+</body>
+</html>
+
