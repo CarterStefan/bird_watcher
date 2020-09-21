@@ -18,7 +18,7 @@
 		<nav>
 			<div class="nav-wrapper">
 				<a href="{{ url_for('home') }}" class="brand-logo">BirdWatcher</a>
-				<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i>
+				<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 					<ul class="right hide-on-med-and-down">
 						<li><a href="#">Report Sighting</a></li>
 						<li><a href="#">My Sightings</a></li>
@@ -26,7 +26,7 @@
 						<li><a href="{{ url_for('get_birds') }}">UK Birds</a></li>
 						<li><a href="#">Log Out</a></li>
 						<li><a href="#">Log In</a></li>
-						<li><a href="#">Register</a></li>
+						<li><a href="{{ url_for('register') }}">Register</a></li>
 					</ul>
 			</div>
 		</nav>
@@ -43,7 +43,7 @@
 			<li><a href="{{ url_for('get_birds') }}">UK Birds</a></li>
 			<li><a href="#">Log Out</a></li>
 			<li><a href="#">Log In</a></li>
-			<li><a href="#">Register</a></li>
+			<li><a href="{{ url_for('register') }}">Register</a></li>
 		</ul>
 	</header>
 
