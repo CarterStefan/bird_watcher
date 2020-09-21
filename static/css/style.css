@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Plaster&display=swap');
+
+.brand-logo{
+    font-family: 'Plaster', cursive;
+}
+
+.homepage-grid{
+    height: 200px;
+    background-color: grey;
+    border: 1px solid white;
+}
+
+.all-birds-grid{
+    height: 200px;    
+    border: 1px solid white;
+}

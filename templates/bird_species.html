@@ -1,15 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
 
-    {% for birds in bird_species %}
-        {{ birds.bird_name }}<br>
-        {{ birds.scientific_name }}<br>
-        {{ birds.length }}cm<br>
-        {{ birds.wingspan }}cm<br>
-        {{ birds.description }}<br>
-        {{ birds.feeding }}<br>
-        {{ birds.where }}<br>
-        {{ birds.image }}<br>
-    {% endfor %}    
+<div class="container">
+	<div class="row">
+		<div class="col s12 all-birds-grid">HERO IMAGE</div>
+	</div>
+	<div class="row">
+		<div class="col s6">SEARCH BAR</div>
+		<div class="col s6">SELECT BIRD</div>
+	</div>
+	<div class="row">
+		{% for birds in bird_species %}
+		<div class="col s6 m3 all-birds-grid">
+			<img height="100%" width="100%" src=" {{ birds.image }} "/>
+			<div class="col s10 offset-s2">
+				<p>{{ birds.bird_name }}</p>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
 
 {% endblock %}

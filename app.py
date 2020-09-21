@@ -23,6 +23,9 @@ def get_birds():
     bird_species = mongo.db.bird_species.find()
     return render_template("bird_species.html", bird_species=bird_species)
 
+@app.route("/home")
+def home():
+    return render_template("home.html")
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
