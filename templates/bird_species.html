@@ -1,24 +1,52 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
 <div class="container">
-	<div class="row">
-		<div class="col s12 all-birds-grid">HERO IMAGE</div>
-	</div>
-	<div class="row">
-		<div class="col s6">SEARCH BAR</div>
-		<div class="col s6">SELECT BIRD</div>
-	</div>
-	<div class="row">
-		{% for birds in bird_species %}
-		<div class="col s6 m3 all-birds-grid">
-			<img height="100%" width="100%" src=" {{ birds.image }} "/>
-			<div class="col s10 offset-s2">
-				<p>{{ birds.bird_name }}</p>
-			</div>
-		</div>
-		{% endfor %}
-	</div>
+  <div class="row">
+    <div class="col s12 grid-layout">HERO IMAGE</div>
+  </div>
+
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="nav-wrapper">
+        <form>
+          <div class="input-field">
+            <input id="search" type="search" required />
+            <label class="label-icon" for="search"
+              ><i class="material-icons">search</i></label
+            >
+            <i class="material-icons">close</i>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="input-field col s12 m6">
+      <select class="icons">
+        <option value="" disabled selected>Select bird family</option>
+        <option value="" data-icon="images/sample-1.jpg">example 1</option>
+        <option value="" data-icon="images/office.jpg">example 2</option>
+        <option value="" data-icon="images/yuna.jpg">example 3</option>
+      </select>
+      <label>Images in select</label>
+    </div>
+  </div>
+
+  <div class="row">
+    {% for birds in bird_species %}
+    <div class="col s6 m3">
+      <img height="100%" width="100%" src=" {{ birds.image }} " />
+      <div class="row">
+        <div class="col s10 offset-s2">
+          <p>{{ birds.bird_name }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="row">
+    <div class="col s6 grid-layout">ADD NEW BIRD</div>
+    <div class="col s6 grid-layout">REPORT SIGHTING</div>
+  </div>
 </div>
 
 {% endblock %}

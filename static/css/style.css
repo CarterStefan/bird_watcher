@@ -4,13 +4,8 @@
     font-family: 'Plaster', cursive;
 }
 
-.homepage-grid{
+.grid-layout{
     height: 200px;
     background-color: grey;
-    border: 1px solid white;
-}
-
-.all-birds-grid{
-    height: 200px;    
     border: 1px solid white;
 }
