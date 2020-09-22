@@ -5,20 +5,25 @@
   <div class="row">
     <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
       <div class="card-panel teal">
+        <!-- Username Field -->
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix">person_add</i>
             <input id="username" name="username" type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
             <label for="username">Username</label>
+            <span class="helper-text" data-error="Username must be 5-15 characters and only use letters and numbers" data-success="This works">Username must be 5-15 characters and only users letters and numbers</span>
           </div>
         </div>
+        <!-- Password Field -->
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix">lock</i>
             <input id="password" name="password" type="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
             <label for="password">Password</label>
+            <span class="helper-text" data-error="Password must be 5-15 characters and only use letters and numbers" data-success="This works">Password must be 5-15 characters and only users letters and numbers</span>
           </div>
         </div>
+        <!-- Submit Button -->
         <div class="row">
             <button type="submit" class="col s12 btn-large">
                 Register
