@@ -3,19 +3,19 @@
 <div class="container">
   <div class="row">
     <div class="col s12 jumbotron">
-    <h2>Register</h2>
+    <h2>Log In</h2>
       <!-- Registration Form -->
       <div class="row">
         <form
           class="col s12 m8 offset-m2"
           method="POST"
-          action="{{ url_for('register') }}"
+          action="{{ url_for('login') }}"
         >
           <div class="card-panel teal">
             <!-- Username Field -->
             <div class="row">
               <div class="input-field col s8 offset-s2">
-                <i class="material-icons prefix">person_add</i>
+                <i class="material-icons prefix">person</i>
                 <input
                   id="username"
                   name="username"
@@ -63,12 +63,12 @@
             <!-- Submit Button -->
             <div class="row">
               <button type="submit" class="col s6 offset-s3 btn-large">
-                Register
+                Log In
               </button>
             </div>
             <div class="row">
                 <div class="col s10 offset-1"> 
-                Already Registered? <a href="{{ url_for('login') }}">Login Here</a>
+                Not Registered? <a href="{{ url_for('register') }}">Register Here</a>
                 </div>
             </div>
           </div>

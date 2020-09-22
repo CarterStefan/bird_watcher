@@ -33,7 +33,7 @@ def uk_birds():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        # This will check if the usernames exists in the DB
+        # This will check if the username exists in the DB
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
 
@@ -52,6 +52,32 @@ def register():
         flash("Registration Successful")
 
     return render_template("register.html")
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        # This will check if the username exists in the DB
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            # Check hashed password matched user input
+            if check_password_hash(
+                existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Hello, {}".format(request.form.get("username")))
+            else:
+                # Password does not match
+                flash("Incorrect Username or Password")
+                return redirect(url_for("login"))
+
+        else:
+            #Username does not exist
+            flash("Incorrect Username or Password")
+            return redirect(url_for("login"))
+
+    return render_template("login.html")
 
 
 if __name__ == "__main__":
