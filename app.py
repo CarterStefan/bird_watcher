@@ -18,18 +18,21 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+# Homepage
 @app.route("/")
 @app.route("/home")
 def home():
     return render_template("home.html")
 
 
+# Page for all birds on DB
 @app.route("/uk_birds")
 def uk_birds():
     bird_species = mongo.db.bird_species.find()
     return render_template("bird_species.html", bird_species=bird_species)
 
 
+# Page for user registration
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -55,6 +58,7 @@ def register():
     return render_template("register.html")
 
 
+# Page for user login
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -83,6 +87,7 @@ def login():
     return render_template("login.html")
 
 
+# Page for users bird sightings
 @app.route("/my_sightings/<username>", methods=["GET", "POST"])
 def my_sightings(username):
     # Gets the session users username from the DB
