@@ -93,7 +93,20 @@ def my_sightings(username):
     # Gets the session users username from the DB
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    return render_template("my_sightings.html", username=username)
+
+    if session["user"]:
+        return render_template("my_sightings.html", username=username)
+
+    return redirect(url_for("login"))
+
+
+# Page for logging user out
+@app.route("/logout")
+def logout():
+    # Remove user from session cookies
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
 
 
 if __name__ == "__main__":

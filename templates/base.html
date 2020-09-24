@@ -31,13 +31,18 @@
             ><i class="material-icons">menu</i></a
           >
           <ul class="right hide-on-med-and-down">
-            <li><a href="#">Report Sighting</a></li>
-            <li><a href="{{ url_for('my_sightings', username=session['user']) }}">My Sightings</a></li>
-            <li><a href="#">Add New Bird</a></li>
             <li><a href="{{ url_for('uk_birds') }}">UK Birds</a></li>
-            <li><a href="#">Log Out</a></li>
-            <li><a href="{{ url_for('login') }}">Log In</a></li>
-            <li><a href="{{ url_for('register') }}">Register</a></li>
+            {% if session.user %}
+                <li><a href="{{ url_for('my_sightings', username=session['user']) }}"
+                    >My Sightings</a>
+                </li>
+                <li><a href="#">Report Sighting</a></li>
+                <li><a href="#">Add New Bird</a></li>
+                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+            {% else %}
+                <li><a href="{{ url_for('login') }}">Log In</a></li>
+                <li><a href="{{ url_for('register') }}">Register</a></li>
+            {% endif %}
           </ul>
         </div>
       </nav>
@@ -48,13 +53,20 @@
           <h4 class="brand-logo">BW</h4>
         </li>
         <li><a href="{{ url_for('home') }}">Home</a></li>
-        <li><a href="#">Report Sighting</a></li>
-        <li><a href="{{ url_for('my_sightings', username=session['user']) }}">My Sightings</a></li>
-        <li><a href="#">Add New Bird</a></li>
         <li><a href="{{ url_for('uk_birds') }}">UK Birds</a></li>
-        <li><a href="#">Log Out</a></li>
-        <li><a href="{{ url_for('login') }}">Log In</a></li>
-        <li><a href="{{ url_for('register') }}">Register</a></li>
+        {% if session.user %}
+            <li>
+            <a href="{{ url_for('my_sightings', username=session['user']) }}"
+                >My Sightings</a
+            >
+            </li>
+            <li><a href="#">Report Sighting</a></li>
+            <li><a href="#">Add New Bird</a></li>
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+        {% else %}
+            <li><a href="{{ url_for('login') }}">Log In</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
+        {% endif %}
       </ul>
     </header>
 
