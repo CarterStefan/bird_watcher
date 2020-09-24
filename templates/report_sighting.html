@@ -1,0 +1,85 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <h3 class="center-align">
+        {{ username }} have you seen a bird? Report it here
+      </h3>
+    </div>
+  </div>
+  <!-- Select Name of bird -->
+  <div class="row">
+    <div class="col s12 m6">
+      Name of Bird:
+    </div>
+    <div class="col s12 m6">
+      <select>
+        <option value="" disabled selected>Choose your option</option>
+        {% for birds in bird_species %}
+        <option value="{{ birds.bird_name }}">{{ birds.bird_name }}</option>
+        {% endfor %}
+      </select>
+      <label>Please Select</label>
+    </div>
+  </div>
+
+  <!-- Select date spotted -->
+  <div class="row">
+    <div class="col s12 m6">
+      Date Spotted
+    </div>
+    <div class="col s12 m6">
+      <input
+        id="date_spotted"
+        name="date_spotted"
+        type="text"
+        class="datepicker"
+      />
+      <label for="date_spotted">Select Date</label>
+    </div>
+  </div>
+
+  <!-- Select County spotted -->
+  <div class="row">
+    <div class="col s12 m6">
+      Location:
+    </div>
+    <div class="col s12 m6">
+      <select>
+        <option value="" disabled selected>Choose your option</option>
+        <option value="avon">Avon</option>
+      </select>
+      <label>Please Select</label>
+    </div>
+  </div>
+
+  <!-- Submit button -->
+  <div class="row">
+    <div class="col s12">
+      <button
+        class="btn waves-effect waves-light center-align"
+        type="submit"
+        name="action"
+      >
+        Add to my sightings
+      </button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12 grid-layout">
+    <p class="center-align">Unable to see your bird in the list?</p>
+    <p class="center-align">Click here to add the bird to our growing database</p>
+    <button
+        class="btn waves-effect waves-light center-align"
+        type="submit"
+        name="action"
+      >
+        Add bird
+      </button>
+    </div>
+    </div>
+</div>
+
+{% endblock %}

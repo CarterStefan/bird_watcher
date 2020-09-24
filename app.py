@@ -109,6 +109,20 @@ def logout():
     return redirect(url_for("login"))
 
 
+@app.route("/report_sighting/<username>", methods=["GET", "POST"])
+def report_sighting(username):
+    # Gets list of bird species from the DB
+    bird_species = mongo.db.bird_species.find()
+    # Gets the session users username from the DB
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    if session["user"]:
+        return render_template("report_sighting.html", username=username, bird_species=bird_species)
+
+    return redirect(url_for("login"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

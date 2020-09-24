@@ -36,7 +36,7 @@
                 <li><a href="{{ url_for('my_sightings', username=session['user']) }}"
                     >My Sightings</a>
                 </li>
-                <li><a href="#">Report Sighting</a></li>
+                <li><a href="{{ url_for('report_sighting', username=session['user']) }}">Report Sighting</a></li>
                 <li><a href="#">Add New Bird</a></li>
                 <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             {% else %}
@@ -60,7 +60,7 @@
                 >My Sightings</a
             >
             </li>
-            <li><a href="#">Report Sighting</a></li>
+            <li><a href="{{ url_for('report_sighting', username=session['user']) }}">Report Sighting</a></li>
             <li><a href="#">Add New Bird</a></li>
             <li><a href="{{ url_for('logout') }}">Log Out</a></li>
         {% else %}
