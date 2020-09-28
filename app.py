@@ -148,6 +148,13 @@ def add_new_bird():
     return redirect(url_for("login"))
 
 
+@app.route("/view_bird/<bird_id>")
+def view_bird(bird_id):
+    bird = mongo.db.bird_species.find_one({"_id": ObjectId(bird_id)})
+
+    return render_template("view_bird.html", bird=bird)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

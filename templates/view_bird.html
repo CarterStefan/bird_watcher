@@ -1,0 +1,35 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container">
+    <div class="row">
+		<div class="col s12">
+            <img height="100%" width="100%" src=" {{ bird.image }} " />
+        </div>
+	</div>
+	<div class="row">
+		<div class="col s12"> Bird Name: {{ bird.bird_name }} </div>
+	</div>
+    <div class="row">
+		<div class="col s12"> Scientific Name: {{ bird.scientific_name }} </div>
+	</div>
+    <div class="row">
+		<div class="col s12"> Length: {{ bird.length }}cm</div>
+	</div>
+    <div class="row">
+		<div class="col s12"> Wingspan: {{ bird.wingspan }}cm </div>
+	</div>
+    <div class="row">
+		<div class="col s12"> Weight: {{ bird.weight }}g </div>
+	</div>
+    <div class="row">
+		<div class="col s12"> Description: {{ bird.description }} </div>
+	</div>
+    <div class="row">
+		<div class="col s12"> Feeding: {{ bird.feeding }} </div>
+	</div>
+    <div class="row">
+		<div class="col s12"> Where: {{ bird.where }} </div>
+	</div>      
+</div>
+
+{% endblock %}
