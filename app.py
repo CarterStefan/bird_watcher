@@ -28,7 +28,7 @@ def home():
 # Page for all birds on DB
 @app.route("/uk_birds")
 def uk_birds():
-    bird_species = mongo.db.bird_species.find()
+    bird_species = mongo.db.bird_species.find().sort("bird_name", 1)
     return render_template("bird_species.html", bird_species=bird_species)
 
 

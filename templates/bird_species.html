@@ -33,10 +33,10 @@
 
   <div class="row">
     {% for birds in bird_species %}
-    <div class="col s6 m3">
-      <img height="100%" width="100%" src=" {{ birds.image }} " />
+    <div class="col s6 m3 center-align">
+      <img height="100px" width="125px" src=" {{ birds.image }} " />
       <div class="row">
-        <div class="col s10 offset-s2">
+        <div class="col s12 center-align">
           <p>{{ birds.bird_name }}</p>
         </div>
       </div>
