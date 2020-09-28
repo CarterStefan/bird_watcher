@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col s12">
       <h3 class="center-align">
-        {{ username }}, seen a bird not on our database?
+        Seen a bird not on our database?
       </h3>
       <br />
       <h4 class="center-align">Upload it here</h4>
@@ -12,7 +12,7 @@
   </div>
 
   <div class="row">
-    <form class="col s12" method="POST" action="">
+    <form class="col s12" method="POST" action="{{ url_for('add_new_bird') }}">
       <!-- Type Name of bird -->
       <div class="row">
         <div class="col s12 m6">
@@ -307,11 +307,7 @@
         <!-- Submit button -->
 
         <div class="col s12 m6 center-align">
-          <button
-            class="btn waves-effect waves-light"
-            type="submit"
-            name="action"
-          >
+          <button class="btn waves-effect waves-light" type="submit">
             Add bird
           </button>
         </div>

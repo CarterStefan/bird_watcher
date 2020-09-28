@@ -1,6 +1,6 @@
 import os
 from flask import (
-    Flask, flash, render_template, 
+    Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -69,7 +69,7 @@ def login():
         if existing_user:
             # Check hashed password matched user input
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
+                    existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Hello, {}".format(request.form.get("username")))
                 return redirect(url_for(
@@ -80,7 +80,7 @@ def login():
                 return redirect(url_for("login"))
 
         else:
-            #Username does not exist
+            # Username does not exist
             flash("Incorrect Username or Password")
             return redirect(url_for("login"))
 
@@ -123,16 +123,27 @@ def report_sighting(username):
     return redirect(url_for("login"))
 
 
-@app.route("/add_new_bird/<username>", methods=["GET", "POST"])
-def add_new_bird(username):
-    # Gets list of bird species from the DB
-    bird_species = mongo.db.bird_species.find()
-    # Gets the session users username from the DB
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
+@app.route("/add_new_bird/", methods=["GET", "POST"])
+def add_new_bird():
+    if request.method == "POST":
+        bird = {
+            "bird_name": request.form.get("bird_name"),
+            "scientific_name": request.form.get("scientific_name"),
+            "length": request.form.get("length"),
+            "wingspan": request.form.get("wingspan"),
+            "weight": request.form.get("weight"),
+            "description": request.form.get("description"),
+            "feeding": request.form.get("feeding"),
+            "where": request.form.get("where"),
+            "image": request.form.get("image"),
+            "bird_family": request.form.get("bird_family"),
+            "added_by": session["user"]
+        }
+        mongo.db.bird_species.insert_one(bird)
+        flash("Thankyou, your bird has been added")
+        return redirect(url_for("uk_birds"))
 
-    if session["user"]:
-        return render_template("add_new_bird.html", username=username, bird_species=bird_species)
+    return render_template("add_new_bird.html")
 
     return redirect(url_for("login"))
 
