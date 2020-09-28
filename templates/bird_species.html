@@ -44,8 +44,16 @@
     {% endfor %}
   </div>
   <div class="row">
-    <div class="col s6 grid-layout">ADD NEW BIRD</div>
-    <div class="col s6 grid-layout">REPORT SIGHTING</div>
+    <a
+      href="{{ url_for('report_sighting', username=session['user']) }}"
+      class="col s12 m6 grid-layout center-align"
+      >REPORT SIGHTING</a
+    >
+    <a
+      href="{{ url_for('add_new_bird', username=session['user']) }}"
+      class="col s12 m6 grid-layout center-align"
+      >ADD NEW BIRD</a
+    >
   </div>
 </div>
 
