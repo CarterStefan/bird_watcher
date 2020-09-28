@@ -123,6 +123,20 @@ def report_sighting(username):
     return redirect(url_for("login"))
 
 
+@app.route("/add_new_bird/<username>", methods=["GET", "POST"])
+def add_new_bird(username):
+    # Gets list of bird species from the DB
+    bird_species = mongo.db.bird_species.find()
+    # Gets the session users username from the DB
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    if session["user"]:
+        return render_template("add_new_bird.html", username=username, bird_species=bird_species)
+
+    return redirect(url_for("login"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

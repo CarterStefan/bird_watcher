@@ -1,0 +1,210 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <h3 class="center-align">
+        {{ username }} , seen a bird not on our database?
+      </h3>
+      <br />
+      <h4 class="center-align">Upload it here</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <form class="col s12">
+      <!-- Type Name of bird -->
+      <div class="row">
+        <div class="col s12 m6">
+          Name of bird:
+          <div class="input-field">
+            <input
+              id="bird_name"
+              name="bird_name"
+              type="text"
+              minlength="1"
+              maxlength="50"
+              pattern="^[a-zA-Z\s]{1,50}$"
+              class="validate"
+              required
+            />
+            <label for="bird_name"></label>
+            <span
+              class="helper-text"
+              data-error="Please input name of bird"
+            ></span>
+          </div>
+        </div>
+
+        <!-- Scientific name of bird -->
+
+        <div class="col s12 m6">
+          Scientific Name:
+          <div class="input-field">
+            <input
+              id="scientific_name"
+              name="scientific_name"
+              type="text"
+              minlength="1"
+              maxlength="50"
+              pattern="^[a-zA-Z\s]{1,50}$"
+              class="validate"
+              required
+            />
+            <label for="scientific_name"></label>
+            <span
+              class="helper-text"
+              data-error="Please input scientific name of bird"
+            ></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Length of bird -->
+      <div class="row">
+        <div class="col s12 m6">
+          Length CM:
+          <div class="input-field">
+            <input
+              id="length"
+              name="length"
+              type="text"
+              minlength="1"
+              pattern="^[0-9-]*$"
+              class="validate"
+              required
+            />
+            <label for="length"></label>
+            <span
+              class="helper-text"
+              data-error="Please enter length of bird in cm with no spaces (5-7)"
+            ></span>
+          </div>
+        </div>
+
+        <!-- wingspan of bird -->
+
+        <div class="col s12 m6">
+          Wingpsan CM:
+          <div class="input-field">
+            <input
+              id="wingspan"
+              name="wingspan"
+              type="text"
+              minlength="1"
+              pattern="^[0-9-]*$"
+              class="validate"
+              required
+            />
+            <label for="wingspan"></label>
+            <span
+              class="helper-text"
+              data-error="Please enter wingspan of bird in cm with no spaces (5-7)"
+            ></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Weight of bird -->
+      <div class="row">
+        <div class="col s12 m6">
+          Weight g:
+          <div class="input-field">
+            <input
+              id="weight"
+              name="weight"
+              type="text"
+              minlength="1"
+              pattern="^[0-9-]*$"
+              class="validate"
+              required
+            />
+            <label for="weight"></label>
+            <span
+              class="helper-text"
+              data-error="Please enter weight of bird in g"
+            ></span>
+          </div>
+        </div>
+
+        <!-- Image of bird -->
+
+        <div class="col s12 m6">
+          Image Link:
+          <div class="input-field">
+            <input id="image" name="image" type="text" required />
+            <label for="image"></label>
+            <span
+              class="helper-text"
+              data-error="Please enter a link to the image of bird"
+            ></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Description of bird -->
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea
+            id="description"
+            name="description"
+            class="materialize-textarea"
+          ></textarea>
+          <label for="description">Description of bird</label>
+        </div>
+      </div>
+
+      <!-- Feeding of bird -->
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <textarea
+            id="feeding"
+            name="feeding"
+            class="materialize-textarea"
+          ></textarea>
+          <label for="feeding">Feeding habbit of bird</label>
+        </div>
+
+        <!-- Where to see bird -->
+
+        <div class="input-field col s12 m6">
+          <textarea
+            id="where"
+            name="where"
+            class="materialize-textarea"
+          ></textarea>
+          <label for="where">Where to see the bird</label>
+        </div>
+      </div>
+
+      <!-- Switch -->
+      <div class="row">
+        <div class="col s12 m6 center-align">
+          <span>Add to my sightings</span>
+          <div class="switch">
+            <label>
+              No
+              <input type="checkbox" />
+              <span class="lever"></span>
+              Yes
+            </label>
+          </div>
+        </div>
+
+        <!-- Submit button -->
+
+        <div class="col s12 m6 center-align">
+          <button
+            class="btn waves-effect waves-light"
+            type="submit"
+            name="action"
+          >
+            Add bird
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
