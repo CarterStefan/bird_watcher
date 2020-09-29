@@ -160,8 +160,9 @@ def view_bird(bird_id):
 @app.route("/edit_bird/<bird_id>", methods=["GET", "POST"])
 def edit_bird(bird_id):
     bird = mongo.db.bird_species.find_one({"_id": ObjectId(bird_id)})
+    bird_family = mongo.db.bird_family.find().sort("name", 1)
 
-    return render_template("edit_bird.html", bird=bird)
+    return render_template("edit_bird.html", bird=bird, bird_family=bird_family)
 
 
 if __name__ == "__main__":

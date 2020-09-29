@@ -27,6 +27,7 @@
               type="text"
               minlength="1"
               maxlength="50"
+              value="{{ bird.bird_name }}"
               pattern="^[a-zA-Z\s]{1,50}$"
               class="validate"
               required
@@ -49,6 +50,7 @@
               type="text"
               minlength="1"
               maxlength="50"
+              value="{{ bird.scientific_name }}"
               pattern="^[a-zA-Z\s]{1,50}$"
               class="validate"
               required
@@ -71,6 +73,7 @@
               name="length"
               type="text"
               minlength="1"
+              value="{{ bird.length }}"
               pattern="^[0-9-]*$"
               class="validate"
               required
@@ -92,6 +95,7 @@
               name="wingspan"
               type="text"
               minlength="1"
+              value="{{ bird.wingspan }}"
               pattern="^[0-9-]*$"
               class="validate"
               required
@@ -114,6 +118,7 @@
               name="weight"
               type="text"
               minlength="1"
+              value="{{ bird.weight }}"
               pattern="^[0-9-]*$"
               class="validate"
               required
@@ -129,117 +134,24 @@
         <!-- Category of bird -->
         <div class="input-field col s12 m6">
           <select id="bird_family" name="bird_family" class="icons">
-            <option value="" disabled selected>Choose bird family</option>
+            <option value="" disabled>TEST</option>
+            {% for family in bird_family %} {% if family.family_name ==
+            bird.bird_family %}
             <option
-              value="bird_of_prey"
-              data-icon="{{ url_for('static', filename='images/bird_icons/icon-bird_of_prey.png') }}"
-              >Bird Of Prey</option
+              value="{{ family.family_name }}"
+              data-icon="{{ url_for('static', filename='images/bird_icons/'+family.image) }}"
+              selected
             >
+              {{ family.family_name }}
+            </option>
+            {% else %}
             <option
-              value="coot"
-              data-icon="{{ url_for('static', filename='images/bird_icons/icon-coot.png') }}"
-              >Coot</option
+              value="{{ family.family_name }}"
+              data-icon="{{ url_for('static', filename='images/bird_icons/'+family.image) }}"
             >
-            <option
-              value="cormorant"
-              data-icon="{{ url_for('static', filename='images/bird_icons/icon-cormorant.png') }}"
-              >Cormorant</option
-            >
-            <option
-              value="crow"
-              data-icon="{{ url_for('static', filename='images/bird_icons/icon-crow.png') }}"
-              >Crow</option
-            >
-            <option
-              value="duck"
-              data-icon="{{ url_for('static', filename='images/bird_icons/icon-duck.png') }}"
-              >Duck</option
-            >
-            <option
-              value="Grebe"
-              data-icon="{{ url_for('static', filename='images/bird_icons/icon-grebe.png') }}"
-              >Grebe</option
-            >
-            <option
-              value="gull"
-              data-icon="{{ url_for('static', filename='images/bird_icons/icon-gull.png') }}"
-              >Gull</option
-            >
-            <option
-              value="heron"
-              data-icon="{{ url_for('static', filename='images/bird_icons/icon-heron.png') }}"
-              >Heron</option
-            >
-            <option
-              value="kingfisher"
-              data-icon="{{ url_for('static', filename='images/bird_icons/icon-kingfisher.png') }}"
-              >Kingfisher</option
-            >
-            <option
-              value="owl"
-              data-icon="{{ url_for('static', filename='images/bird_icons/icon-owl.png') }}"
-              >Owl</option
-            >
-            <option
-              value="oystercatcher"
-              data-icon="{{ url_for('static', filename='images/bird_icons/icon-oystercatcher.png') }}"
-              >Oystercatcher</option
-            >
-            <option
-              value="pigeon"
-              data-icon="{{ url_for('static', filename='images/bird_icons/icon-pigeon.png') }}"
-              >Pigeon</option
-            >
-            <option
-              value="pipt"
-              data-icon="{{ url_for('static', filename='images/bird_icons/icon-pipit.png') }}"
-              >Pipit</option
-            >
-            <option
-              value="quail"
-              data-icon="{{ url_for('static', filename='images/bird_icons/icon-quail.png') }}"
-              >Quail</option
-            >
-            <option
-              value="sparrow"
-              data-icon="{{ url_for('static', filename='images/bird_icons/icon-sparrow.png') }}"
-              >Sparrow</option
-            >
-            <option
-              value="swallow"
-              data-icon="{{ url_for('static', filename='images/bird_icons/icon-swallow.png') }}"
-              >Swallow</option
-            >
-            <option
-              value="swan"
-              data-icon="{{ url_for('static', filename='images/bird_icons/icon-swan.png') }}"
-              >Swan</option
-            >
-            <option
-              value="thrush"
-              data-icon="{{ url_for('static', filename='images/bird_icons/icon-thrush.png') }}"
-              >Thrush</option
-            >
-            <option
-              value="Btit"
-              data-icon="{{ url_for('static', filename='images/bird_icons/icon-tit.png') }}"
-              >Tit</option
-            >
-            <option
-              value="warbler"
-              data-icon="{{ url_for('static', filename='images/bird_icons/icon-warbler.png') }}"
-              >warbler</option
-            >
-            <option
-              value="woodpecker"
-              data-icon="{{ url_for('static', filename='images/bird_icons/icon-woodpecker.png') }}"
-              >Woodpecker</option
-            >
-            <option
-              value="wren"
-              data-icon="{{ url_for('static', filename='images/bird_icons/icon-wren.png') }}"
-              >Wren</option
-            >
+              {{ family.family_name }}
+            </option>
+            {% endif %} {% endfor %}
           </select>
           <label for="bird_family">Bird Family</label>
         </div>
@@ -252,14 +164,23 @@
             id="description"
             name="description"
             class="materialize-textarea"
-          ></textarea>
+          >
+{{- bird.description -}}</textarea
+          >
           <label for="description">Description of bird</label>
         </div>
 
         <!-- Image link -->
         <div class="col s12 m6">
           <div class="input-field">
-            <input id="image" name="image" type="text" required />
+            <input
+              id="image"
+              name="image"
+              type="text"
+              value="{{ bird.image }}"
+              required
+            />
+
             <label for="image">Image Link:</label>
             <span
               class="helper-text"
@@ -272,29 +193,30 @@
       <!-- Feeding of bird -->
       <div class="row">
         <div class="input-field col s12 m6">
-          <textarea
-            id="feeding"
-            name="feeding"
-            class="materialize-textarea"
-          ></textarea>
+          <textarea id="feeding" name="feeding" class="materialize-textarea">
+{{- bird.feeding -}}</textarea
+          >
           <label for="feeding">Feeding habbit of bird</label>
         </div>
 
         <!-- Where to see bird -->
 
         <div class="input-field col s12 m6">
-          <textarea
-            id="where"
-            name="where"
-            class="materialize-textarea"
-          ></textarea>
+          <textarea id="where" name="where" class="materialize-textarea">
+{{- bird.where -}}</textarea
+          >
           <label for="where">Where to see the bird</label>
         </div>
       </div>
 
-      <!-- Submit button -->
+      <!-- Cancel / Submit buttons -->
       <div class="row">
-        <div class="col s12 center-align">
+        <div class="col s6 center-align">
+          <button class="btn waves-effect waves-light red" type="submit">
+            <a href="{{ url_for('uk_birds') }}">Cancel Edit</a>
+          </button>
+        </div>
+        <div class="col s6 center-align">
           <button class="btn waves-effect waves-light" type="submit">
             Edit Bird
           </button>
