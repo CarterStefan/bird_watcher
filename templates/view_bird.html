@@ -1,6 +1,7 @@
 {% extends "base.html" %} {% block content %}
 
 <div class="container">
+
     <div class="row">
 		<div class="col s12">
             <img height="100%" width="100%" src=" {{ bird.image }} " />
@@ -29,7 +30,20 @@
 	</div>
     <div class="row">
 		<div class="col s12"> Where: {{ bird.where }} </div>
-	</div>      
+	</div>
+
+    <div class="row">
+    <a
+      href="{{ url_for('edit_bird', bird_id=bird._id) }}"
+      class="col s12 m6 grid-layout center-align"
+      >MAKE AN EDIT TO THIS BIRD</a
+    >
+    <a
+      href="{{ url_for('uk_birds') }}"
+      class="col s12 m6 grid-layout center-align"
+      >REPORT AN ERROR</a
+    >
+  </div>    
 </div>
 
 {% endblock %}

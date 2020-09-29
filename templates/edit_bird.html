@@ -1,0 +1,307 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <h3 class="center-align">
+        Seen an error on a birds information
+      </h3>
+      <br />
+      <h4 class="center-align">Update it here</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <form
+      class="col s12"
+      method="POST"
+      action="{{ url_for('edit_bird', bird_id=bird._id) }}"
+    >
+      <!-- Type Name of bird -->
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="input-field">
+            <input
+              id="bird_name"
+              name="bird_name"
+              type="text"
+              minlength="1"
+              maxlength="50"
+              pattern="^[a-zA-Z\s]{1,50}$"
+              class="validate"
+              required
+            />
+            <label for="bird_name">Name of bird</label>
+            <span
+              class="helper-text"
+              data-error="Please input name of bird"
+            ></span>
+          </div>
+        </div>
+
+        <!-- Scientific name of bird -->
+
+        <div class="col s12 m6">
+          <div class="input-field">
+            <input
+              id="scientific_name"
+              name="scientific_name"
+              type="text"
+              minlength="1"
+              maxlength="50"
+              pattern="^[a-zA-Z\s]{1,50}$"
+              class="validate"
+              required
+            />
+            <label for="scientific_name">Scientific Name</label>
+            <span
+              class="helper-text"
+              data-error="Please input scientific name of bird"
+            ></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Length of bird -->
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="input-field">
+            <input
+              id="length"
+              name="length"
+              type="text"
+              minlength="1"
+              pattern="^[0-9-]*$"
+              class="validate"
+              required
+            />
+            <label for="length">Length CM</label>
+            <span
+              class="helper-text"
+              data-error="Please enter length of bird in cm with no spaces (5-7)"
+            ></span>
+          </div>
+        </div>
+
+        <!-- wingspan of bird -->
+
+        <div class="col s12 m6">
+          <div class="input-field">
+            <input
+              id="wingspan"
+              name="wingspan"
+              type="text"
+              minlength="1"
+              pattern="^[0-9-]*$"
+              class="validate"
+              required
+            />
+            <label for="wingspan">Wingpsan CM</label>
+            <span
+              class="helper-text"
+              data-error="Please enter wingspan of bird in cm with no spaces (5-7)"
+            ></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Weight of bird -->
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="input-field">
+            <input
+              id="weight"
+              name="weight"
+              type="text"
+              minlength="1"
+              pattern="^[0-9-]*$"
+              class="validate"
+              required
+            />
+            <label for="weight">Weight g</label>
+            <span
+              class="helper-text"
+              data-error="Please enter weight of bird in g"
+            ></span>
+          </div>
+        </div>
+
+        <!-- Category of bird -->
+        <div class="input-field col s12 m6">
+          <select id="bird_family" name="bird_family" class="icons">
+            <option value="" disabled selected>Choose bird family</option>
+            <option
+              value="bird_of_prey"
+              data-icon="{{ url_for('static', filename='images/bird_icons/icon-bird_of_prey.png') }}"
+              >Bird Of Prey</option
+            >
+            <option
+              value="coot"
+              data-icon="{{ url_for('static', filename='images/bird_icons/icon-coot.png') }}"
+              >Coot</option
+            >
+            <option
+              value="cormorant"
+              data-icon="{{ url_for('static', filename='images/bird_icons/icon-cormorant.png') }}"
+              >Cormorant</option
+            >
+            <option
+              value="crow"
+              data-icon="{{ url_for('static', filename='images/bird_icons/icon-crow.png') }}"
+              >Crow</option
+            >
+            <option
+              value="duck"
+              data-icon="{{ url_for('static', filename='images/bird_icons/icon-duck.png') }}"
+              >Duck</option
+            >
+            <option
+              value="Grebe"
+              data-icon="{{ url_for('static', filename='images/bird_icons/icon-grebe.png') }}"
+              >Grebe</option
+            >
+            <option
+              value="gull"
+              data-icon="{{ url_for('static', filename='images/bird_icons/icon-gull.png') }}"
+              >Gull</option
+            >
+            <option
+              value="heron"
+              data-icon="{{ url_for('static', filename='images/bird_icons/icon-heron.png') }}"
+              >Heron</option
+            >
+            <option
+              value="kingfisher"
+              data-icon="{{ url_for('static', filename='images/bird_icons/icon-kingfisher.png') }}"
+              >Kingfisher</option
+            >
+            <option
+              value="owl"
+              data-icon="{{ url_for('static', filename='images/bird_icons/icon-owl.png') }}"
+              >Owl</option
+            >
+            <option
+              value="oystercatcher"
+              data-icon="{{ url_for('static', filename='images/bird_icons/icon-oystercatcher.png') }}"
+              >Oystercatcher</option
+            >
+            <option
+              value="pigeon"
+              data-icon="{{ url_for('static', filename='images/bird_icons/icon-pigeon.png') }}"
+              >Pigeon</option
+            >
+            <option
+              value="pipt"
+              data-icon="{{ url_for('static', filename='images/bird_icons/icon-pipit.png') }}"
+              >Pipit</option
+            >
+            <option
+              value="quail"
+              data-icon="{{ url_for('static', filename='images/bird_icons/icon-quail.png') }}"
+              >Quail</option
+            >
+            <option
+              value="sparrow"
+              data-icon="{{ url_for('static', filename='images/bird_icons/icon-sparrow.png') }}"
+              >Sparrow</option
+            >
+            <option
+              value="swallow"
+              data-icon="{{ url_for('static', filename='images/bird_icons/icon-swallow.png') }}"
+              >Swallow</option
+            >
+            <option
+              value="swan"
+              data-icon="{{ url_for('static', filename='images/bird_icons/icon-swan.png') }}"
+              >Swan</option
+            >
+            <option
+              value="thrush"
+              data-icon="{{ url_for('static', filename='images/bird_icons/icon-thrush.png') }}"
+              >Thrush</option
+            >
+            <option
+              value="Btit"
+              data-icon="{{ url_for('static', filename='images/bird_icons/icon-tit.png') }}"
+              >Tit</option
+            >
+            <option
+              value="warbler"
+              data-icon="{{ url_for('static', filename='images/bird_icons/icon-warbler.png') }}"
+              >warbler</option
+            >
+            <option
+              value="woodpecker"
+              data-icon="{{ url_for('static', filename='images/bird_icons/icon-woodpecker.png') }}"
+              >Woodpecker</option
+            >
+            <option
+              value="wren"
+              data-icon="{{ url_for('static', filename='images/bird_icons/icon-wren.png') }}"
+              >Wren</option
+            >
+          </select>
+          <label for="bird_family">Bird Family</label>
+        </div>
+      </div>
+
+      <!-- Description of bird -->
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <textarea
+            id="description"
+            name="description"
+            class="materialize-textarea"
+          ></textarea>
+          <label for="description">Description of bird</label>
+        </div>
+
+        <!-- Image link -->
+        <div class="col s12 m6">
+          <div class="input-field">
+            <input id="image" name="image" type="text" required />
+            <label for="image">Image Link:</label>
+            <span
+              class="helper-text"
+              data-error="Please enter a link to the image of bird"
+            ></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feeding of bird -->
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <textarea
+            id="feeding"
+            name="feeding"
+            class="materialize-textarea"
+          ></textarea>
+          <label for="feeding">Feeding habbit of bird</label>
+        </div>
+
+        <!-- Where to see bird -->
+
+        <div class="input-field col s12 m6">
+          <textarea
+            id="where"
+            name="where"
+            class="materialize-textarea"
+          ></textarea>
+          <label for="where">Where to see the bird</label>
+        </div>
+      </div>
+
+      <!-- Submit button -->
+      <div class="row">
+        <div class="col s12 center-align">
+          <button class="btn waves-effect waves-light" type="submit">
+            Edit Bird
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -155,6 +155,13 @@ def view_bird(bird_id):
     return render_template("view_bird.html", bird=bird)
 
 
+@app.route("/edit_bird/<bird_id>", methods=["GET", "POST"])
+def edit_bird(bird_id):
+    bird = mongo.db.bird_species.find_one({"_id": ObjectId(bird_id)})
+
+    return render_template("edit_bird.html", bird=bird)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
