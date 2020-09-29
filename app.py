@@ -18,20 +18,6 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-# Homepage
-@app.route("/")
-@app.route("/home")
-def home():
-    return render_template("home.html")
-
-
-# Page for all birds on DB
-@app.route("/uk_birds")
-def uk_birds():
-    bird_species = mongo.db.bird_species.find().sort("bird_name", 1)
-    return render_template("bird_species.html", bird_species=bird_species)
-
-
 # Page for user registration
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -87,46 +73,76 @@ def login():
     return render_template("login.html")
 
 
-# Page for users bird sightings
-@app.route("/my_sightings/<username>", methods=["GET", "POST"])
-def my_sightings(username):
-    # Gets the session users username from the DB
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-
-    if session["user"]:
-        return render_template("my_sightings.html", username=username)
-
-    return redirect(url_for("login"))
-
-
 # Page for logging user out
 @app.route("/logout")
 def logout():
+
     # Remove user from session cookies
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
 
 
-@app.route("/report_sighting/<username>", methods=["GET", "POST"])
-def report_sighting(username):
-    # Gets list of bird species from the DB
-    bird_species = mongo.db.bird_species.find()
+# Homepage
+@app.route("/")
+@app.route("/home")
+def home():
+    return render_template("home.html")
+
+
+# Page for all birds on DB
+@app.route("/uk_birds")
+def uk_birds():
+
+    # Get all bird species from DB and sort alpabetically
+    bird_species = mongo.db.bird_species.find().sort("bird_name", 1)
+    return render_template("bird_species.html", bird_species=bird_species)
+
+
+# Page for users bird sightings
+@app.route("/my_sightings/<username>", methods=["GET", "POST"])
+def my_sightings(username):
+
     # Gets the session users username from the DB
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
+    # Show my sightings page if user is logged in
     if session["user"]:
-        return render_template("report_sighting.html", username=username, bird_species=bird_species)
+        return render_template("my_sightings.html", username=username)
 
+    # Show login page if user is logged out
     return redirect(url_for("login"))
 
 
+# Page to report new sighting
+@app.route("/report_sighting/<username>", methods=["GET", "POST"])
+def report_sighting(username):
+
+    # Gets list of bird species from the DB
+    bird_species = mongo.db.bird_species.find()
+
+    # Gets the session users username from the DB
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    # Show report sighting form if user is logged in
+    if session["user"]:
+        return render_template(
+            "report_sighting.html", username=username,
+            bird_species=bird_species)
+
+    # Show login page if user is logged out
+    return redirect(url_for("login"))
+
+
+# Page to add new bird
 @app.route("/add_new_bird/", methods=["GET", "POST"])
 def add_new_bird():
+    # Get bird families from the database
     bird_family = mongo.db.bird_family.find().sort("name", 1)
 
+    # Add bird to database using form when user clicks submit
     if request.method == "POST":
         bird = {
             "bird_name": request.form.get("bird_name"),
@@ -145,24 +161,51 @@ def add_new_bird():
         flash("Thankyou, your bird has been added")
         return redirect(url_for("uk_birds"))
 
-    return render_template("add_new_bird.html", bird_family=bird_family)
+    # Display form to add new bird and pass in bird families from db
+    # if user is logged in
+    if session["user"]:
+        return render_template("add_new_bird.html", bird_family=bird_family)
 
     return redirect(url_for("login"))
 
 
+# View a specific bird
 @app.route("/view_bird/<bird_id>")
 def view_bird(bird_id):
+    # Get information about specific bird clicked on from DB
     bird = mongo.db.bird_species.find_one({"_id": ObjectId(bird_id)})
 
     return render_template("view_bird.html", bird=bird)
 
 
+# Page to edit information about a bird
 @app.route("/edit_bird/<bird_id>", methods=["GET", "POST"])
 def edit_bird(bird_id):
-    bird = mongo.db.bird_species.find_one({"_id": ObjectId(bird_id)})
-    bird_family = mongo.db.bird_family.find().sort("name", 1)
+    # Edit bird on database when user clicks submit
+    if request.method == "POST":
+        bird_submit = {
+            "bird_name": request.form.get("bird_name"),
+            "scientific_name": request.form.get("scientific_name"),
+            "length": request.form.get("length"),
+            "wingspan": request.form.get("wingspan"),
+            "weight": request.form.get("weight"),
+            "description": request.form.get("description"),
+            "feeding": request.form.get("feeding"),
+            "where": request.form.get("where"),
+            "image": request.form.get("image"),
+            "bird_family": request.form.get("bird_family"),
+            "added_by": session["user"]
+        }
+        mongo.db.bird_species.update({"_id": ObjectId(bird_id)}, bird_submit)
+        flash("Thankyou, your edit was successful")
 
-    return render_template("edit_bird.html", bird=bird, bird_family=bird_family)
+    # Get existing information about bird from DB
+    bird = mongo.db.bird_species.find_one({"_id": ObjectId(bird_id)})
+    # Get bird family options for dropdown from DB
+    bird_family = mongo.db.bird_family.find().sort("name", 1)
+    # Show form to edit a birds information
+    return render_template(
+        "edit_bird.html", bird=bird, bird_family=bird_family)
 
 
 if __name__ == "__main__":
