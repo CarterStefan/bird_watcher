@@ -125,6 +125,8 @@ def report_sighting(username):
 
 @app.route("/add_new_bird/", methods=["GET", "POST"])
 def add_new_bird():
+    bird_family = mongo.db.bird_family.find().sort("name", 1)
+
     if request.method == "POST":
         bird = {
             "bird_name": request.form.get("bird_name"),
@@ -143,7 +145,7 @@ def add_new_bird():
         flash("Thankyou, your bird has been added")
         return redirect(url_for("uk_birds"))
 
-    return render_template("add_new_bird.html")
+    return render_template("add_new_bird.html", bird_family=bird_family)
 
     return redirect(url_for("login"))
 
