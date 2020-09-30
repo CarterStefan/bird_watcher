@@ -108,7 +108,14 @@ def my_sightings():
         username = mongo.db.users.find_one(
             {"username": session["user"]})["username"]
 
-        return render_template("my_sightings.html", username=username)
+        # Gets the session users username from the DB
+        birds_seen = mongo.db.users.find_one(
+            {"username": session["user"]})["birds_seen"]
+
+        number = len(birds_seen)
+
+        return render_template(
+            "my_sightings.html", username=username, number=number)
 
     # Show login page if user is logged out
     return redirect(url_for("login"))
