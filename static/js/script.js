@@ -1,5 +1,7 @@
 $(document).ready(function(){
     $(".sidenav").sidenav();
     $('select').formSelect();
-    $('.datepicker').datepicker();
+    $('.datepicker').datepicker({
+        format: "dd/mm/yyyy"
+    });
   });

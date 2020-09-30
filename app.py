@@ -39,7 +39,7 @@ def register():
         # put the user into session cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful")
-        return redirect(url_for("my_sightings", username=session["user"]))
+        return redirect(url_for("my_sightings"))
 
     return render_template("register.html")
 
@@ -59,7 +59,7 @@ def login():
                 session["user"] = request.form.get("username").lower()
                 flash("Hello, {}".format(request.form.get("username")))
                 return redirect(url_for(
-                    "my_sightings", username=session["user"]))
+                    "my_sightings"))
             else:
                 # Password does not match
                 flash("Incorrect Username or Password")
@@ -100,14 +100,14 @@ def uk_birds():
 
 
 # Page for users bird sightings
-@app.route("/my_sightings/<username>", methods=["GET", "POST"])
-def my_sightings(username):
-    # Gets the session users username from the DB
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-
+@app.route("/my_sightings", methods=["GET", "POST"])
+def my_sightings():
     # Show my sightings page if user is logged in
-    if session["user"]:
+    if session.get('user'):
+        # Gets the session users username from the DB
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+
         return render_template("my_sightings.html", username=username)
 
     # Show login page if user is logged out
@@ -115,27 +115,11 @@ def my_sightings(username):
 
 
 # Page to report new sighting
-@app.route("/report_sighting/<username>", methods=["GET", "POST"])
-def report_sighting(username):
-
-    # Gets list of bird species from the DB
-    bird_species = mongo.db.bird_species.find()
-
-    # Gets the session users username from the DB
-    # Fallback username for when user is logged out to stop error
+@app.route("/report_sighting", methods=["GET", "POST"])
+def report_sighting():
     if session.get('user'):
-        username = mongo.db.users.find_one(
-            {"username": session["user"]})["username"]
-    else:
-        username = "bird"
+        return render_template("report_sighting.html")
 
-    # Show report sighting form if user is logged in
-    if session.get('user'):
-        return render_template(
-            "report_sighting.html", username=username,
-            bird_species=bird_species)
-
-    # Show login page if user is logged out
     return redirect(url_for("login"))
 
 
