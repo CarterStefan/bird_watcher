@@ -122,20 +122,21 @@
           </div>
         </div>
 
-        <div class="row">
-            <div class="input-field col s12">
-            <select id="bird_family" name="bird_family" class="icons">
-                <option value="" disabled selected>TEST</option>
-                {% for family in bird_family %}
-                    <option value="{{ family.family_name }}" 
-                            data-icon="{{ url_for('static', filename='images/bird_icons/'+family.image) }}">
-                            {{ family.family_name }}
-                    </option>
-                {% endfor %}          
-            </select>
-            <label>TEST</label>
-            </div>
-        </div>        
+        <div class="input-field col s12 m6">
+          <select id="bird_family" name="bird_family" class="icons">
+            <option value="" disabled selected>Select Bird Family</option>
+            {% for family in bird_family %}
+            <option
+              value="{{ family.family_name }}"
+              data-icon="{{ url_for('static', filename='images/bird_icons/'+family.image) }}"
+            >
+              {{ family.family_name }}
+            </option>
+            {% endfor %}
+          </select>
+          <label>Bird Family</label>
+        </div>
+      </div>
 
       <!-- Description of bird -->
       <div class="row">
