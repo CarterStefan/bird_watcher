@@ -3,8 +3,20 @@
 <div class="container">
   <div class="row">
     <div class="col s12 grid-layout">
-      <h3 class="center-align">{{ username }}, you have seen {{ number }} birds</h3>
+      <h3 class="center-align">
+        {{ username }}, you have seen {{ number }} birds
+      </h3>
     </div>
+  </div>
+
+  <div class="row">
+    {% for bird in birds_seen %}
+    <div class="col s6 m3 center-align">
+      <a>{{ bird.0 }}</a>
+      <p>{{ bird.1 }}</p>
+      <p>{{ bird.2 }}</p>
+    </div>
+    {% endfor %}
   </div>
 
   <div class="row">

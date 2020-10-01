@@ -3,9 +3,7 @@
 <div class="container">
   <div class="row">
     <div class="col s12">
-      <h3 class="center-align">
-         have you seen a bird? Report it here
-      </h3>
+      <h3 class="center-align">{{ birds_seen }}</h3>
     </div>
   </div>
   <!-- Select Name of bird -->
@@ -15,7 +13,7 @@
       Name of Bird:
     </div>
     <div class="col s12 m6">
-      <select id="bird_name" name="bird_name">
+      <select id="bird_seen" name="bird_seen">
         <option value="" disabled selected>Choose your option</option>
         {% for birds in bird_species %}
         <option value="{{ birds.bird_name }}">{{ birds.bird_name }}</option>

@@ -111,12 +111,15 @@ def my_sightings():
 
         # Gets the session users username from the DB
         birds_seen = mongo.db.users.find_one(
-            {"username": session["user"]})["birds_seen"]
+            {"username": session["user"]})["birds_seen"]        
 
         number = len(birds_seen)
 
         return render_template(
-            "my_sightings.html", username=username, number=number)
+            "my_sightings.html",
+            username=username,
+            number=number,
+            birds_seen=birds_seen)
 
     # Show login page if user is logged out
     return redirect(url_for("login"))
@@ -126,7 +129,6 @@ def my_sightings():
 @app.route("/report_sighting", methods=["GET", "POST"])
 def report_sighting():
     if session.get('user'):
-
         # Get bird families from the database
         bird_species = mongo.db.bird_species.find().sort("bird_name", 1)
         return render_template(
