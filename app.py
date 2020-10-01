@@ -111,7 +111,7 @@ def my_sightings():
 
         # Gets the session users username from the DB
         birds_seen = mongo.db.users.find_one(
-            {"username": session["user"]})["birds_seen"]        
+            {"username": session["user"]})["birds_seen"]
 
         number = len(birds_seen)
 
@@ -129,6 +129,15 @@ def my_sightings():
 @app.route("/report_sighting", methods=["GET", "POST"])
 def report_sighting():
     if session.get('user'):
+        if request.method == "POST":
+            new_sighting = {
+                "bird_seen": request.form.get("bird_seen")
+            }
+            mongo.db.users.birds_seen.insert_one({
+                "username": session["user"]})[new_sighting]
+            flash("Thankyou, your sighting has been added")
+            return redirect(url_for("my_sightings"))
+
         # Get bird families from the database
         bird_species = mongo.db.bird_species.find().sort("bird_name", 1)
         return render_template(
