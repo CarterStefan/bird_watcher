@@ -8,6 +8,8 @@
     height: 200px;
     background-color: grey;
     border: 1px solid white;
+    color: white;
+    font-weight: bold;
 }
 
 .jumbotron{

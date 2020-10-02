@@ -12,11 +12,8 @@
   <div class="row">
     {% for bird in birds_seen %}
     <div class="col s6 m3 center-align">
-      <a href="{{ url_for('view_bird', bird_id=bird.1) }}"
-            >{{ bird.0 }}</a
-          >
-      <p>Seen on: {{ bird.2 }}</p>
-      <p>Location: {{ bird.3 }}</p>
+      <p>{{ bird.bird_id }}</p>
+      <p>Seen on: {{ bird.date_seen }}</p>
     </div>
     {% endfor %}
   </div>
