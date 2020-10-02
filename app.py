@@ -131,15 +131,13 @@ def my_sightings():
 def report_sighting():
     if session.get('user'):
         if request.method == "POST":
-            bird_sighting = {
-                "0": request.form.get("bird_seen"),
-                "1": "egg",
-                "2": request.form.get("date_name"),
-                "3": request.form.get("location")
+            new_bird_sighting = {
+                "username": session["user"],
+                "bird_name": request.form.get("bird_seen"),
+                "date_seen": request.form.get("date_seen")
             }
-            user = mongo.db.users.find_one({"username": session.get('user')})
             # Gets the session users username from the DB
-            mongo.db.users.insert_one(bird_sighting)
+            mongo.db.bird_sightings.insert_one(new_bird_sighting)
 
             flash("Thankyou, your sighting has been added")
             return redirect(url_for("my_sightings"))
