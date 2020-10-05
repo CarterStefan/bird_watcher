@@ -176,8 +176,19 @@ def add_new_bird():
             "bird_family": request.form.get("bird_family"),
             "added_by": session["user"]
         }
+        # This will check if the bird name exists in the DB
+        existing_bird = mongo.db.bird_species.find_one(
+            {"bird_name": request.form.get("bird_name").lower()})
+        # If it does, flash message to user and reload form
+        if existing_bird:
+            flash("Bird already added")
+            return redirect(url_for("add_new_bird"))
+        # Else add bird to DB
         mongo.db.bird_species.insert_one(bird)
         flash("Thankyou, your bird has been added")
+        if request.form.get("add_to_sightings"):
+            return redirect(url_for("report_sighting"))
+
         return redirect(url_for("uk_birds"))
 
     # Display form to add new bird and pass in bird families from db
