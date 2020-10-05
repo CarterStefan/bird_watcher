@@ -96,15 +96,26 @@ def home():
 def uk_birds():
     # Get all bird species from DB and sort alpabetically
     bird_species = mongo.db.bird_species.find().sort("bird_name", 1)
-    return render_template("bird_species.html", bird_species=bird_species)
+    bird_family = mongo.db.bird_family.find().sort("name", 1)
+    return render_template(
+        "bird_species.html", bird_species=bird_species,
+            bird_family=bird_family)
 
 
 # Search function on view all birds
 @app.route("/search", methods=["GET", "POST"])
 def search():
-    query = request.form.get("query")
-    bird_species = mongo.db.bird_species.find({"$text": {"$search": query}}).sort("bird_name", 1)
-    return render_template("bird_species.html", bird_species=bird_species)
+    # Get bird families from DB
+    bird_family = mongo.db.bird_family.find().sort("name", 1)
+    # Select to search by bird family
+    bird_family_search = request.form.get("bird_family_search")
+    bird_species = mongo.db.bird_species.find({
+        "$text": {"$search": bird_family_search}}).sort(
+            "bird_name", 1)
+    # Return search results
+    return render_template(
+        "bird_species.html", bird_species=bird_species,
+        bird_family=bird_family)
 
 
 # Page for users bird sightings
