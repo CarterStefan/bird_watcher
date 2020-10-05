@@ -15,7 +15,8 @@
       <a href="{{ url_for('view_bird', bird_id=bird.bird_id) }}"
             >{{ bird.bird_name }}</a
           >
-      <p>Seen on: {{ bird.date_seen }}</p>      
+      <p>Seen on: {{ bird.date_seen }}</p>
+      <p>In: {{ bird.location }}</p>
     </div>
     {% endfor %}
   </div>

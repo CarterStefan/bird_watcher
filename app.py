@@ -137,7 +137,8 @@ def report_sighting():
                 "bird_id": mongo.db.bird_species.find_one({
                     "bird_name": request.form.get(
                         "bird_seen")})["_id"],
-                "date_seen": request.form.get("date_seen")
+                "date_seen": request.form.get("date_seen"),
+                "location": request.form.get("location")
                 }
             # Adds new sighting to DB
             mongo.db.bird_sightings.insert_one(new_bird_sighting)
