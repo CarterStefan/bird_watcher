@@ -148,6 +148,7 @@ def my_sightings():
 @app.route("/report_sighting", methods=["GET", "POST"])
 def report_sighting():
     if session.get('user'):
+        counties = mongo.db.counties.find().sort("county_name", 1)
         if request.method == "POST":
             new_bird_sighting = {
                 "username": session["user"],
@@ -168,7 +169,9 @@ def report_sighting():
         bird_species = mongo.db.bird_species.find().sort("bird_name", 1)
 
         return render_template(
-            "report_sighting.html", bird_species=bird_species)
+            "report_sighting.html",
+            bird_species=bird_species,
+            counties=counties)
 
     return redirect(url_for("login"))
 

@@ -38,9 +38,9 @@
       <div class="input-field col s12">
         <select id="location" name="location">
           <option value="" disabled selected>Location</option>
-          <option value="Bath and North East Somerset">Bath and North East Somerset</option>
-          <option value="Bedfordshire">Bedfordshire</option>
-          <option value="Berkshire">Berkshire</option>
+          {% for county in counties %}
+            <option value="{{ county.county_name}}">{{ county.county_name}}</option>
+          {% endfor %}  
         </select>
         <label>Choose the county where you saw this bird</label>
       </div>
