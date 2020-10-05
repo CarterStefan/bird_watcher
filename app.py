@@ -94,9 +94,16 @@ def home():
 # Page for all birds on DB
 @app.route("/uk_birds")
 def uk_birds():
-
     # Get all bird species from DB and sort alpabetically
     bird_species = mongo.db.bird_species.find().sort("bird_name", 1)
+    return render_template("bird_species.html", bird_species=bird_species)
+
+
+# Search function on view all birds
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    bird_species = mongo.db.bird_species.find({"$text": {"$search": query}}).sort("bird_name", 1)
     return render_template("bird_species.html", bird_species=bird_species)
 
 
@@ -239,6 +246,10 @@ def edit_bird(bird_id):
             "edit_bird.html", bird=bird, bird_family=bird_family)
 
     return redirect(url_for("login"))
+
+
+
+
 
 
 if __name__ == "__main__":
