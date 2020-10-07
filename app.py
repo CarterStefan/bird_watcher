@@ -13,7 +13,6 @@ if os.path.exists("env.py"):
 app = Flask(__name__)
 
 
-
 app.config["ALLOWED_IMAGE_EXTENSIONS"] = ["JPEG", "JPG", "PNG", "GIF"]
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
@@ -104,7 +103,7 @@ def uk_birds():
     bird_family = mongo.db.bird_family.find().sort("name", 1)
     return render_template(
         "bird_species.html", bird_species=bird_species,
-            bird_family=bird_family)
+        bird_family=bird_family)
 
 
 # Search function on view all birds
@@ -163,10 +162,21 @@ def report_sighting():
                         "bird_seen")})["_id"],
                 "date_seen": request.form.get("date_seen"),
                 "location": request.form.get("location")
-                }
+            }
+
+            # Check for existing sighting
+            existing_sighting_user = mongo.db.bird_sightings.find_one(
+                {"username": session["user"]})
+
+            existing_sighting_bird_name = mongo.db.bird_sightings.find_one(
+                {"bird_name": request.form.get("bird_seen")})
+
+            if existing_sighting_user and existing_sighting_bird_name:
+                flash("You have seen this bird already, please try another")
+                return redirect(url_for("report_sighting"))
+
             # Adds new sighting to DB
             mongo.db.bird_sightings.insert_one(new_bird_sighting)
-
             flash("Thankyou, your sighting has been added")
             return redirect(url_for("my_sightings"))
 
