@@ -1,19 +1,25 @@
 import os
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for)
+    redirect, request, session, url_for,
+    request)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.utils import secure_filename
 if os.path.exists("env.py"):
     import env
 
 
 app = Flask(__name__)
 
+
+app.config["IMAGE_UPLOADS"] = "/workspace/bird_watcher/static/images/bird_images"
+app.config["ALLOWED_IMAGE_EXTENSIONS"] = ["JPEG", "JPG", "PNG", "GIF"]
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
+
 
 mongo = PyMongo(app)
 
@@ -262,8 +268,52 @@ def edit_bird(bird_id):
     return redirect(url_for("login"))
 
 
+def allowed_image(filename):
+
+    # We only want files with a . in the filename
+    if "." not in filename:
+        return False
+
+    # Split the extension from the filename
+    ext = filename.rsplit(".", 1)[1]
+
+    # Check if the extension is in ALLOWED_IMAGE_EXTENSIONS
+    if ext.upper() in app.config["ALLOWED_IMAGE_EXTENSIONS"]:
+        return True
+    else:
+        return False
 
 
+@app.route("/upload_image", methods=["GET", "POST"])
+def upload_image():
+    images = mongo.db.images.find()
+
+    if request.method == "POST":
+        if request.files:
+            image = request.files["image"]
+
+            if image.filename == "":
+                flash("No filename")
+                return redirect(url_for("upload_image"))
+
+            if allowed_image(image.filename):
+                filename = secure_filename(image.filename)
+
+                image.save(os.path.join(app.config["IMAGE_UPLOADS"], filename))
+
+                image_file = {
+                    "bird_image": (filename)
+                }
+
+                mongo.db.images.insert_one(image_file)
+
+                flash("Image saved")
+                return redirect(url_for("upload_image"))
+
+            else:
+                flash("That file extension is not allowed")
+
+    return render_template("upload_image.html", images=images)
 
 
 if __name__ == "__main__":
