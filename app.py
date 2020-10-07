@@ -153,6 +153,7 @@ def my_sightings():
 def report_sighting():
     if session.get('user'):
         counties = mongo.db.counties.find().sort("county_name", 1)
+        bird_species = mongo.db.bird_species.find().sort("bird_name", 1)
         if request.method == "POST":
             new_bird_sighting = {
                 "username": session["user"],
@@ -165,23 +166,20 @@ def report_sighting():
             }
 
             # Check for existing sighting
-            existing_sighting_user = mongo.db.bird_sightings.find_one(
-                {"username": session["user"]})
+            existing_sighting = mongo.db.bird_sightings.find({
+                "username": session["user"]})
 
-            existing_sighting_bird_name = mongo.db.bird_sightings.find_one(
-                {"bird_name": request.form.get("bird_seen")})
+            new_sighting = request.form.get("bird_seen")
 
-            if existing_sighting_user and existing_sighting_bird_name:
-                flash("You have seen this bird already, please try another")
-                return redirect(url_for("report_sighting"))
+            for bird in existing_sighting:
+                if new_sighting == bird["bird_name"]:
+                    flash("You have seen this bird already, please try another")
+                    return redirect(url_for("report_sighting"))
 
             # Adds new sighting to DB
             mongo.db.bird_sightings.insert_one(new_bird_sighting)
             flash("Thankyou, your sighting has been added")
             return redirect(url_for("my_sightings"))
-
-        # Get bird families from the database
-        bird_species = mongo.db.bird_species.find().sort("bird_name", 1)
 
         return render_template(
             "report_sighting.html",
