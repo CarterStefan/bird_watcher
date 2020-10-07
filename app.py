@@ -239,6 +239,14 @@ def view_bird(bird_id):
     # Get information about specific bird clicked on from DB
     bird = mongo.db.bird_species.find_one({"_id": ObjectId(bird_id)})
 
+    # Check for existing sighting
+    existing_sighting = mongo.db.bird_sightings.find({
+        "username": session["user"]})
+
+    for sighting in existing_sighting:
+        if bird_id == str(sighting["bird_id"]):
+            flash("You have seen this bird")
+
     return render_template("view_bird.html", bird=bird)
 
 
