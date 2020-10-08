@@ -1,0 +1,54 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <h3 class="center-align">
+        Seen an error on one of our birds
+      </h3>
+      <br />
+      <h4 class="center-align">Report it here</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <form class="col s12" method="POST" action="{{ url_for('report_error') }}">
+      <!-- Type Name of bird -->
+      <div class="row">
+        <div class="col s12">
+          Name of Bird:
+        </div>
+        <div class="col s12 m6">
+          <select id="bird_seen" name="bird_seen">
+            <option value="" disabled selected>Choose your option</option>
+            {% for birds in bird_species %}
+            <option value="{{ birds.bird_name }}">{{ birds.bird_name }}</option>
+            {% endfor %}
+          </select>
+          <label>Please Select</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <textarea
+            id="description"
+            name="description"
+            class="materialize-textarea"
+          ></textarea>
+          <label for="description">Description of error</label>
+        </div>
+      </div>
+
+      <!-- Submit button -->
+
+      <div class="col s12 m6 center-align">
+        <button class="btn waves-effect waves-light" type="submit">
+          Report Error
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

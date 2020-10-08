@@ -299,6 +299,25 @@ def delete_account_confirmation():
     return redirect(url_for("register"))
 
 
+@app.route("/report_error", methods=["GET", "POST"])
+def report_error():
+    if session.get('user'):
+        bird_species = mongo.db.bird_species.find().sort("bird_name", 1)
+        if request.method == "POST":
+            error = {
+                "username": session["user"],
+                "bird_name": request.form.get("bird_seen"),
+                "description": request.form.get("description")
+            }
+            mongo.db.errors.insert_one(error)
+            flash("Thankyou, your error has been reported")
+            return redirect(url_for("uk_birds"))
+
+        return render_template("report_error.html", bird_species=bird_species)
+
+    return redirect(url_for("login"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
