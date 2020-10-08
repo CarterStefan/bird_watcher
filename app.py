@@ -318,6 +318,25 @@ def report_error():
     return redirect(url_for("login"))
 
 
+@app.route("/admin_errors", methods=["GET", "POST"])
+def admin_errors():
+    if session.get('user') == 'admin':
+        errors = mongo.db.errors.find()
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+        return render_template(
+            "admin_errors.html", errors=errors, username=username)
+
+    return redirect(url_for("uk_birds"))
+
+
+@app.route("/delete_error/<error_id>", methods=["GET", "POST"])
+def delete_error(error_id):
+    mongo.db.errors.remove({"_id": ObjectId(error_id)})
+    flash("Error Resolved")
+    return redirect(url_for("admin_errors"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

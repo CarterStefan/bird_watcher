@@ -1,0 +1,36 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col s12 grid-layout">
+      <h3 class="center-align">
+        {{ username }}, please see a list of errors below
+      </h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <ul class="collapsible">
+      {% for error in errors %}
+      <li>
+        <div class="collapsible-header">
+          {{ error.bird_name}} - {{ error.username }}
+        </div>
+        <div class="collapsible-body">
+          <span>{{ error.description }}</span>
+          <br />
+          <div>
+            <a
+              href="{{ url_for('delete_error', error_id=error._id) }}"
+              class="waves-effect waves-light green btn-small"
+              >completed</a
+            >            
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+{% endblock %}
