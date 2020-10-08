@@ -283,6 +283,22 @@ def edit_bird(bird_id):
     return redirect(url_for("login"))
 
 
+@app.route("/delete_account", methods=["GET", "POST"])
+def delete_account():
+    username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+
+    return render_template("delete_account.html", username=username)
+
+
+@app.route("/delete_account_confirmation", methods=["GET", "POST"])
+def delete_account_confirmation():
+    mongo.db.users.remove({"username": session["user"]})
+    flash("User Deleted")
+    session.pop("user")
+    return redirect(url_for("register"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

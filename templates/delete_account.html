@@ -1,0 +1,15 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col s12 grid-layout">
+      <h3 class="center-align">
+        {{ username }}, are you sure you wish ot delete your account?
+      </h3>
+      <a href="{{ url_for('my_sightings') }}" class="waves-effect waves-light green btn-large">Keep Watching</a>
+      <a href="{{ url_for('delete_account_confirmation') }}" class="waves-effect waves-light red btn-large">Fledge Nest</a>
+    </div>
+  </div>  
+</div>
+
+{% endblock %}
