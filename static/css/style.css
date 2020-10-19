@@ -7,6 +7,7 @@
 .kingfisher-3-hex { color: #734F2F; }
 .kingfisher-4-hex { color: #BF4904; }
 .kingfisher-5-hex { color: #732002; }
+.kingfisher-6-hex { color: #fafafa; }
 
 /* Color Theme Swatches in RGBA */
 .kingfisher-1-rgba { color: rgba(11, 140, 191, 1); }
@@ -14,6 +15,7 @@
 .kingfisher-3-rgba { color: rgba(114, 78, 47, 1); }
 .kingfisher-4-rgba { color: rgba(191, 72, 3, 1); }
 .kingfisher-5-rgba { color: rgba(114, 32, 2, 1); }
+.kingfisher-6-rgba { color: rgba(250, 250, 250, 1); }
 
 /* Color Theme Swatches in HSLA */
 .kingfisher-1-hsla { color: hsla(196, 88, 39, 1); }
@@ -21,6 +23,11 @@
 .kingfisher-3-hsla { color: hsla(28, 41, 31, 1); }
 .kingfisher-4-hsla { color: hsla(22, 96, 38, 1); }
 .kingfisher-5-hsla { color: hsla(16, 96, 22, 1); }
+.kingfisher-6-hsla { color: hsla(0, 0, 98, 1); }
+
+a{
+    color: inherit;
+}
 
 .brand-logo{
     font-family: 'Plaster', cursive;
@@ -29,9 +36,9 @@
 .grid-layout{
     height: 300px;
     width: 300px;
-    background-color: grey;
+    background-color: #BF4904;
     border: 1px solid white;
-    color: white;
+    color: #fafafa;
     font-family: 'Roboto Slab', serif;
     font-weight: 900;
     font-size: 2em;
@@ -45,6 +52,17 @@
     background-color: blue;
 }
 
+/* ---------------------------------- NAV */
 nav{
     background-color: #732002;
+}
+
+/* ---------------------------------- FOOTER */
+.footer{
+    color: #fafafa;
+    background-color: #732002;
+}
+
+.footer a:hover{
+    text-decoration: underline;
 }
