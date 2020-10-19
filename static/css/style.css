@@ -30,9 +30,53 @@ a{
     color: inherit;
 }
 
+/* ---------------------------------- NAV */
+nav{
+    background-color: #732002;
+}
+
+nav li{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
 nav .brand-logo{
     font-family: 'Plaster', cursive;
     padding-left: 10px;
+}
+
+/* ---------------------------------- LOGIN */
+
+#login_title{
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #732002;
+    font-weight: 400;
+}
+
+.card-panel{
+    background-color: #732002;
+}
+
+.form_icon{
+    color: #fafafa;
+}
+
+.input-field .helper-text{
+    color: #fafafa;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.input-field>label {
+    color: #fafafa;
+}
+
+.input-field .prefix.active {
+    color: #fafafa;
+}
+
+.form_text{
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 .grid-layout{
@@ -51,15 +95,6 @@ nav .brand-logo{
     text-shadow: 2px 2px black;
 }
 
-.jumbotron{
-    background-color: blue;
-}
-
-/* ---------------------------------- NAV */
-nav{
-    background-color: #732002;
-}
-
 /* ---------------------------------- FOOTER */
 .footer{
     color: #fafafa;
@@ -75,7 +110,6 @@ nav{
     font-family: 'Roboto Slab', serif;
     font-weight: 900 !important;
     text-shadow: 2px 2px black;
-    padding: 5px !important;
 }
 
 .bird_card_link{
