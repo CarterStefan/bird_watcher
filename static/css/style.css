@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Plaster&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 
 /* Color Theme Swatches in Hex */
 .kingfisher-1-hex { color: #0B8CBF; }
@@ -46,6 +47,7 @@ a{
     line-height: 30px;
     text-align: left;
     padding-top: 70px !important;
+    text-shadow: 2px 2px black;
 }
 
 .jumbotron{
@@ -64,5 +66,24 @@ nav{
 }
 
 .footer a:hover{
+    text-decoration: underline;
+}
+
+/* ---------------------------------- BIRD CARDS */
+.card-title{
+    font-family: 'Roboto Slab', serif;
+    font-weight: 900 !important;
+    text-shadow: 2px 2px black;
+    padding: 5px !important;
+}
+
+.bird_card_link{
+    color: #BF4904 !important;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.bird_card_link:hover{
+    color: #BF4904 !important;
+    font-family: 'Roboto Condensed', sans-serif;
     text-decoration: underline;
 }
