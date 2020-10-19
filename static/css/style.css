@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Plaster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 /* Color Theme Swatches in Hex */
 .kingfisher-1-hex { color: #0B8CBF; }
@@ -26,13 +27,24 @@
 }
 
 .grid-layout{
-    height: 200px;
+    height: 300px;
+    width: 300px;
     background-color: grey;
     border: 1px solid white;
     color: white;
-    font-weight: bold;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 900;
+    font-size: 2em;
+    letter-spacing: 2px;
+    line-height: 30px;
+    text-align: left;
+    padding-top: 70px !important;
 }
 
 .jumbotron{
     background-color: blue;
+}
+
+nav{
+    background-color: #732002;
 }

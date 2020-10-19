@@ -1,12 +1,28 @@
 {% extends "base.html" %} {% block content %}
 
 <div class="container">
-	<div class="row">
-		<div class="col s12 grid-layout">HERO IMAGE</div>
-		<a href="{{ url_for('report_sighting', username=session['user']) }}" class="col s12 m6 grid-layout center-align">REPORT SIGHTING</a>            
-		<a href="{{ url_for('my_sightings', username=session['user']) }}" class="col s12 m6 grid-layout center-align">MY SIGHTINGS</a>   
-        <a href="{{ url_for('add_new_bird', username=session['user']) }}" class="col s12 m6 grid-layout center-align">ADD NEW BIRD</a>   
-		<a href="{{ url_for('uk_birds') }}" class="col s12 m6 grid-layout center-align">ALL BIRDS</a>         
-	</div>
+  <div class="row">
+    <div class="col s12 grid-layout">HERO IMAGE</div>
+    <a
+      href="{{ url_for('report_sighting', username=session['user']) }}"
+      class="col s12 m6 grid-layout center-align"
+      >REPORT<br />SIGHTING</a
+    >
+    <a
+      href="{{ url_for('my_sightings', username=session['user']) }}"
+      class="col s12 m6 grid-layout center-align"
+      >MY<br />SIGHTINGS</a
+    >
+    <a
+      href="{{ url_for('add_new_bird', username=session['user']) }}"
+      class="col s12 m6 grid-layout center-align"
+      >ADD<br />NEW<br />BIRD</a
+    >
+    <a
+      href="{{ url_for('uk_birds') }}"
+      class="col s12 m6 grid-layout center-align"
+      >ALL<br />BIRDS</a
+    >
+  </div>
 </div>
 {% endblock %}
