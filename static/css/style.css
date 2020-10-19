@@ -1,5 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Plaster&display=swap');
 
+/* Color Theme Swatches in Hex */
+.kingfisher-1-hex { color: #0B8CBF; }
+.kingfisher-2-hex { color: #F2A35E; }
+.kingfisher-3-hex { color: #734F2F; }
+.kingfisher-4-hex { color: #BF4904; }
+.kingfisher-5-hex { color: #732002; }
+
+/* Color Theme Swatches in RGBA */
+.kingfisher-1-rgba { color: rgba(11, 140, 191, 1); }
+.kingfisher-2-rgba { color: rgba(242, 163, 94, 1); }
+.kingfisher-3-rgba { color: rgba(114, 78, 47, 1); }
+.kingfisher-4-rgba { color: rgba(191, 72, 3, 1); }
+.kingfisher-5-rgba { color: rgba(114, 32, 2, 1); }
+
+/* Color Theme Swatches in HSLA */
+.kingfisher-1-hsla { color: hsla(196, 88, 39, 1); }
+.kingfisher-2-hsla { color: hsla(28, 85, 66, 1); }
+.kingfisher-3-hsla { color: hsla(28, 41, 31, 1); }
+.kingfisher-4-hsla { color: hsla(22, 96, 38, 1); }
+.kingfisher-5-hsla { color: hsla(16, 96, 22, 1); }
+
 .brand-logo{
     font-family: 'Plaster', cursive;
 }
