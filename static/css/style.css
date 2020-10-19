@@ -30,8 +30,9 @@ a{
     color: inherit;
 }
 
-.brand-logo{
+nav .brand-logo{
     font-family: 'Plaster', cursive;
+    padding-left: 10px;
 }
 
 .grid-layout{
@@ -86,4 +87,17 @@ nav{
     color: #BF4904 !important;
     font-family: 'Roboto Condensed', sans-serif;
     text-decoration: underline;
+}
+
+.flashes{
+    background-color: #732002;
+    height: 100px;
+    color: #fafafa;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 900;
+    font-size: 2em;
+    letter-spacing: 2px;
+    line-height: 30px;
+    text-align: center;
+    text-shadow: 2px 2px black;
 }
