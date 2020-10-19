@@ -119,9 +119,11 @@
         <div class="col s12 grid-layout">
           <ul>
             <li><a href="{{ url_for('uk_birds') }}">UK Birds</a></li>
+            {% if session.user %}
             <li>
               <a href="{{ url_for('delete_account') }}">Delete Account</a>
             </li>
+            {% endif %}
           </ul>
           <p>Copyright Stefan Carter 2020</p>
         </div>

@@ -3,7 +3,7 @@
 <div class="container">
   <div class="row">
     <div class="col s12 jumbotron">
-    <h2>Register</h2>
+      <h2>Register</h2>
       <!-- Registration Form -->
       <div class="row">
         <form
@@ -67,9 +67,10 @@
               </button>
             </div>
             <div class="row">
-                <div class="col s10 offset-1"> 
-                Already Registered? <a href="{{ url_for('login') }}">Login Here</a>
-                </div>
+              <div class="col s10 offset-1">
+                Already Registered?
+                <a href="{{ url_for('login') }}">Login Here</a>
+              </div>
             </div>
           </div>
         </form>
@@ -78,7 +79,13 @@
   </div>
   <div class="row">
     <div class="col s12 m6 grid-layout">IMAGE</div>
-    <div class="col s12 m6 grid-layout">TEXT ABOUT THE SITE</div>
+    <div class="col s12 m6 grid-layout">
+      <p>
+        Birdwatcher is a community of birdwatchers joining together to build a
+        database of British birds and a one stop place to keep track of your
+        bird sightings while out and about. Sign up today and contribute towards this ever growing project.
+      </p>
+    </div>
   </div>
 </div>
 {% endblock %}
