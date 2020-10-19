@@ -236,18 +236,22 @@ def add_new_bird():
 # View a specific bird
 @app.route("/view_bird/<bird_id>")
 def view_bird(bird_id):
-    # Get information about specific bird clicked on from DB
-    bird = mongo.db.bird_species.find_one({"_id": ObjectId(bird_id)})
 
-    # Check for existing sighting
-    existing_sighting = mongo.db.bird_sightings.find({
-        "username": session["user"]})
+    if session.get('user'):
+        # Get information about specific bird clicked on from DB
+        bird = mongo.db.bird_species.find_one({"_id": ObjectId(bird_id)})
 
-    for sighting in existing_sighting:
-        if bird_id == str(sighting["bird_id"]):
-            flash("You have seen this bird")
+        # Check for existing sighting
+        existing_sighting = mongo.db.bird_sightings.find({
+            "username": session["user"]})
 
-    return render_template("view_bird.html", bird=bird)
+        for sighting in existing_sighting:
+            if bird_id == str(sighting["bird_id"]):
+                flash("You have seen this bird")
+
+        return render_template("view_bird.html", bird=bird)
+
+    return redirect(url_for("login"))
 
 
 # Page to edit information about a bird
@@ -285,10 +289,13 @@ def edit_bird(bird_id):
 
 @app.route("/delete_account", methods=["GET", "POST"])
 def delete_account():
-    username = mongo.db.users.find_one(
-            {"username": session["user"]})["username"]
+    if session.get('user'):
+        username = mongo.db.users.find_one(
+                {"username": session["user"]})["username"]
 
-    return render_template("delete_account.html", username=username)
+        return render_template("delete_account.html", username=username)
+
+    return redirect(url_for("login"))
 
 
 @app.route("/delete_account_confirmation", methods=["GET", "POST"])
