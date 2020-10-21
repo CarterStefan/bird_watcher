@@ -1,142 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-      type="text/css"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/style.css') }}"
-      type="text/css"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="{{ url_for('static', filename='images/logo/bw.PNG') }}"
-    />
-    {% block styles %} {% endblock %}
-    <title>Bird Watcher</title>
-  </head>
 
-  <body>
-    <header>
-      <!-- Desktop Navbar -->
-      <nav>
-        <div class="nav-wrapper">
-          <a href="{{ url_for('home') }}" class="brand-logo">BirdWatcher</a>
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger"
-            ><i class="material-icons">menu</i></a
-          >
-          <ul class="right hide-on-med-and-down">
-            {% if session.user == 'admin' %}
-            <li><a href="{{ url_for('admin_errors') }}">Errors</a></li>
-            {% endif %}
-            <li><a href="{{ url_for('uk_birds') }}">UK Birds</a></li>
-            {% if session.user %}
-            <li>
-              <a href="{{ url_for('my_sightings', username=session['user']) }}"
-                >My Sightings</a
-              >
-            </li>
-            <li>
-              <a
-                href="{{ url_for('report_sighting', username=session['user']) }}"
-                >Report Sighting</a
-              >
-            </li>
-            <li>
-              <a href="{{ url_for('add_new_bird', username=session['user']) }}"
-                >Add New Bird</a
-              >
-            </li>
-            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-            {% else %}
-            <li><a href="{{ url_for('login') }}">Log In</a></li>
-            <li><a href="{{ url_for('register') }}">Register</a></li>
-            {% endif %}
-          </ul>
-        </div>
-      </nav>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+		type="text/css" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
+	<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo/bw.PNG') }}" />
+	{% block styles %} {% endblock %}
+	<title>Bird Watcher</title>
+</head>
 
-      <!-- Mobile Sidenav -->
-      <ul class="sidenav" id="mobile-demo">
-        <li>
-          <h4 class="brand-logo">BW</h4>
-        </li>
-        <li><a href="{{ url_for('home') }}">Home</a></li>
-        {% if session.user == 'admin' %}
-        <li><a href="{{ url_for('admin_errors') }}">Errors</a></li>
-        {% endif %}
-        <li><a href="{{ url_for('uk_birds') }}">UK Birds</a></li>
-        {% if session.user %}
-        <li>
-          <a href="{{ url_for('my_sightings', username=session['user']) }}"
-            >My Sightings</a
-          >
-        </li>
-        <li>
-          <a href="{{ url_for('report_sighting', username=session['user']) }}"
-            >Report Sighting</a
-          >
-        </li>
-        <li>
-          <a href="{{ url_for('add_new_bird', username=session['user']) }}"
-            >Add New Bird</a
-          >
-        </li>
-        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-        {% else %}
-        <li><a href="{{ url_for('login') }}">Log In</a></li>
-        <li><a href="{{ url_for('register') }}">Register</a></li>
-        {% endif %}
-      </ul>
-    </header>
+<body>
+	<header>
+		<!-- Desktop Navbar -->
+		<nav>
+			<div class="nav-wrapper">
+				<a href="{{ url_for('home') }}" class="brand-logo">BirdWatcher</a>
+				<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+				<ul class="right hide-on-med-and-down">
+					{% if session.user == 'admin' %}
+					<li><a href="{{ url_for('admin_errors') }}">Errors</a></li>
+					{% endif %}
+					<li><a href="{{ url_for('uk_birds') }}">UK Birds</a></li>
+					{% if session.user %}
+					<li>
+						<a href="{{ url_for('my_sightings', username=session['user']) }}">My Sightings</a>
+					</li>
+					<li>
+						<a href="{{ url_for('report_sighting', username=session['user']) }}">Report Sighting</a>
+					</li>
+					<li>
+						<a href="{{ url_for('add_new_bird', username=session['user']) }}">Add New Bird</a>
+					</li>
+					<li><a href="{{ url_for('logout') }}">Log Out</a></li>
+					{% else %}
+					<li><a href="{{ url_for('login') }}">Log In</a></li>
+					<li><a href="{{ url_for('register') }}">Register</a></li>
+					{% endif %}
+				</ul>
+			</div>
+		</nav>
 
-    <section>
-      <!-- Display Flash Messages -->
-      {% with messages = get_flashed_messages() %} {% if messages %}
-      <div class="row flashes">
-        <div class="col s12">
-          {% for message in messages %}
-          <p>{{ message }}</p>
-          {% endfor %}
-        </div>
-      </div>
-      {% endif %} {% endwith %}
-    </section>
+		<!-- Mobile Sidenav -->
+		<ul class="sidenav" id="mobile-demo">
+			<li>
+				<h4 class="brand-logo">BW</h4>
+			</li>
+			<li><a href="{{ url_for('home') }}">Home</a></li>
+			{% if session.user == 'admin' %}
+			<li><a href="{{ url_for('admin_errors') }}">Errors</a></li>
+			{% endif %}
+			<li><a href="{{ url_for('uk_birds') }}">UK Birds</a></li>
+			{% if session.user %}
+			<li>
+				<a href="{{ url_for('my_sightings', username=session['user']) }}">My Sightings</a>
+			</li>
+			<li>
+				<a href="{{ url_for('report_sighting', username=session['user']) }}">Report Sighting</a>
+			</li>
+			<li>
+				<a href="{{ url_for('add_new_bird', username=session['user']) }}">Add New Bird</a>
+			</li>
+			<li><a href="{{ url_for('logout') }}">Log Out</a></li>
+			{% else %}
+			<li><a href="{{ url_for('login') }}">Log In</a></li>
+			<li><a href="{{ url_for('register') }}">Register</a></li>
+			{% endif %}
+		</ul>
+	</header>
 
-    {% block content %} {% endblock %}
-    <div class="container">
-      <div class="row">
-        <div class="col s12 footer">
-          <ul>
-            <li><a href="{{ url_for('uk_birds') }}">UK Birds</a></li>
-            {% if session.user %}
-            <li>
-              <a href="{{ url_for('delete_account') }}">Delete Account</a>
-            </li>
-            {% endif %}
-          </ul>
-          <p>Copyright Stefan Carter 2020</p>
-        </div>
-      </div>
-    </div>
+	<section>
+		<!-- Display Flash Messages -->
+		{% with messages = get_flashed_messages() %} {% if messages %}
+		<div class="row flashes">
+			<div class="col s12">
+				{% for message in messages %}
+				<p>{{ message }}</p>
+				{% endfor %}
+			</div>
+		</div>
+		{% endif %} {% endwith %}
+	</section>
 
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-    {% block scripts %} {% endblock %}
-  </body>
+	{% block content %} {% endblock %}
+	<div class="footer">
+		<div class="row">
+			<div class="col s12">
+				<div class="row">
+					<div class="col s12 m4">
+						<ul class="footer_list">
+							<li><a href="{{ url_for('uk_birds') }}">UK Birds</a></li>
+							{% if session.user %}
+							<li>
+								<a href="{{ url_for('my_sightings', username=session['user']) }}">My Sightings</a>
+							</li>
+							<li>
+								<a href="{{ url_for('report_sighting', username=session['user']) }}">Report Sighting</a>
+							</li>
+							<li>
+								<a href="{{ url_for('add_new_bird', username=session['user']) }}">Add New Bird</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col s12 m4">
+						<ul class="footer_list">
+							<li><a href="{{ url_for('logout') }}">Log Out</a></li>
+							<li>
+								<a href="{{ url_for('delete_account') }}">Delete Account</a>
+							</li>
+							{% endif %}
+						</ul>
+					</div>
+					{% if not session.user %}
+					<div class="col s12 m4">
+						<ul class="footer_list">
+							<li><a href="{{ url_for('login') }}">Login</a></li>
+							<li><a href="{{ url_for('register') }}">Register</a></li>
+						</ul>
+					</div>
+					{% endif %}
+					<div class="col s12 m4">
+						<ul class="footer_list">
+							<li>Copyright Stefan Carter 2020</li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+		integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+	{% block scripts %} {% endblock %}
+</body>
+
 </html>

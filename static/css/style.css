@@ -160,6 +160,11 @@ nav .brand-logo{
     text-decoration: underline;
 }
 
+.footer_list{
+    padding: 50px !important;
+    line-height: 3em;
+}
+
 /* ---------------------------------- BIRD CARDS */
 .card-title{
     font-family: 'Roboto Slab', serif;
