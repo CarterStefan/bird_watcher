@@ -37,6 +37,7 @@ nav{
 
 nav li{
     font-family: 'Roboto Condensed', sans-serif;
+    text-transform: uppercase;
 }
 
 nav .brand-logo{
@@ -46,36 +47,38 @@ nav .brand-logo{
 
 /* ---------------------------------- LOGIN */
 
-#login_title{
+.login_register_title{
     text-align: center;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Roboto slab', sans-serif;
     color: #732002;
-    font-weight: 400;
+    font-weight: 500;
+    padding: 30px;
 }
 
 .card-panel{
-    background-color: #732002;
+    background-color: #fafafa;
 }
 
 .form_icon{
-    color: #fafafa;
+    color: #732002;
 }
 
 .input-field .helper-text{
-    color: #fafafa;
+    color: #732002;
     font-family: 'Roboto Condensed', sans-serif;
 }
 
 .input-field>label {
-    color: #fafafa;
+    color: #732002;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 .input-field .prefix.active {
-    color: #fafafa;
+    color: #732002;
 }
 
 .form_text{
-    color: white;
+    color: #732002;
     font-family: 'Roboto Condensed', sans-serif;
 }
 
@@ -95,10 +98,62 @@ nav .brand-logo{
     text-shadow: 2px 2px black;
 }
 
+.welcome_text{
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 2px;
+    text-align: justify;
+    font-size: 0.5em !important;
+    text-shadow: none;
+}
+
+.register_login_form_link{
+    padding-bottom: 5px;
+    border-bottom: 2px solid #732002;
+    font-family: 'Roboto Condensed', sans-serif;
+    
+}
+
+.register_login_form_link:hover{
+    padding-bottom: 5px;
+    border-bottom: 3px solid #732002;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.register_login_welcome_link{
+    padding-bottom: 5px;
+    border-bottom: 2px solid #fafafa;
+}
+
+.register_login_welcome_link:hover{
+    padding-bottom: 5px;
+    border-bottom: 3px solid #fafafa;
+}
+
+.btn-large{
+    background-color: #732002;
+    color: #fafafa;
+    font-family: 'Roboto Condensed', sans-serif;
+    box-shadow: none;
+}
+
+.btn-large:hover{
+    background-color: #fafafa;
+    color: #732002;
+    font-family: 'Roboto Condensed', sans-serif;
+    box-shadow: none;
+    border: 2px solid #732002;
+}
+
+.helper-text{
+    margin-bottom: 20px;
+}
+
 /* ---------------------------------- FOOTER */
 .footer{
     color: #fafafa;
     background-color: #732002;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-transform: uppercase;
 }
 
 .footer a:hover{

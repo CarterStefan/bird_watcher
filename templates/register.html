@@ -3,19 +3,19 @@
 <div class="container">
   <div class="row">
     <div class="col s12 jumbotron">
-      <h2>Register</h2>
+      <h2 class="login_register_title">Register</h2>
       <!-- Registration Form -->
       <div class="row">
         <form
-          class="col s12 m8 offset-m2"
+          class="col s12"
           method="POST"
           action="{{ url_for('register') }}"
         >
-          <div class="card-panel teal">
+          <div>
             <!-- Username Field -->
             <div class="row">
-              <div class="input-field col s8 offset-s2">
-                <i class="material-icons prefix">person_add</i>
+              <div class="input-field col s12 m6 offset-m3">
+                <i class="material-icons prefix form_icon">person_add</i>
                 <input
                   id="username"
                   name="username"
@@ -31,15 +31,15 @@
                   class="helper-text"
                   data-error="Username must be 5-15 characters and only use letters and numbers"
                   data-success="This works"
-                  >Username must be 5-15 characters and only users letters and
+                  >Username must be 5-15 characters using only letters and
                   numbers</span
                 >
               </div>
             </div>
             <!-- Password Field -->
             <div class="row">
-              <div class="input-field col s8 offset-s2">
-                <i class="material-icons prefix">lock</i>
+              <div class="input-field col s12 m6 offset-m3">
+                <i class="material-icons prefix form_icon">lock</i>
                 <input
                   id="password"
                   name="password"
@@ -55,21 +55,21 @@
                   class="helper-text"
                   data-error="Password must be 5-15 characters and only use letters and numbers"
                   data-success="This works"
-                  >Password must be 5-15 characters and only users letters and
+                  >Password must be 5-15 characters using only letters and
                   numbers</span
                 >
               </div>
             </div>
             <!-- Submit Button -->
             <div class="row">
-              <button type="submit" class="col s6 offset-s3 btn-large">
+              <button type="submit" class="col s12 m6 offset-m3 btn-large">
                 Register
               </button>
             </div>
             <div class="row">
-              <div class="col s10 offset-1">
+              <div class="col s12 center form_text">
                 Already Registered?
-                <a href="{{ url_for('login') }}">Login Here</a>
+                <a href="{{ url_for('login') }}"><span class="register_login_form_link">Login Here<span></a></a>
               </div>
             </div>
           </div>
@@ -80,7 +80,7 @@
   <div class="row">
     <div class="col s12 m6 grid-layout">IMAGE</div>
     <div class="col s12 m6 grid-layout">
-      <p>
+      <p class="welcome_text">
         Birdwatcher is a community of birdwatchers joining together to build a
         database of British birds and a one stop place to keep track of your
         bird sightings while out and about. Sign up today and contribute towards this ever growing project.
