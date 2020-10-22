@@ -181,16 +181,25 @@ nav .brand-logo{
 .card-title{
     font-family: 'Roboto Slab', serif;
     font-weight: 900 !important;
-    text-shadow: 2px 2px black;
+    text-shadow: 3px 2px black;
+    letter-spacing: 1px;
+}
+
+.bird_card_image{
+    height: 200px !important;
+}
+
+.card-action{
+    background-color: #BF4904 !important;
 }
 
 .bird_card_link{
-    color: #BF4904 !important;
+    color: #fafafa !important;
     font-family: 'Roboto Condensed', sans-serif;
 }
 
 .bird_card_link:hover{
-    color: #BF4904 !important;
+    color: #fafafa !important;
     font-family: 'Roboto Condensed', sans-serif;
     text-decoration: underline;
 }

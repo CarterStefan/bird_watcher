@@ -40,14 +40,14 @@
 
   <div class="row">
     {% for birds in bird_species %}
-    <div class="col s6 m3">
+    <div class="col s12 m6 l4">
       <div class="card">
         <div class="card-image">
-          <img height="150px" width="175px" src=" {{ birds.image }} ">
+          <img class="bird_card_image" src=" {{ birds.image }} ">
           <span class="card-title">{{ birds.bird_name }}</span>
         </div>
         <div class="card-action">
-          <a href="{{ url_for('view_bird', bird_id=birds._id) }}" class="bird_card_link">View {{ birds.bird_name }}</a>
+          <a href="{{ url_for('view_bird', bird_id=birds._id) }}" class="bird_card_link">View <br> {{ birds.bird_name }}</a>
         </div>                
       </div>
     </div>
