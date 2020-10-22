@@ -26,6 +26,12 @@
 .kingfisher-5-hsla { color: hsla(16, 96, 22, 1); }
 .kingfisher-6-hsla { color: hsla(0, 0, 98, 1); }
 
+/* --------------------------------- TAGS */
+
+body{
+    background-color: #fafafa;
+}
+
 a{
     color: inherit;
 }
@@ -163,6 +169,12 @@ nav .brand-logo{
 .footer_list{
     padding: 50px !important;
     line-height: 3em;
+}
+
+.footer-row{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
 }
 
 /* ---------------------------------- BIRD CARDS */
