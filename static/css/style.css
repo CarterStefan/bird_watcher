@@ -216,3 +216,29 @@ nav .brand-logo{
     text-align: center;
     text-shadow: 2px 2px black;
 }
+
+.submit_button{
+    background-color: #0B8CBF !important;
+    font-family: 'Roboto Condensed', sans-serif!important;
+    color: #fafafa !important;
+}
+
+.clear_button{
+    background-color: #BF4904 !important;
+    font-family: 'Roboto Condensed', sans-serif!important;
+    color: #fafafa !important;
+}
+
+.form_buttons{
+    padding-left: 0px !important;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.select-wrapper input.select-dropdown{
+    color: #732002;
+}
+
+.dropdown-content li>span{
+    color: #732002 !important;
+}

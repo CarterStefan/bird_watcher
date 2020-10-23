@@ -116,6 +116,11 @@ def search():
     bird_species = mongo.db.bird_species.find({
         "$text": {"$search": bird_family_search}}).sort(
             "bird_name", 1)
+
+    if bird_species.count() < 1:
+        flash("No bird matched this search, please try another family")
+        return redirect(url_for("uk_birds"))
+
     # Return search results
     return render_template(
         "bird_species.html", bird_species=bird_species,

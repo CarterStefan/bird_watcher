@@ -17,6 +17,7 @@
             id="bird_family_search"
             name="bird_family_search"
             class="icons"
+            required
           >
             <option value="" disabled selected>Select Bird Family</option>
             {% for family in bird_family %}
@@ -29,9 +30,9 @@
             {% endfor %}
           </select>
           <label for="bird_family_search">Search Bird Family</label>
-          <div class="col s12 m6 halign-center">
-            <a href="{{ url_for('uk_birds') }}" class="red btn-small">Clear</a>
-            <button class="btn-small" type="submit">Submit</button>
+          <div class="col s12 m6 form_buttons">
+            <a href="{{ url_for('uk_birds') }}" class="btn-small clear_button">Clear</a>
+            <button class="btn-small submit_button" type="submit">Submit</button>
           </div>
         </form>
       </div>
