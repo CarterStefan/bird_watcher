@@ -117,6 +117,7 @@ def search():
         "$text": {"$search": bird_family_search}}).sort(
             "bird_name", 1)
 
+    # Flash message if no results found
     if bird_species.count() < 1:
         flash("No bird matched this search, please try another family")
         return redirect(url_for("uk_birds"))

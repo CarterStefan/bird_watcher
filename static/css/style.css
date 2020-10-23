@@ -259,3 +259,11 @@ nav .brand-logo{
     color: #732002 !important;
     font-family: 'Roboto Condensed', sans-serif!important;
 }
+
+.select-wrapper input.select-dropdown {
+    border-bottom: 2px solid #732002;
+}
+
+.select-wrapper input.select-dropdown:focus {
+    border-bottom: 2px solid #732002;
+}
