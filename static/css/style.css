@@ -253,6 +253,7 @@ nav .brand-logo{
     color: #732002;
     font-family: 'Roboto Condensed', sans-serif!important;
     font-weight: 900;
+    text-align: center;
 }
 
 .dropdown-content li>span{

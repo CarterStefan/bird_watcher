@@ -6,7 +6,7 @@
   </div>
 
   <div class="row">
-    <div class="col s12">
+    <div class="col s12 m6 offset-m3">
       <div class="nav-wrapper">
         <form
           action="{{ url_for('search') }}"
@@ -19,7 +19,7 @@
             class="icons"
             required
           >
-            <option value="" disabled selected>Select Bird Family</option>
+            <option value="" disabled selected>Filter By Bird Type</option>
             {% for family in bird_family %}
             <option
               value="{{ family.family_name }}"
@@ -29,8 +29,8 @@
             </option>
             {% endfor %}
           </select>
-          <label for="bird_family_search">Filter by bird type</label>
-          <div class="col s12 m6 form_buttons">
+          <label for="bird_family_search"></label>
+          <div class="col s12 form_buttons center">
             <a href="{{ url_for('uk_birds') }}" class="btn-large clear_button">Clear</a>
             <button class="btn-large submit_button" type="submit">Submit</button>
           </div>
