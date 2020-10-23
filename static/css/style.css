@@ -223,10 +223,24 @@ nav .brand-logo{
     color: #fafafa !important;
 }
 
+.submit_button:hover{
+    background-color: #fafafa !important;
+    font-family: 'Roboto Condensed', sans-serif!important;
+    color: #0B8CBF !important;
+    border: 1px solid #0B8CBF;
+}
+
 .clear_button{
     background-color: #BF4904 !important;
     font-family: 'Roboto Condensed', sans-serif!important;
     color: #fafafa !important;
+}
+
+.clear_button:hover{
+    background-color: #fafafa !important;
+    font-family: 'Roboto Condensed', sans-serif!important;
+    color: #BF4904!important;
+    border: 1px solid #BF4904;
 }
 
 .form_buttons{
@@ -237,8 +251,11 @@ nav .brand-logo{
 
 .select-wrapper input.select-dropdown{
     color: #732002;
+    font-family: 'Roboto Condensed', sans-serif!important;
+    font-weight: 900;
 }
 
 .dropdown-content li>span{
     color: #732002 !important;
+    font-family: 'Roboto Condensed', sans-serif!important;
 }
