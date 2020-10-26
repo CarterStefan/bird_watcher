@@ -80,6 +80,15 @@ input{
     color: #734F2F;
 }
 
+input[type=text]:not(.browser-default){
+    border-bottom: 2px solid #732002;
+    font-weight: 900;
+}
+
+textarea.materialize-textarea{
+    border-bottom: 2px solid #732002;
+}
+
 /* ---------------------------------- FLASH MESSAGES */
 
 .flashes{
@@ -191,8 +200,8 @@ input{
     font-size: 2em;
     letter-spacing: 2px;
     line-height: 30px;
-    text-align: left;
-    padding-top: 70px !important;
+    text-align: center;
+    padding-top: 80px !important;
     text-shadow: 2px 2px black;
 }
 
@@ -355,4 +364,49 @@ input{
 
 .bird_image{
     padding: 0px !important;
+}
+
+/* ---------------------------------- REPORT SIGHTING */
+
+.form_field_title{
+    color: #732002;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    padding-top: 15px !important;
+}
+
+.datepicker-date-display {    
+    background-color: #732002;
+    color: #fafafa;
+    padding: 20px 22px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 500;
+}
+
+.datepicker-date-display .date-text {
+    display: block;
+    font-size: 2.8rem;
+    line-height: 100px;
+    font-weight: 500;
+}
+
+.datepicker-cancel, .datepicker-clear, .datepicker-today, .datepicker-done {
+    color: #732002;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 900;
+}
+
+.datepicker-day-button:focus {
+    background-color: rgba(114,32,2,0.25);
+    color: #fafafa;
+}
+
+.datepicker-table td.is-selected {
+    background-color: #732002;
+    color: #fafafa;
+}
+
+.datepicker-table td.is-today {
+    color: #BF4904;
 }
