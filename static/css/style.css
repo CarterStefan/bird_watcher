@@ -51,15 +51,23 @@ nav .brand-logo{
     padding-left: 10px;
 }
 
-/* ---------------------------------- LOGIN */
-
-.login_register_title{
+.page_heading{
     text-align: center;
     font-family: 'Roboto slab', sans-serif;
     color: #732002;
     font-weight: 500;
     padding: 30px;
 }
+
+.sub_heading{
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #732002;
+    font-weight: 900;
+    padding: 30px;
+}
+
+/* ---------------------------------- LOGIN */
 
 .card-panel{
     background-color: #fafafa;

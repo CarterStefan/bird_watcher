@@ -3,11 +3,11 @@
 <div class="container">
   <div class="row">
     <div class="col s12">
-      <h3 class="center-align">
-        Seen an error on a birds information
+      <h3 class="page_heading">
+        Seen an error on a birds information?
       </h3>
       <br />
-      <h4 class="center-align">Update it here</h4>
+      <h4 class="sub_heading">Update it here</h4>
     </div>
   </div>
 
@@ -159,7 +159,7 @@
 
       <!-- Description of bird -->
       <div class="row">
-        <div class="input-field col s12 m6">
+        <div class="input-field col s12">
           <textarea
             id="description"
             name="description"
@@ -171,7 +171,7 @@
         </div>
 
         <!-- Image link -->
-        <div class="col s12 m6">
+        <div class="col s12">
           <div class="input-field">
             <input
               id="image"
@@ -192,7 +192,7 @@
 
       <!-- Feeding of bird -->
       <div class="row">
-        <div class="input-field col s12 m6">
+        <div class="input-field col s12">
           <textarea id="feeding" name="feeding" class="materialize-textarea">
 {{- bird.feeding -}}</textarea
           >
@@ -201,7 +201,7 @@
 
         <!-- Where to see bird -->
 
-        <div class="input-field col s12 m6">
+        <div class="input-field col s12">
           <textarea id="where" name="where" class="materialize-textarea">
 {{- bird.where -}}</textarea
           >
@@ -212,12 +212,12 @@
       <!-- Cancel / Submit buttons -->
       <div class="row">
         <div class="col s6 center-align">
-          <button class="btn waves-effect waves-light red" type="submit">
-            <a href="{{ url_for('uk_birds') }}">Cancel Edit</a>
-          </button>
+          <a href="{{ url_for('uk_birds') }}" class="btn-large clear_button"
+            >Cancel Edit</a
+          >
         </div>
         <div class="col s6 center-align">
-          <button class="btn waves-effect waves-light" type="submit">
+          <button class="btn-large submit_button" type="submit">
             Edit Bird
           </button>
         </div>
