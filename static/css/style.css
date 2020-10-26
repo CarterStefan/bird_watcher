@@ -51,6 +51,8 @@ nav .brand-logo{
     padding-left: 10px;
 }
 
+/* ---------------------------------- HEADINGS AND TEXT */
+
 .page_heading{
     text-align: center;
     font-family: 'Roboto slab', sans-serif;
@@ -65,6 +67,87 @@ nav .brand-logo{
     color: #732002;
     font-weight: 900;
     padding: 30px;
+}
+
+textarea{
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #734F2F;
+}
+
+input{
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #734F2F;
+}
+
+/* ---------------------------------- FLASH MESSAGES */
+
+.flashes{
+    background-color: #732002;
+    height: 100px;
+    color: #fafafa;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 900;
+    font-size: 2em;
+    letter-spacing: 2px;
+    line-height: 30px;
+    text-align: center;
+    text-shadow: 2px 2px black;
+}
+
+/* ---------------------------------- BUTTONS */
+
+.submit_button{
+    background-color: #0B8CBF !important;
+    font-family: 'Roboto Condensed', sans-serif!important;
+    color: #fafafa !important;
+}
+
+.submit_button:hover{
+    background-color: #fafafa !important;
+    font-family: 'Roboto Condensed', sans-serif!important;
+    color: #0B8CBF !important;
+    border: 2px solid #0B8CBF !important;
+}
+
+.clear_button{
+    background-color: #BF4904 !important;
+    font-family: 'Roboto Condensed', sans-serif!important;
+    color: #fafafa !important;
+}
+
+.clear_button:hover{
+    background-color: #fafafa !important;
+    font-family: 'Roboto Condensed', sans-serif!important;
+    color: #BF4904!important;
+    border: 2px solid #BF4904 !important;
+}
+
+.form_buttons{
+    padding-left: 0px !important;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+/* ---------------------------------- DROPDOWN MENU */
+
+.select-wrapper input.select-dropdown{
+    color: #732002;
+    font-family: 'Roboto Condensed', sans-serif!important;
+    font-weight: 900;
+    text-align: center;
+}
+
+.dropdown-content li>span{
+    color: #732002 !important;
+    font-family: 'Roboto Condensed', sans-serif!important;
+}
+
+.select-wrapper input.select-dropdown {
+    border-bottom: 2px solid #732002;
+}
+
+.select-wrapper input.select-dropdown:focus {
+    border-bottom: 2px solid #732002;
 }
 
 /* ---------------------------------- LOGIN */
@@ -158,6 +241,14 @@ nav .brand-logo{
     border: 2px solid #732002;
 }
 
+.btn-large:focus{
+    background-color: #fafafa;
+    color: #732002;
+    font-family: 'Roboto Condensed', sans-serif;
+    box-shadow: none;
+    border: 2px solid #732002;
+}
+
 .helper-text{
     margin-bottom: 20px;
 }
@@ -204,75 +295,12 @@ nav .brand-logo{
 .bird_card_link{
     color: #fafafa !important;
     font-family: 'Roboto Condensed', sans-serif;
+    line-height: 25px;
 }
 
 .bird_card_link:hover{
     color: #fafafa !important;
     font-family: 'Roboto Condensed', sans-serif;
-    text-decoration: underline;
-}
-
-.flashes{
-    background-color: #732002;
-    height: 100px;
-    color: #fafafa;
-    font-family: 'Roboto Slab', serif;
-    font-weight: 900;
-    font-size: 2em;
-    letter-spacing: 2px;
-    line-height: 30px;
-    text-align: center;
-    text-shadow: 2px 2px black;
-}
-
-.submit_button{
-    background-color: #0B8CBF !important;
-    font-family: 'Roboto Condensed', sans-serif!important;
-    color: #fafafa !important;
-}
-
-.submit_button:hover{
-    background-color: #fafafa !important;
-    font-family: 'Roboto Condensed', sans-serif!important;
-    color: #0B8CBF !important;
-    border: 1px solid #0B8CBF;
-}
-
-.clear_button{
-    background-color: #BF4904 !important;
-    font-family: 'Roboto Condensed', sans-serif!important;
-    color: #fafafa !important;
-}
-
-.clear_button:hover{
-    background-color: #fafafa !important;
-    font-family: 'Roboto Condensed', sans-serif!important;
-    color: #BF4904!important;
-    border: 1px solid #BF4904;
-}
-
-.form_buttons{
-    padding-left: 0px !important;
-    margin-top: 20px;
-    margin-bottom: 50px;
-}
-
-.select-wrapper input.select-dropdown{
-    color: #732002;
-    font-family: 'Roboto Condensed', sans-serif!important;
-    font-weight: 900;
-    text-align: center;
-}
-
-.dropdown-content li>span{
-    color: #732002 !important;
-    font-family: 'Roboto Condensed', sans-serif!important;
-}
-
-.select-wrapper input.select-dropdown {
-    border-bottom: 2px solid #732002;
-}
-
-.select-wrapper input.select-dropdown:focus {
-    border-bottom: 2px solid #732002;
+    border-bottom: 2px solid #fafafa;
+    padding-bottom: 1px;
 }
