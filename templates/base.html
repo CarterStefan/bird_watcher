@@ -47,7 +47,7 @@
 		<!-- Mobile Sidenav -->
 		<ul class="sidenav" id="mobile-demo">
 			<li>
-				<h4 class="brand-logo">BW</h4>
+				<a href="{{ url_for('home') }}" class="brand-logo">BW</a>
 			</li>
 			<li><a href="{{ url_for('home') }}">Home</a></li>
 			{% if session.user == 'admin' %}

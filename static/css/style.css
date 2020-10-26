@@ -46,9 +46,9 @@ nav li{
     text-transform: uppercase;
 }
 
-nav .brand-logo{
+.brand-logo{
     font-family: 'Plaster', cursive;
-    padding-left: 10px;
+    padding-left: 32px !important;
 }
 
 /* ---------------------------------- HEADINGS AND TEXT */
@@ -262,7 +262,8 @@ input{
 }
 
 .footer a:hover{
-    text-decoration: underline;
+    border-bottom: 2px solid #fafafa;
+    padding-bottom: 1px;
 }
 
 .footer_list{
