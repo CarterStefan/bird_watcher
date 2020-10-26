@@ -83,15 +83,15 @@ input{
 
 .flashes{
     background-color: #732002;
-    height: 100px;
     color: #fafafa;
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Roboto Condensed', sans-serif;
     font-weight: 900;
     font-size: 2em;
     letter-spacing: 2px;
     line-height: 30px;
     text-align: center;
     text-shadow: 2px 2px black;
+    padding: 20px;
 }
 
 /* ---------------------------------- BUTTONS */
@@ -281,6 +281,7 @@ input{
 .card-title{
     font-family: 'Roboto Slab', serif;
     font-weight: 900 !important;
+    color: #fafafa;
     text-shadow: 3px 2px black;
     letter-spacing: 1px;
 }
@@ -296,12 +297,26 @@ input{
 .bird_card_link{
     color: #fafafa !important;
     font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 900;
     line-height: 25px;
 }
 
 .bird_card_link:hover{
     color: #fafafa !important;
     font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 900;
     border-bottom: 2px solid #fafafa;
     padding-bottom: 1px;
+}
+
+/* ---------------------------------- MY SIGHTING CARDS */
+
+.my_sighting_card{
+    height: 200px;    
+}
+
+.card-text{
+    color: #fafafa !important;
+    font-family: 'Roboto Condensed', sans-serif;
+    padding-bottom: 10px;
 }

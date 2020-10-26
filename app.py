@@ -139,7 +139,8 @@ def my_sightings():
 
         # Gets the list of birds seen for user from the DB
         birds_seen = mongo.db.bird_sightings.find(
-            {"username": session["user"]})
+            {"username": session["user"]}).sort(
+            "bird_name", 1)
 
         # Gets the number of birds seen for a user
         number = birds_seen.count()
@@ -168,7 +169,10 @@ def report_sighting():
                     "bird_name": request.form.get(
                         "bird_seen")})["_id"],
                 "date_seen": request.form.get("date_seen"),
-                "location": request.form.get("location")
+                "location": request.form.get("location"),
+                "bird_image": mongo.db.bird_species.find_one(
+                    {"bird_name": request.form.get(
+                        "bird_seen")})["image"]
             }
 
             # Check for existing sighting
