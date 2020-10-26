@@ -36,6 +36,7 @@ a{
     color: inherit;
 }
 
+
 /* ---------------------------------- NAV */
 nav{
     background-color: #732002;
@@ -319,4 +320,39 @@ input{
     color: #fafafa !important;
     font-family: 'Roboto Condensed', sans-serif;
     padding-bottom: 10px;
+}
+
+/* ---------------------------------- VIEW BIRD */
+
+.bird_title{
+    font-family: 'Roboto slab', sans-serif;
+    color: #732002;
+    font-weight: 900;
+    font-size: 30px;
+    text-align: center; 
+    border: 1px solid black;
+    padding: 15px !important;
+    margin-top: 1px;
+}
+
+.bird_facts_text{
+    font-family: 'Roboto Condensed', sans-serif;
+    color: black;
+    font-size: 30px;
+    font-weight: 500;
+    text-align: justify;
+    padding: 20px;
+}
+
+.bird_description_text{
+    font-family: 'Roboto Condensed', sans-serif;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: justify;
+    padding: 20px;
+}
+
+.bird_image{
+    padding: 0px !important;
 }

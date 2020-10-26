@@ -1,49 +1,53 @@
 {% extends "base.html" %} {% block content %}
 
 <div class="container">
-
-    <div class="row">
-		<div class="col s12">
-            <img height="100%" width="100%" src=" {{ bird.image }} " />
-        </div>
-	</div>
 	<div class="row">
-		<div class="col s12"> Bird Name: {{ bird.bird_name }} </div>
-	</div>
-    <div class="row">
-		<div class="col s12"> Scientific Name: {{ bird.scientific_name }} </div>
-	</div>
-    <div class="row">
-		<div class="col s12"> Length: {{ bird.length }}cm</div>
-	</div>
-    <div class="row">
-		<div class="col s12"> Wingspan: {{ bird.wingspan }}cm </div>
-	</div>
-    <div class="row">
-		<div class="col s12"> Weight: {{ bird.weight }}g </div>
-	</div>
-    <div class="row">
-		<div class="col s12"> Description: {{ bird.description }} </div>
-	</div>
-    <div class="row">
-		<div class="col s12"> Feeding: {{ bird.feeding }} </div>
-	</div>
-    <div class="row">
-		<div class="col s12"> Where: {{ bird.where }} </div>
-	</div>
-
-    <div class="row">
-    <a
-      href="{{ url_for('edit_bird', bird_id=bird._id) }}"
-      class="col s12 m6 grid-layout center-align"
-      >MAKE AN EDIT TO THIS BIRD</a
-    >
-    <a
-      href="{{ url_for('report_error') }}"
-      class="col s12 m6 grid-layout center-align"
-      >REPORT AN ERROR</a
-    >
-  </div>    
+		<div class="col s12 bird_image">
+			<img height="100%" width="100%" src=" {{ bird.image }} " />
+        </div>
+		</div>
 </div>
+	<div class="container">
+		<div class="row">
+			<div class="col s12 m6 bird_title">Bird Name: <br><span class="bird_facts_text">{{ bird.bird_name }}</span> </div>
 
-{% endblock %}
+
+			<div class="col s12 m6 bird_title">Scientific Name:
+				<br><span class="bird_facts_text">{{ bird.scientific_name }}</span> </div>
+
+			<div class="col s12 m4 bird_title">Length: <br><span class="bird_facts_text">{{ bird.length }}cm</span> </div>
+
+
+			<div class="col s12 m4 bird_title">Wingspan: <br><span class="bird_facts_text">{{ bird.wingspan }}cm</span> </div>
+
+			<div class="col s12 m4 bird_title">Weight: <br><span class="bird_facts_text">{{ bird.weight }}g</span> </div>
+
+		</div>
+
+
+		<div class="row">
+			<div class="col s12 bird_title"> Description:<br>
+				<p class="bird_description_text"> {{ bird.description }}</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 bird_title"> Feeding:<br>
+				<p class="bird_description_text"> {{ bird.feeding }}</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 bird_title"> Where:<br>
+				<p class="bird_description_text">{{ bird.where }}</p>
+			</div>
+		</div>
+    </div>
+
+		<div class="row">
+			<a href="{{ url_for('edit_bird', bird_id=bird._id) }}" class="col s12 m6 grid-layout center-align">MAKE AN
+				EDIT
+				TO THIS BIRD</a>
+			<a href="{{ url_for('report_error') }}" class="col s12 m6 grid-layout center-align">REPORT AN ERROR</a>
+		</div>
+	
+
+	{% endblock %}
