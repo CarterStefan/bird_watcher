@@ -301,21 +301,21 @@ textarea.materialize-textarea{
 }
 
 .card-action{
-    background-color: #BF4904 !important;
+    border: 3px solid #BF4904 !important;
 }
 
 .bird_card_link{
-    color: #fafafa !important;
+    color: #BF4904 !important;
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 900;
     line-height: 25px;
 }
 
 .bird_card_link:hover{
-    color: #fafafa !important;
+    color: #BF4904 !important;
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 900;
-    border-bottom: 2px solid #fafafa;
+    border-bottom: 2px solid #BF4904;
     padding-bottom: 1px;
 }
 
@@ -326,7 +326,7 @@ textarea.materialize-textarea{
 }
 
 .card-text{
-    color: #fafafa !important;
+    color: #BF4904 !important;
     font-family: 'Roboto Condensed', sans-serif;
     padding-bottom: 10px;
 }

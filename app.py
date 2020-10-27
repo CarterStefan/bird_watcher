@@ -142,14 +142,22 @@ def my_sightings():
             {"username": session["user"]}).sort(
             "bird_name", 1)
 
+        all_birds = mongo.db.bird_species.find()
+
         # Gets the number of birds seen for a user
         number = birds_seen.count()
+
+        bird_count = all_birds.count()
+
+        if number == bird_count:
+            flash("Challenge Completed")
 
         return render_template(
             "my_sightings.html",
             username=username,
             number=number,
-            birds_seen=birds_seen)
+            birds_seen=birds_seen,
+            bird_count=bird_count)
 
     # Show login page if user is logged out
     return redirect(url_for("login"))
