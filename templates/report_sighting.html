@@ -13,7 +13,7 @@
         Name of Bird:
       </div>
       <div class="col s12 m6">
-        <select id="bird_seen" name="bird_seen">
+        <select id="bird_seen" name="bird_seen" required="required">
           <option value="" disabled selected>Choose your option</option>
           {% for birds in bird_species %}
           <option value="{{ birds.bird_name }}">{{ birds.bird_name }}</option>
@@ -29,17 +29,18 @@
         Date Spotted:
       </div>
       <div class="col s12 m6">
-        <input id="date_seen" name="date_seen" type="text" class="datepicker center" />
+        <input id="date_seen" name="date_seen" type="text" class="datepicker center" required/>
         <label for="date_seen">Select Date</label>
       </div>
     </div>
 
+    <!-- Select Location -->
     <div class="row">
       <div class="col s12 m6 center form_field_title">
         County:
         </div>
         <div class="col s12 m6">
-        <select id="location" name="location">
+        <select id="location" name="location" required="required">
           <option value="" disabled selected>Location</option>
           {% for county in counties %}
             <option value="{{ county.county_name}}">{{ county.county_name}}</option>
@@ -53,7 +54,7 @@
     <div class="row">
       <div class="col s12 center">
         <button
-          class="btn-large submit_button"
+          class="btn-large"
           type="submit"
           name="action"
         >

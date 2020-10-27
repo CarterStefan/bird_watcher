@@ -183,7 +183,8 @@ def report_sighting():
 
             for bird in existing_sighting:
                 if new_sighting == bird["bird_name"]:
-                    flash("You have seen this bird already, please try another")
+                    flash(
+                        "You have seen this bird already, please try another")
                     return redirect(url_for("report_sighting"))
 
             # Adds new sighting to DB
