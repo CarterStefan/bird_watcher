@@ -26,16 +26,12 @@
             >View {{ bird.bird_name }}</a
           >
           <div class="row my_sightings_options">
-            <div class="col s6">
-              <a href="{{ url_for('uk_birds') }}" class="btn-large clear_button"
-                >EDIT</a
-              >
-            </div>
-            <div class="col s6">
+            
+            <div class="col s12">
               <a
-                href="{{ url_for('uk_birds') }}"
+                href="{{ url_for('remove_sighting', bird_name=bird.bird_name) }}"
                 class="btn-large submit_button"
-                >REMOVE</a
+                >DELETE SIGHTING</a
               >
             </div>
           </div>

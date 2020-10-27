@@ -163,6 +163,14 @@ def my_sightings():
     return redirect(url_for("login"))
 
 
+@app.route("/remove_sighting/<bird_name>", methods=["GET", "POST"])
+def remove_sighting(bird_name):
+    mongo.db.bird_sightings.remove({
+        "username": session["user"], "bird_name": bird_name})
+    flash("Sighting Deleted")
+    return redirect(url_for("my_sightings"))
+
+
 # Page to report new sighting
 @app.route("/report_sighting", methods=["GET", "POST"])
 def report_sighting():
