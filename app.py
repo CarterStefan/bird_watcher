@@ -246,10 +246,10 @@ def add_new_bird():
 
     # Display form to add new bird and pass in bird families from db
     # if user is logged in
-    if session.get('user'):
+    if session.get('user') == 'admin':
         return render_template("add_new_bird.html", bird_family=bird_family)
 
-    return redirect(url_for("login"))
+    return redirect(url_for("uk_birds"))
 
 
 # View a specific bird
