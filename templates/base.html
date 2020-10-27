@@ -23,6 +23,9 @@
 				<ul class="right hide-on-med-and-down">
 					{% if session.user == 'admin' %}
 					<li><a href="{{ url_for('admin_errors') }}">Errors</a></li>
+                    <li>
+						<a href="{{ url_for('add_new_bird', username=session['user']) }}">Add New Bird</a>
+					</li>
 					{% endif %}
 					<li><a href="{{ url_for('uk_birds') }}">UK Birds</a></li>
 					{% if session.user %}
@@ -31,10 +34,7 @@
 					</li>
 					<li>
 						<a href="{{ url_for('report_sighting', username=session['user']) }}">Report Sighting</a>
-					</li>
-					<li>
-						<a href="{{ url_for('add_new_bird', username=session['user']) }}">Add New Bird</a>
-					</li>
+					</li>					
 					<li><a href="{{ url_for('logout') }}">Log Out</a></li>
 					{% else %}
 					<li><a href="{{ url_for('login') }}">Log In</a></li>
