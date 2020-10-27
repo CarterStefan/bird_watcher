@@ -1,38 +1,62 @@
 {% extends "base.html" %} {% block content %}
 
 <div class="container">
-	<div class="row">
-		<div class="col s12 grid-layout">
-			<h3 class="center-align">
-                {{ username }}, you have seen {{ number }} / {{ bird_count }} birds  
-			</h3>
-		</div>
-	</div>
+  <div class="row">
+    <div class="col s12 grid-layout">
+      <h3 class="center-align">
+        {{ username }}, you have seen {{ number }} / {{ bird_count }} birds
+      </h3>
+    </div>
+  </div>
 
-	<div class="row">
-		{% for bird in birds_seen %}
-		<div class="col s12 m6 l4">
-			<div class="card">
-				<div class="card-image">
-					<img class="bird_card_image" src=" {{ bird.bird_image }} ">
-					<span class="card-title">{{ bird.bird_name }}</span>
-				</div>
-				<div class="card-action">
-					<p class="card-text">Seen on: {{ bird.date_seen }}</p>
-					<p class="card-text">Location: {{ bird.location }}</p>
-					<a href="{{ url_for('view_bird', bird_id=bird.bird_id) }}" class="bird_card_link">View
-						{{ bird.bird_name }}</a>
-				</div>
-			</div>
-		</div>
-		{% endfor %}
-	</div>
+  <div class="row">
+    {% for bird in birds_seen %}
+    <div class="col s12 m6 l4 center">
+      <div class="card">
+        <div class="card-image">
+          <img class="bird_card_image" src=" {{ bird.bird_image }} " />
+          <span class="card-title">{{ bird.bird_name }}</span>
+        </div>
+        <div class="card-action">
+          <p class="card-text">Seen on: {{ bird.date_seen }}</p>
+          <p class="card-text">Location: {{ bird.location }}</p>
+          <a
+            href="{{ url_for('view_bird', bird_id=bird.bird_id) }}"
+            class="bird_card_link"
+            >View {{ bird.bird_name }}</a
+          >
+          <div class="row my_sightings_options">
+            <div class="col s6">
+              <a href="{{ url_for('uk_birds') }}" class="btn-large clear_button"
+                >EDIT</a
+              >
+            </div>
+            <div class="col s6">
+              <a
+                href="{{ url_for('uk_birds') }}"
+                class="btn-large submit_button"
+                >REMOVE</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 
-	<div class="row">
-		<a href="{{ url_for('report_sighting', username=session['user']) }}"
-			class="col s12 m6 grid-layout center-align">REPORT SIGHTING</a>
-		<a href="{{ url_for('uk_birds') }}" class="col s12 m6 grid-layout center-align">ALL BIRDS</a>
-	</div>
+  <div class="row">
+    <a
+      href="{{ url_for('report_sighting', username=session['user']) }}"
+      class="col s12 m6 grid-layout center-align"
+      >REPORT SIGHTING</a
+    >
+    <a
+      href="{{ url_for('uk_birds') }}"
+      class="col s12 m6 grid-layout center-align"
+      >ALL BIRDS</a
+    >
+  </div>
 </div>
 
 {% endblock %}

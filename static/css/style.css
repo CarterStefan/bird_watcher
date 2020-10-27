@@ -366,6 +366,10 @@ textarea.materialize-textarea{
     padding: 0px !important;
 }
 
+.my_sightings_options{
+    margin-top: 20px;
+}
+
 /* ---------------------------------- REPORT SIGHTING */
 
 .form_field_title{
