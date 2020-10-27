@@ -22,7 +22,7 @@
           <p class="card-text">Location: {{ bird.location }}</p>
           <a
             href="{{ url_for('view_bird', bird_id=bird.bird_id) }}"
-            class="bird_card_link"
+            class="btn-large clear_button"
             >View {{ bird.bird_name }}</a
           >
           <div class="row my_sightings_options">
@@ -30,7 +30,7 @@
             <div class="col s12">
               <a
                 href="{{ url_for('remove_sighting', bird_name=bird.bird_name) }}"
-                class="btn-large submit_button"
+                class="bird_card_link"
                 >DELETE SIGHTING</a
               >
             </div>
