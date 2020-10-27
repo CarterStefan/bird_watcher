@@ -12,15 +12,10 @@
       href="{{ url_for('my_sightings', username=session['user']) }}"
       class="col s12 m6 grid-layout center-align"
       >MY<br />SIGHTINGS</a
-    >
-    <a
-      href="{{ url_for('add_new_bird', username=session['user']) }}"
-      class="col s12 m6 grid-layout center-align"
-      >ADD<br />NEW<br />BIRD</a
-    >
+    >    
     <a
       href="{{ url_for('uk_birds') }}"
-      class="col s12 m6 grid-layout center-align"
+      class="col s12 grid-layout center-align"
       >ALL<br />BIRDS</a
     >
   </div>

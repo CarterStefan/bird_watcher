@@ -66,9 +66,14 @@
 
   <div class="row">
     <a
-      href="{{ url_for('add_new_bird', username=session['user']) }}"
-      class="col s12 grid-layout center-align"
-      >ADD NEW BIRD</a
+      href="{{ url_for('uk_birds') }}"
+      class="col s12 m6 grid-layout center-align"
+      >UK BIRDS</a
+    >
+    <a
+      href="{{ url_for('my_sightings', username=session['user']) }}"
+      class="col s12 m6 grid-layout center-align"
+      >MY SIGHTINGS</a
     >
   </div>
 </div>

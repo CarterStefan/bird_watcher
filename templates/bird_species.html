@@ -64,9 +64,9 @@
       >REPORT SIGHTING</a
     >
     <a
-      href="{{ url_for('add_new_bird', username=session['user']) }}"
+      href="{{ url_for('my_sightings', username=session['user']) }}"
       class="col s12 m6 grid-layout center-align"
-      >ADD NEW BIRD</a
+      >MY SIGHTINGS</a
     >
   </div>
   {% endif %}
