@@ -276,6 +276,26 @@ textarea.materialize-textarea{
     filter: grayscale(100%)
 }
 
+/* ---------------------------------- HOMEPAGE */
+
+.hero_image{
+    background-image: url("/static/images/homepage_images/swans_homepage_bw.jpg");
+    height: 500px;
+    background-repeat: no-repeat; 
+    background-size: cover;
+}
+
+.hero_image_heading{
+    color: #732002;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 5em;    
+    text-shadow: 1px 1px #fafafa;
+    padding-top: 50px;
+
+}
+
 /* ---------------------------------- FOOTER */
 .footer{
     color: #fafafa;
