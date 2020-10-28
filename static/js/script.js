@@ -4,7 +4,7 @@ $(document).ready(function(){
     $('select').formSelect();
     $('.datepicker').datepicker({
         format: "dd/mm/yyyy"
-    });
+    });  
   });
 
 // Fix for 'required' on sleect forms found on stack overflow 
