@@ -92,7 +92,10 @@ def logout():
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template("home.html")
+    if session.get('user'):
+        return render_template("home.html")
+
+    return redirect(url_for("login"))
 
 
 # Page for all birds on DB
