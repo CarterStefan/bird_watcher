@@ -3,33 +3,35 @@
 <div class="container">
   <div class="row">
     <div class="col s12">
-      <h3 class="center-align">
+      <h3 class="center-align page_heading">
         Seen an error on one of our birds
       </h3>
       <br />
-      <h4 class="center-align">Report it here</h4>
+      <h4 class="center-align sub_heading">Report it here</h4>
     </div>
   </div>
 
   <div class="row">
     <form class="col s12" method="POST" action="{{ url_for('report_error') }}">
-      <!-- Type Name of bird -->
       <div class="row">
-        <div class="col s12">
-          Name of Bird:
-        </div>
-        <div class="col s12 m6">
-          <select id="bird_seen" name="bird_seen">
-            <option value="" disabled selected>Choose your option</option>
-            {% for birds in bird_species %}
-            <option value="{{ birds.bird_name }}">{{ birds.bird_name }}</option>
-            {% endfor %}
-          </select>
-          <label>Please Select</label>
-        </div>
+      <div class="col s12 m6 center form_field_title">
+        Name of Bird:
       </div>
+      <div class="col s12 m6">
+        <select id="bird_seen" name="bird_seen" required="required">
+          <option value="" disabled selected>Choose your option</option>
+          {% for birds in bird_species %}
+          <option value="{{ birds.bird_name }}">{{ birds.bird_name }}</option>
+          {% endfor %}
+        </select>
+        <label>Please Select</label>
+      </div>
+    </div>
 
       <div class="row">
+      <div class="col s12 m6 center form_field_title">
+        Description
+      </div>
         <div class="input-field col s12 m6">
           <textarea
             id="description"
@@ -42,11 +44,17 @@
 
       <!-- Submit button -->
 
-      <div class="col s12 m6 center-align">
-        <button class="btn waves-effect waves-light" type="submit">
-          Report Error
+      <div class="row">
+      <div class="col s12 center">
+        <button
+          class="btn-large"
+          type="submit"
+          name="action"
+        >
+          REPORT ERROR
         </button>
       </div>
+    </div>
     </form>
   </div>
 </div>

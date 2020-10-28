@@ -63,13 +63,11 @@
     class="col s12 m6 grid-layout center-align"
     >REPORT AN ERROR</a
   >
-  {% if session.user == 'admin' %}
   <a
       href="{{ url_for('edit_bird', bird_id=bird._id) }}"
       class="col s12 grid-layout center-align"
       >MAKE AN EDIT TO THIS BIRD</a
     >
-    {% endif %}
 </div>
 
 {% endblock %}

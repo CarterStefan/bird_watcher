@@ -6,6 +6,11 @@
       <h3 class="center-align">
         {{ username }}, you have seen {{ number }} / {{ bird_count }} birds
       </h3>
+      {% if number == 0 %}
+        <h4 class="center-align">
+            Get out there and get spotting.
+        </h4>
+      {% endif %}
     </div>
   </div>
 
