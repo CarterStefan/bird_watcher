@@ -196,7 +196,6 @@ textarea.materialize-textarea{
     border: 1px solid white;
     color: #fafafa;
     font-family: 'Roboto Slab', serif;
-    font-weight: 900;
     font-size: 2em;
     letter-spacing: 2px;
     line-height: 25px;
@@ -273,27 +272,28 @@ textarea.materialize-textarea{
 }
 
 .homepage_image{
-    filter: grayscale(100%)
+    filter: grayscale(100%);
 }
 
 /* ---------------------------------- HOMEPAGE */
 
 .hero_image{
-    background-image: url("/static/images/homepage_images/swans_homepage_bw.jpg");
+    background-image: url("/static/images/homepage_images/swans_homepage_sketch.jpg");
     height: 500px;
     background-repeat: no-repeat; 
     background-size: cover;
+    filter: brightness(120%);
 }
 
 .hero_image_heading{
-    color: #732002;
+    color: #BF4904;
     font-family: 'Roboto Condensed', sans-serif;
     text-transform: uppercase;
     font-weight: 900;
-    font-size: 5em;    
+    font-size: 6em;    
     text-shadow: 1px 1px #fafafa;
+    text-align: center;
     padding-top: 50px;
-
 }
 
 /* ---------------------------------- FOOTER */
