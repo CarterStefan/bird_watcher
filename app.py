@@ -93,7 +93,22 @@ def logout():
 @app.route("/home")
 def home():
     if session.get('user'):
-        return render_template("home.html")
+        # Gets the list of birds seen for user from the DB
+        birds_seen = mongo.db.bird_sightings.find(
+            {"username": session["user"]}).sort(
+            "bird_name", 1)
+
+        all_birds = mongo.db.bird_species.find()
+
+        # Gets the number of birds seen for a user
+        number = birds_seen.count()
+
+        bird_count = all_birds.count()
+
+        return render_template(
+            "home.html",
+            number=number,
+            bird_count=bird_count)
 
     return redirect(url_for("login"))
 
