@@ -2,33 +2,39 @@
 
 
 <div>
-  <div class="row">
-    <div class="col s12 hero_image">
-        <div class="row">
-            <div class="col s12">
-                <h1 class="hero_image_heading">Welcome</h1>
-            </div>
-        </div>       
-    </div>
-  </div>
+	<div class="row">
+		<div class="col s12 hero_image">
+			<div class="row">
+				<div class="col s12 m6 offset-m3 l6 offset-l6">
+					<h1 class="hero_image_heading">Welcome</h1>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-  <div class="container">
-  <div class="row">
-    <a
-      href="{{ url_for('report_sighting', username=session['user']) }}"
-      class="col s12 m6 grid-layout center-align"
-      >REPORT<br />SIGHTING</a
-    >
-    <a
-      href="{{ url_for('my_sightings', username=session['user']) }}"
-      class="col s12 m6 grid-layout center-align"
-      >MY<br />SIGHTINGS</a
-    >    
-    <a
-      href="{{ url_for('uk_birds') }}"
-      class="col s12 grid-layout center-align"
-      >ALL<br />BIRDS</a
-    >
-  </div>
+<div>
+	<div class="row">
+		<div class="col s12 m4 grid-layout">
+			<h3 class="homepage_box_heading">REPORT<br>SIGHTING</h3>
+            <p class="homepage_box_text">
+                Have you spotted a bird recently? Add it to your list of birds seen to put you one step closer to completing the Birdwatcher challenge.
+            </p>
+            <a href="{{ url_for('report_sighting', username=session['user']) }}" class="btn-large homepage_button">ADD TO SIGHTINGS</a>     
+		</div>
+		<div class="col s12 m4 grid-layout">
+			<h3 class="homepage_box_heading">MY<br>SIGHTINGS</h3>
+            <p class="homepage_box_text">
+                Want to see which birds you have spotted so far? You can see your progress of the challenge by clicking the button below.
+            </p>
+            <a href="{{ url_for('my_sightings', username=session['user']) }}" class="btn-large homepage_button">GO TO MY SIGHTINGS</a>  
+		</div>
+		<div class="col s12 m4 grid-layout">
+			<h3 class="homepage_box_heading">ALL<br>BIRDS</h3>
+            <p class="homepage_box_text">
+                Struggling to know where to find a bird, click below to find where to spot them and more interesting facts about all birds of Britain.
+            </p>
+            <a href="{{ url_for('uk_birds') }}" class="btn-large homepage_button">VIEW ALL BIRDS</a>  
+		</div>
+	</div>
 </div>
 {% endblock %}
