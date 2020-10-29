@@ -118,7 +118,7 @@ def home():
 def uk_birds():
     # Get all bird species from DB and sort alpabetically
     bird_species = mongo.db.bird_species.find().sort("bird_name", 1)
-    bird_family = mongo.db.bird_family.find().sort("name", 1)
+    bird_family = mongo.db.bird_family.find().sort("family_name", 1)
     return render_template(
         "bird_species.html", bird_species=bird_species,
         bird_family=bird_family)
@@ -128,7 +128,7 @@ def uk_birds():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     # Get bird families from DB
-    bird_family = mongo.db.bird_family.find().sort("name", 1)
+    bird_family = mongo.db.bird_family.find().sort("family_name", 1)
     # Select to search by bird family
     bird_family_search = request.form.get("bird_family_search")
     bird_species = mongo.db.bird_species.find({
@@ -238,7 +238,7 @@ def report_sighting():
 @app.route("/add_new_bird/", methods=["GET", "POST"])
 def add_new_bird():
     # Get bird families from the database
-    bird_family = mongo.db.bird_family.find().sort("name", 1)
+    bird_family = mongo.db.bird_family.find().sort("family_name", 1)
 
     # Add bird to database using form when user clicks submit
     if request.method == "POST":
@@ -249,7 +249,6 @@ def add_new_bird():
             "wingspan": request.form.get("wingspan"),
             "weight": request.form.get("weight"),
             "description": request.form.get("description"),
-            "feeding": request.form.get("feeding"),
             "where": request.form.get("where"),
             "image": request.form.get("image"),
             "bird_family": request.form.get("bird_family"),
@@ -311,7 +310,6 @@ def edit_bird(bird_id):
             "wingspan": request.form.get("wingspan"),
             "weight": request.form.get("weight"),
             "description": request.form.get("description"),
-            "feeding": request.form.get("feeding"),
             "where": request.form.get("where"),
             "image": request.form.get("image"),
             "bird_family": request.form.get("bird_family"),
@@ -323,7 +321,7 @@ def edit_bird(bird_id):
     # Get existing information about bird from DB
     bird = mongo.db.bird_species.find_one({"_id": ObjectId(bird_id)})
     # Get bird family options for dropdown from DB
-    bird_family = mongo.db.bird_family.find().sort("name", 1)
+    bird_family = mongo.db.bird_family.find().sort("family_name", 1)
     # Show form to edit a birds information if logged in
     if session.get('user'):
         return render_template(

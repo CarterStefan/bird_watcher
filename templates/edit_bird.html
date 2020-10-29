@@ -155,52 +155,45 @@
           </select>
           <label for="bird_family">Bird Family</label>
         </div>
-      </div>
+        </div>
+      
 
       <!-- Description of bird -->
       <div class="row">
-        <div class="input-field col s12">
-          <textarea
-            id="description"
-            name="description"
-            class="materialize-textarea"
-          >
+      <div class="input-field col s12">
+        <textarea
+          id="description"
+          name="description"
+          class="materialize-textarea"
+        >
 {{- bird.description -}}</textarea
-          >
-          <label for="description">Description of bird</label>
-        </div>
+        >
+        <label for="description">Description of bird</label>
+      </div>
+      </div>
+    <div class="row">
+      <!-- Image link -->
+      <div class="col s12">
+        <div class="input-field">
+          <input
+            id="image"
+            name="image"
+            type="text"
+            value="{{ bird.image }}"
+            required
+          />
 
-        <!-- Image link -->
-        <div class="col s12">
-          <div class="input-field">
-            <input
-              id="image"
-              name="image"
-              type="text"
-              value="{{ bird.image }}"
-              required
-            />
-
-            <label for="image">Image Link:</label>
-            <span
-              class="helper-text"
-              data-error="Please enter a link to the image of bird"
-            ></span>
-          </div>
+          <label for="image">Image Link:</label>
+          <span
+            class="helper-text"
+            data-error="Please enter a link to the image of bird"
+          ></span>
         </div>
       </div>
+      </div>
 
-      <!-- Feeding of bird -->
+      <!-- Where to see bird -->
       <div class="row">
-        <div class="input-field col s12">
-          <textarea id="feeding" name="feeding" class="materialize-textarea">
-{{- bird.feeding -}}</textarea
-          >
-          <label for="feeding">Feeding habbit of bird</label>
-        </div>
-
-        <!-- Where to see bird -->
-
         <div class="input-field col s12">
           <textarea id="where" name="where" class="materialize-textarea">
 {{- bird.where -}}</textarea
