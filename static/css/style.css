@@ -153,6 +153,24 @@ textarea.materialize-textarea{
     margin-bottom: 50px;
 }
 
+.switch label input[type=checkbox]:checked+.lever:after {
+    background-color: #732002;
+}
+
+.switch label input[type=checkbox]:checked+.lever {
+    background-color: grey;
+}
+
+.switch label {
+    cursor: pointer;
+    color: #732002;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.switch{
+    margin-bottom: 20px;
+}
+
 /* ---------------------------------- DROPDOWN MENU */
 
 .select-wrapper input.select-dropdown{
@@ -303,7 +321,7 @@ textarea.materialize-textarea{
     padding: 20px;
     background-color: #fafafa;
     border-radius: 20px;
-    margin-top: 50px%;
+    margin-top: 50px;
 }
 
 .homepage_box_heading{    
@@ -395,7 +413,7 @@ textarea.materialize-textarea{
 /* ---------------------------------- VIEW BIRD */
 
 .bird_title{
-    font-family: 'Roboto slab', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
     color: #732002;
     font-weight: 900;
     font-size: 30px;
@@ -470,4 +488,16 @@ textarea.materialize-textarea{
 .datepicker-table td.is-selected {
     background-color: #732002;
     color: #fafafa;
+}
+
+/* ---------------------------------- VIEW ERRORS */
+
+.error-card-title{
+    color:#732002;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 900;
+}
+
+.card-content{
+    font-family: 'Roboto Condensed', sans-serif;
 }

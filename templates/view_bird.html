@@ -52,22 +52,42 @@
   </div>
 </div>
 
-<div class="row">
-  <a
-    href="{{ url_for('uk_birds') }}"
-    class="col s12 m6 grid-layout center-align"
-    >UK BIRDS</a
-  >
-  <a
-    href="{{ url_for('report_error') }}"
-    class="col s12 m6 grid-layout center-align"
-    >REPORT AN ERROR</a
-  >
-  <a
-      href="{{ url_for('edit_bird', bird_id=bird._id) }}"
-      class="col s12 grid-layout center-align"
-      >MAKE AN EDIT TO THIS BIRD</a
+<div class="row">  
+  <div class="col s12 m6 grid-layout">
+    <h3 class="homepage_box_heading">REPORT<br />ERROR</h3>
+    <p class="homepage_box_text">
+      If you feel there is an error on this birds information, please click below to report the wrror to us so we can rectify the issue.
+    </p>
+    <a href="{{ url_for('report_error') }}" class="btn-large homepage_button"
+      >LOG ERROR REPORT</a
     >
+  </div>
+  <div class="col s12 m6 grid-layout">
+    <h3 class="homepage_box_heading">EDIT<br />BIRD</h3>
+    <p class="homepage_box_text center">
+      Feel like you can add some useful information to this bird? Please feel free to edit this birds page using the form below.
+    </p>
+    <a href="{{ url_for('report_error') }}" class="btn-large homepage_button"
+      >EDIT THIS BIRD</a
+    >
+  </div>
+  <div class="col s12 m6 grid-layout">
+    <h3 class="homepage_box_heading">ALL<br />BIRDS</h3>
+    <p class="homepage_box_text">
+      Struggling to know where to find a bird, click below to find where to spot
+      them and more interesting facts about all birds of Britain.
+    </p>
+    <a href="{{ url_for('uk_birds') }}" class="btn-large homepage_button"
+      >VIEW ALL BIRDS</a
+    >
+  </div>
+  <div class="col s12 m6 grid-layout">
+			<h3 class="homepage_box_heading">REPORT<br>SIGHTING</h3>
+            <p class="homepage_box_text">
+                Have you spotted a bird recently? Add it to your list of birds seen to put you one step closer to completing the Birdwatcher challenge.
+            </p>
+            <a href="{{ url_for('report_sighting', username=session['user']) }}" class="btn-large homepage_button">ADD TO SIGHTINGS</a>     
+		</div>
 </div>
 
 {% endblock %}
