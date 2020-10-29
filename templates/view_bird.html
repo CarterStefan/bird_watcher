@@ -67,7 +67,7 @@
     <p class="homepage_box_text center">
       Feel like you can add some useful information to this bird? Please feel free to edit this birds page using the form below.
     </p>
-    <a href="{{ url_for('report_error') }}" class="btn-large homepage_button"
+    <a href="{{ url_for('edit_bird', bird_id=bird._id) }}" class="btn-large homepage_button"
       >EDIT THIS BIRD</a
     >
   </div>
