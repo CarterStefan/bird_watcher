@@ -251,6 +251,7 @@ def add_new_bird():
             "description": request.form.get("description"),
             "where": request.form.get("where"),
             "image": request.form.get("image"),
+            "feeding": request.form.get("feeding"),
             "bird_family": request.form.get("bird_family"),
             "added_by": session["user"]
         }
@@ -311,6 +312,7 @@ def edit_bird(bird_id):
             "weight": request.form.get("weight"),
             "description": request.form.get("description"),
             "where": request.form.get("where"),
+            "feeding": request.form.get("feeding"),
             "image": request.form.get("image"),
             "bird_family": request.form.get("bird_family"),
             "added_by": session["user"]
