@@ -132,7 +132,7 @@ def search():
     # Select to search by bird family
     bird_family_search = request.form.get("bird_family_search")
     bird_species = mongo.db.bird_species.find({
-        "$text": {"$search": bird_family_search}}).sort(
+        "$text": {"$search": '"'+bird_family_search+'"'}}).sort(
             "bird_name", 1)
 
     # Flash message if no results found
