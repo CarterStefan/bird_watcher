@@ -10,6 +10,10 @@ Bird watcher is my third milestone project as part of my Full Stack Web Developm
 1. [**Project overview**](#project-overview)
 2. [**UX**](#ux)
   - [**User Stories**](#user-stories)
+  - [**Design**](#design)
+    - [**Libraries**](#libraries)
+    - [**Color Scheme**](#color-scheme)
+    - [**Typography**](#typography)
  
 ---
  
@@ -60,8 +64,9 @@ The site is simple in design to make it easy on the eye and user friendly. The w
 
 #### Typography
 [Google Fonts](https://fonts.google.com/) - Used for the selection of my fonts.
-
-##### Fonts
 - [Plaster](https://fonts.google.com/specimen/Plaster) - Logo of website
 - [Roboto Condensed](https://fonts.google.com/specimen/Roboto+Condensed) - Used for majority of text around the website
 - [Roboto Slab](https://fonts.google.com/specimen/Roboto+Slab) - Used for name of birds on bird cards
+
+### Wireframes
+
