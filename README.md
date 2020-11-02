@@ -2,7 +2,8 @@
 ### [Heroku App](https://bird-watcher-project.herokuapp.com/)
 ### [GitHub](https://github.com/CarterStefan/bird_watcher)
  
-![Am_I_Responsive](https://user-images.githubusercontent.com/64138643/97895130-49917200-1d2b-11eb-921c-ea50b5973e7d.PNG)
+![Am_I_Responsive](https://user-images.githubusercontent.com/64138643/97895263-7776b680-1d2b-11eb-81b3-ab9b2b888ba9.PNG)
+
  
 Bird watcher is my third milestone project as part of my Full Stack Web Development Course with [Code Institute](https://codeinstitute.net/). This project focuses on "Data Centric Development" and will put into practice what I have learned over the last couple of modules.
  
