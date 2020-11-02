@@ -2,7 +2,7 @@
 ### [Heroku App](https://bird-watcher-project.herokuapp.com/)
 ### [GitHub](https://github.com/CarterStefan/bird_watcher)
  
-## ADD IMAGES OF DEVICES ONCE FINISHED HERE ##
+![Am_I_Responsive](https://user-images.githubusercontent.com/64138643/97895130-49917200-1d2b-11eb-921c-ea50b5973e7d.PNG)
  
 Bird watcher is my third milestone project as part of my Full Stack Web Development Course with [Code Institute](https://codeinstitute.net/). This project focuses on "Data Centric Development" and will put into practice what I have learned over the last couple of modules.
  
@@ -14,7 +14,10 @@ Bird watcher is my third milestone project as part of my Full Stack Web Developm
     - [**Libraries**](#libraries)
     - [**Color Scheme**](#color-scheme)
     - [**Typography**](#typography)
- 
+  - [**Wireframes**](#wireframes)
+3. [**Features**](#features)
+  - [**Existing Features**](#existing-features)
+  - [**Features Left to Implement**](#features-left-to-implemement)
 ---
  
 ## Project overview
@@ -69,4 +72,10 @@ The site is simple in design to make it easy on the eye and user friendly. The w
 - [Roboto Slab](https://fonts.google.com/specimen/Roboto+Slab) - Used for name of birds on bird cards
 
 ### Wireframes
+You can view the wireframes that I based my site on in the UX folder.
+- [View Wireframe](https://github.com/CarterStefan/bird_watcher/blob/master/static/UX/WireframePDF.pdf)
 
+## Features 
+### Existing Features
+
+### Features Left to Implement
