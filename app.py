@@ -146,6 +146,27 @@ def search():
         bird_family=bird_family)
 
 
+# PAGE TO VIEW SPECIFIC BIRD INFORMATION
+@app.route("/view_bird/<bird_id>")
+def view_bird(bird_id):
+
+    if session.get('user'):
+        # Get information about specific bird clicked on from DB
+        bird = mongo.db.bird_species.find_one({"_id": ObjectId(bird_id)})
+
+        # Check for existing sighting
+        existing_sighting = mongo.db.bird_sightings.find({
+            "username": session["user"]})
+
+        for sighting in existing_sighting:
+            if bird_id == str(sighting["bird_id"]):
+                flash("You have seen this bird")
+
+        return render_template("view_bird.html", bird=bird)
+
+    return redirect(url_for("login"))
+
+
 # PAGE FOR USERS REPORTED SIGHTINGS
 @app.route("/my_sightings", methods=["GET", "POST"])
 def my_sightings():
@@ -284,27 +305,6 @@ def add_new_bird():
     return redirect(url_for("uk_birds"))
 
 
-# PAGE TO VIEW SPECIFIC BIRD INFORMATION
-@app.route("/view_bird/<bird_id>")
-def view_bird(bird_id):
-
-    if session.get('user'):
-        # Get information about specific bird clicked on from DB
-        bird = mongo.db.bird_species.find_one({"_id": ObjectId(bird_id)})
-
-        # Check for existing sighting
-        existing_sighting = mongo.db.bird_sightings.find({
-            "username": session["user"]})
-
-        for sighting in existing_sighting:
-            if bird_id == str(sighting["bird_id"]):
-                flash("You have seen this bird")
-
-        return render_template("view_bird.html", bird=bird)
-
-    return redirect(url_for("login"))
-
-
 # PAGE TO EDIT INFORMATION ABOUT SPECIFIC BIRD
 @app.route("/edit_bird/<bird_id>", methods=["GET", "POST"])
 def edit_bird(bird_id):
@@ -402,7 +402,7 @@ def delete_error(error_id):
     return redirect(url_for("admin_errors"))
 
 
-# PAGE FOR ERROR HANDLER
+# PAGE FOR ERROR HANDLER 404
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template("404.html"), 404
@@ -411,4 +411,4 @@ def page_not_found(e):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=False)

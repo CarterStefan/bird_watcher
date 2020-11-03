@@ -493,12 +493,3 @@ textarea.materialize-textarea{
 .card-content{
     font-family: 'Roboto Condensed', sans-serif;
 }
-
-/* ---------------------------------- VIEW ERRORS */
-
-.page_not_found_image{
-    background-image: url("/static/images/empty_nest_sketch.jpg");
-    background-repeat: no-repeat; 
-    background-size: cover;
-    filter: brightness(120%);
-}
