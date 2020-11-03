@@ -27,6 +27,7 @@
 						<a href="{{ url_for('add_new_bird', username=session['user']) }}">Add New Bird</a>
 					</li>
 					{% endif %}
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
 					<li><a href="{{ url_for('uk_birds') }}">UK Birds</a></li>
 					{% if session.user %}
 					<li>
