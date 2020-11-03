@@ -336,7 +336,7 @@ def edit_bird(bird_id):
 def delete_account():
     if session.get('user'):
         username = mongo.db.users.find_one(
-                {"username": session["user"]})["username"]
+            {"username": session["user"]})["username"]
 
         return render_template("delete_account.html", username=username)
 

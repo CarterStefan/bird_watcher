@@ -20,6 +20,7 @@
       <div class="col s12 m6">
         <select id="bird_seen" name="bird_seen" required="required">
           <option value="" disabled selected>Choose your option</option>
+          <option value="General Error">General Error</option>
           {% for birds in bird_species %}
           <option value="{{ birds.bird_name }}">{{ birds.bird_name }}</option>
           {% endfor %}
