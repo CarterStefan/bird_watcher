@@ -10,9 +10,8 @@ if os.path.exists("env.py"):
     import env
 
 
+# ENVIRONMENT VARIABLES
 app = Flask(__name__)
-
-
 app.config["ALLOWED_IMAGE_EXTENSIONS"] = ["JPEG", "JPG", "PNG", "GIF"]
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
@@ -22,7 +21,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-# Page for user registration
+# PAGE FOR USER REGISTRATION
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -49,7 +48,7 @@ def register():
     return render_template("register.html")
 
 
-# Page for user login
+# PAGE FOR USER LOGIN
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -78,7 +77,7 @@ def login():
     return render_template("login.html")
 
 
-# Page for logging user out
+# PAGE FOR USER LOGOUT
 @app.route("/logout")
 def logout():
 
@@ -88,7 +87,7 @@ def logout():
     return redirect(url_for("login"))
 
 
-# Homepage
+# HOMEPAGE
 @app.route("/")
 @app.route("/home")
 def home():
@@ -103,6 +102,7 @@ def home():
         # Gets the number of birds seen for a user
         number = birds_seen.count()
 
+        # Gets the total number of birds on DB
         bird_count = all_birds.count()
 
         return render_template(
@@ -113,7 +113,7 @@ def home():
     return redirect(url_for("login"))
 
 
-# Page for all birds on DB
+# VIEW ALL BIRDS ON DB
 @app.route("/uk_birds")
 def uk_birds():
     # Get all bird species from DB and sort alpabetically
@@ -124,7 +124,7 @@ def uk_birds():
         bird_family=bird_family)
 
 
-# Search function on view all birds
+# SEARCH FUNCTION TO FILTER BY BIRD SPECIES
 @app.route("/search", methods=["GET", "POST"])
 def search():
     # Get bird families from DB
@@ -146,9 +146,10 @@ def search():
         bird_family=bird_family)
 
 
-# Page for users bird sightings
+# PAGE FOR USERS REPORTED SIGHTINGS
 @app.route("/my_sightings", methods=["GET", "POST"])
 def my_sightings():
+
     # Show my sightings page if user is logged in
     if session.get('user'):
         # Gets the session users username from the DB
@@ -165,6 +166,7 @@ def my_sightings():
         # Gets the number of birds seen for a user
         number = birds_seen.count()
 
+        # Get total number of birds from DB
         bird_count = all_birds.count()
 
         if number == bird_count:
@@ -181,15 +183,7 @@ def my_sightings():
     return redirect(url_for("login"))
 
 
-@app.route("/remove_sighting/<bird_name>", methods=["GET", "POST"])
-def remove_sighting(bird_name):
-    mongo.db.bird_sightings.remove({
-        "username": session["user"], "bird_name": bird_name})
-    flash("Sighting Deleted")
-    return redirect(url_for("my_sightings"))
-
-
-# Page to report new sighting
+# PAGE TO REPORT NEW SIGHTING
 @app.route("/report_sighting", methods=["GET", "POST"])
 def report_sighting():
     if session.get('user'):
@@ -234,7 +228,16 @@ def report_sighting():
     return redirect(url_for("login"))
 
 
-# Page to add new bird
+# FUNCTION TO REMOVE USER SIGHTING
+@app.route("/remove_sighting/<bird_name>", methods=["GET", "POST"])
+def remove_sighting(bird_name):
+    mongo.db.bird_sightings.remove({
+        "username": session["user"], "bird_name": bird_name})
+    flash("Sighting Deleted")
+    return redirect(url_for("my_sightings"))
+
+
+# PAGE TO ADD NEW BIRD IF USER IS ADMIN
 @app.route("/add_new_bird/", methods=["GET", "POST"])
 def add_new_bird():
     # Get bird families from the database
@@ -255,13 +258,16 @@ def add_new_bird():
             "bird_family": request.form.get("bird_family"),
             "added_by": session["user"]
         }
+
         # This will check if the bird name exists in the DB
         existing_bird = mongo.db.bird_species.find_one(
             {"bird_name": request.form.get("bird_name").lower()})
+
         # If it does, flash message to user and reload form
         if existing_bird:
             flash("Bird already added")
             return redirect(url_for("add_new_bird"))
+
         # Else add bird to DB
         mongo.db.bird_species.insert_one(bird)
         flash("Thankyou, your bird has been added")
@@ -278,7 +284,7 @@ def add_new_bird():
     return redirect(url_for("uk_birds"))
 
 
-# View a specific bird
+# PAGE TO VIEW SPECIFIC BIRD INFORMATION
 @app.route("/view_bird/<bird_id>")
 def view_bird(bird_id):
 
@@ -299,7 +305,7 @@ def view_bird(bird_id):
     return redirect(url_for("login"))
 
 
-# Page to edit information about a bird
+# PAGE TO EDIT INFORMATION ABOUT SPECIFIC BIRD
 @app.route("/edit_bird/<bird_id>", methods=["GET", "POST"])
 def edit_bird(bird_id):
     # Edit bird on database when user clicks submit
@@ -322,8 +328,10 @@ def edit_bird(bird_id):
 
     # Get existing information about bird from DB
     bird = mongo.db.bird_species.find_one({"_id": ObjectId(bird_id)})
+
     # Get bird family options for dropdown from DB
     bird_family = mongo.db.bird_family.find().sort("family_name", 1)
+
     # Show form to edit a birds information if logged in
     if session.get('user'):
         return render_template(
@@ -332,6 +340,7 @@ def edit_bird(bird_id):
     return redirect(url_for("login"))
 
 
+# PAGE TO DELETE USERS ACCOUNT FROM DB
 @app.route("/delete_account", methods=["GET", "POST"])
 def delete_account():
     if session.get('user'):
@@ -343,6 +352,7 @@ def delete_account():
     return redirect(url_for("login"))
 
 
+# PAGE TO CONFIRM ACCOUNT DELETION FROM DB
 @app.route("/delete_account_confirmation", methods=["GET", "POST"])
 def delete_account_confirmation():
     mongo.db.users.remove({"username": session["user"]})
@@ -351,6 +361,7 @@ def delete_account_confirmation():
     return redirect(url_for("register"))
 
 
+# PAGE TO REPORT ERROR ON THE SITE
 @app.route("/report_error", methods=["GET", "POST"])
 def report_error():
     if session.get('user'):
@@ -370,6 +381,7 @@ def report_error():
     return redirect(url_for("login"))
 
 
+# PAGE TO VIEW ERRORS IF USER IS ADMIN
 @app.route("/admin_errors", methods=["GET", "POST"])
 def admin_errors():
     if session.get('user') == 'admin':
@@ -382,6 +394,7 @@ def admin_errors():
     return redirect(url_for("uk_birds"))
 
 
+# FUNCTION TO MARK ERROR AS RESOLVED
 @app.route("/delete_error/<error_id>", methods=["GET", "POST"])
 def delete_error(error_id):
     mongo.db.errors.remove({"_id": ObjectId(error_id)})
