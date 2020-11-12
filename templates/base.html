@@ -29,6 +29,18 @@
   <body>
     <header>
       <!-- Desktop Navbar -->
+      <ul id="dropdown1" class="dropdown-content">
+        <li>
+          <a href="{{ url_for('my_sightings', username=session['user']) }}"
+            >My Sighitngs</a
+          >
+        </li>
+        <li>
+          <a href="{{ url_for('report_sighting', username=session['user']) }}"
+            >Report sighting</a
+          >
+        </li>
+      </ul>
       <div class="navbar-fixed">
         <nav>
           <div class="nav-wrapper">
@@ -50,15 +62,10 @@
               <li><a href="{{ url_for('uk_birds') }}">UK Birds</a></li>
               {% if session.user %}
               <li>
-                <a
-                  href="{{ url_for('my_sightings', username=session['user']) }}"
-                  >My Sightings</a
-                >
-              </li>
-              <li>
-                <a
-                  href="{{ url_for('report_sighting', username=session['user']) }}"
-                  >Report Sighting</a
+                <a class="dropdown-trigger" href="#!" data-target="dropdown1"
+                  >Sightings<i class="material-icons right"
+                    >arrow_drop_down</i
+                  ></a
                 >
               </li>
               <li><a href="{{ url_for('logout') }}">Log Out</a></li>
