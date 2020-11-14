@@ -464,15 +464,16 @@ textarea.materialize-textarea{
   transform: translate(-10%, -10%);
   -ms-transform: translate(-10%, -10%);
   font-size: 16px;
-  padding: 5px 5px 10px 5px;
+  padding: 5px 5px 5px 5px;
   cursor: pointer;
   border-radius: 5px;
-  background-color: #fafafa !important;
-  color: #0B8CBF !important;
+  background-color: #fafafa;
+  color: #0B8CBF;
 }
 
 .image_container .edit-btn:hover {
-  background-color: grey;
+  background-color: #0B8CBF;
+  color: #fafafa;
 }
 
 .my_sightings_options{
