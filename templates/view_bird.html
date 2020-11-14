@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col s12 bird_image">
       <div class="image_container">
-        <img height="100%" width="100%" src=" {{ bird.image }} " />
+        <img height="100%" width="100%" src=" {{ bird.image }} " alt="Bird Image"/>
         <!-- LINK TO EDIT BIRD IF USER IS ADMIN -->
         {% if session.user == 'admin' %}
         <button class="edit-btn">
