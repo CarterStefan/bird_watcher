@@ -451,29 +451,28 @@ textarea.materialize-textarea{
   position: relative;
 }
 
-/* Make the image responsive */
 .image_container img {
+  width: 100%;
   height: auto;
 }
 
 /* Style the button and place it in the middle of the container/image */
-.image_container .btn {
+.image_container .edit-btn {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  background-color: #555;
-  color: white;
+  top: 10%;
+  left: 10%;
+  transform: translate(-10%, -10%);
+  -ms-transform: translate(-10%, -10%);
   font-size: 16px;
-  padding: 12px 24px;
-  border: none;
+  padding: 5px 5px 10px 5px;
   cursor: pointer;
   border-radius: 5px;
+  background-color: #fafafa !important;
+  color: #0B8CBF !important;
 }
 
-.container .btn:hover {
-  background-color: black;
+.image_container .edit-btn:hover {
+  background-color: grey;
 }
 
 .my_sightings_options{
