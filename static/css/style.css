@@ -364,11 +364,12 @@ textarea.materialize-textarea{
 
 /* ---------------------------------- BIRD CARDS */
 .card-title{
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Roboto Condensed', sans-serif;
     font-weight: 900 !important;
-    color: #fafafa;
-    text-shadow: 3px 2px black;
+    color: #732002 !important;
+    text-shadow: 1px 1px #fafafa;
     letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .bird_card_image{
