@@ -333,11 +333,11 @@ def edit_bird(bird_id):
     bird_family = mongo.db.bird_family.find().sort("family_name", 1)
 
     # Show form to edit a birds information if logged in
-    if session.get('user'):
+    if session.get('user') == 'admin':
         return render_template(
             "edit_bird.html", bird=bird, bird_family=bird_family)
 
-    return redirect(url_for("login"))
+    return redirect(url_for("home"))
 
 
 # PAGE TO DELETE USERS ACCOUNT FROM DB

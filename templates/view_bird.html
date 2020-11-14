@@ -6,7 +6,11 @@
       <div class="image_container">
         <img height="100%" width="100%" src=" {{ bird.image }} " />
         {% if session.user == 'admin' %}
-        <button class="edit-btn"><i class="material-icons">edit</i></button>
+        <button class="edit-btn">
+          <a href="{{ url_for('edit_bird', bird_id=bird._id) }}"
+            ><i class="material-icons">edit</i></a
+          >
+        </button>
         {% endif %}
       </div>
     </div>
