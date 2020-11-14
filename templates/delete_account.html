@@ -1,15 +1,31 @@
 {% extends "base.html" %} {% block content %}
 
 <div class="container">
-  <div class="row">
-    <div class="col s12 grid-layout">
-      <h3 class="center-align">
-        {{ username }}, are you sure you wish to delete your account?
-      </h3>
-      <a href="{{ url_for('my_sightings') }}" class="waves-effect waves-light green btn-large">Keep Watching</a>
-      <a href="{{ url_for('delete_account_confirmation') }}" class="waves-effect waves-light red btn-large">Fledge Nest</a>
+  <section>
+    <div class="row">
+      <div class="col s12">
+        <!-- MY SIGHTINGS PAGE TITLE -->
+        <h3 class="center-align welcome_title">
+          {{ username }}, are you sure you wish to delete your account?
+        </h3>
+
+        <div class="row">
+          <div class="col s12 center-align">
+            <a
+              href="{{ url_for('my_sightings') }}"
+              class="btn-large submit_button"
+              >Keep Watching</a
+            >
+            <a
+              href="{{ url_for('delete_account_confirmation') }}"
+              class="btn-large clear_button"
+              >Fledge Nest</a
+            >
+          </div>
+        </div>
+      </div>
     </div>
-  </div>  
+  </section>
 </div>
 
 {% endblock %}
