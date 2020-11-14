@@ -1,6 +1,8 @@
 $(document).ready(function(){
     $(".sidenav").sidenav();
-    $(".dropdown-trigger").dropdown();
+    $(".dropdown-trigger").dropdown({
+        coverTrigger: false
+    });
     $('.collapsible').collapsible();
     $('select').formSelect();
     $('.datepicker').datepicker({

@@ -44,6 +44,11 @@ nav li{
     padding-left: 32px !important;
 }
 
+.dropdown-content li>a{
+    color: #732002;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
 /* ---------------------------------- HEADINGS AND TEXT */
 
 .page_heading{
@@ -330,7 +335,6 @@ textarea.materialize-textarea{
 .homepage_box_text{
     color: #fafafa;
     font-family: 'Roboto Condensed', sans-serif;
-    text-align: justify;
     padding: 10px;
 }
 
@@ -429,7 +433,6 @@ textarea.materialize-textarea{
     font-size: 16px;
     font-weight: 500;
     text-align: justify;
-    padding: 20px;
 }
 
 .bird_feeding_where_text{
@@ -438,7 +441,6 @@ textarea.materialize-textarea{
     font-size: 16px;
     font-weight: 500;
     text-align: center !important;
-    padding: 20px;
 }
 
 .bird_image{
