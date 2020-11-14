@@ -2,8 +2,9 @@
 
 <div class="container">
   <div class="row">
-    <div class="col s12 bird_image">
+    <div class="col s12 bird_image image_container">
       <img height="100%" width="100%" src=" {{ bird.image }} " />
+      <button class="btn">Edit  Bird</button>
     </div>
   </div>
 </div>
@@ -53,7 +54,7 @@
 </div>
 
 <div class="row">  
-  <div class="col s12 m6 grid-layout">
+  <div class="col s12 m4 grid-layout">
     <h3 class="homepage_box_heading">REPORT<br />ERROR</h3>
     <p class="homepage_box_text">
       If you feel there is an error on this birds information, please click below to report the wrror to us so we can rectify the issue.
@@ -62,16 +63,7 @@
       >LOG ERROR REPORT</a
     >
   </div>
-  <div class="col s12 m6 grid-layout">
-    <h3 class="homepage_box_heading">EDIT<br />BIRD</h3>
-    <p class="homepage_box_text center">
-      Feel like you can add some useful information to this bird? Please feel free to edit this birds page using the form below.
-    </p>
-    <a href="{{ url_for('edit_bird', bird_id=bird._id) }}" class="btn-large homepage_button"
-      >EDIT THIS BIRD</a
-    >
-  </div>
-  <div class="col s12 m6 grid-layout">
+  <div class="col s12 m4 grid-layout">
     <h3 class="homepage_box_heading">ALL<br />BIRDS</h3>
     <p class="homepage_box_text">
       Struggling to know where to find a bird, click below to find where to spot
@@ -81,7 +73,7 @@
       >VIEW ALL BIRDS</a
     >
   </div>
-  <div class="col s12 m6 grid-layout">
+  <div class="col s12 m4 grid-layout">
 			<h3 class="homepage_box_heading">REPORT<br>SIGHTING</h3>
             <p class="homepage_box_text">
                 Have you spotted a bird recently? Add it to your list of birds seen to put you one step closer to completing the Birdwatcher challenge.
