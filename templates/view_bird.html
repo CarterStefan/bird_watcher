@@ -5,7 +5,9 @@
     <div class="col s12 bird_image">
       <div class="image_container">
         <img height="100%" width="100%" src=" {{ bird.image }} " />
+        {% if session.user == 'admin' %}
         <button class="edit-btn"><i class="material-icons">edit</i></button>
+        {% endif %}
       </div>
     </div>
   </div>
