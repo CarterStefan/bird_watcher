@@ -1,23 +1,27 @@
 {% extends "base.html" %} {% block content %}
 
 <div class="container">
-  <div class="row">
-    <div class="col s12">
-      <h3 class="welcome_title">
-        Seen an error on a birds information?
-      </h3>
-      <br />
-      <h4 class="sub_heading">Update it here</h4>
+  <section>
+    <div class="row">
+      <div class="col s12">
+        <!-- EDIT PAGE TITLE -->
+        <h3 class="welcome_title">
+          Seen an error on a birds information?
+        </h3>
+        <br />
+        <h4 class="sub_heading">Update it here</h4>
+      </div>
     </div>
-  </div>
+  </section>
 
+  <!-- FORM TO EDIT BIRD -->
   <div class="row">
     <form
       class="col s12"
       method="POST"
       action="{{ url_for('edit_bird', bird_id=bird._id) }}"
     >
-      <!-- Type Name of bird -->
+      <!-- NAME OF BIRD -->
       <div class="row">
         <div class="col s12 m6">
           <div class="input-field">
@@ -39,9 +43,7 @@
             ></span>
           </div>
         </div>
-
-        <!-- Scientific name of bird -->
-
+        <!-- SCIENTIFIC NAME OF BIIRD-->
         <div class="col s12 m6">
           <div class="input-field">
             <input
@@ -63,8 +65,7 @@
           </div>
         </div>
       </div>
-
-      <!-- Length of bird -->
+      <!-- LENGTH OF BIRD -->
       <div class="row">
         <div class="col s12 m6">
           <div class="input-field">
@@ -85,9 +86,7 @@
             ></span>
           </div>
         </div>
-
-        <!-- wingspan of bird -->
-
+        <!-- WINGSPAN OF BIRD -->
         <div class="col s12 m6">
           <div class="input-field">
             <input
@@ -108,8 +107,7 @@
           </div>
         </div>
       </div>
-
-      <!-- Weight of bird -->
+      <!-- WEIGHT OF BIRD -->
       <div class="row">
         <div class="col s12 m6">
           <div class="input-field">
@@ -130,8 +128,7 @@
             ></span>
           </div>
         </div>
-
-        <!-- Category of bird -->
+        <!-- CATEGORY OF BIRD -->
         <div class="input-field col s12 m6">
           <select id="bird_family" name="bird_family" class="icons">
             <option value="bird.bird_family"></option>
@@ -155,55 +152,50 @@
           </select>
           <label for="bird_family">Bird Family</label>
         </div>
-        </div>
-      
-
-      <!-- Description of bird -->
-      <div class="row">
-      <div class="input-field col s12">
-        <textarea
-          id="description"
-          name="description"
-          class="materialize-textarea"
-        >
-{{- bird.description -}}</textarea
-        >
-        <label for="description">Description of bird</label>
       </div>
-      </div>
-      <!-- Feeding of bird -->
+      <!-- DESCRIPTION OF BIRD -->
       <div class="row">
         <div class="input-field col s12">
           <textarea
-            id="feeding"
-            name="feeding"
+            id="description"
+            name="description"
             class="materialize-textarea"
-          >{{- bird.feeding -}}</textarea>
+          >
+{{- bird.description -}}</textarea
+          >
+          <label for="description">Description of bird</label>
+        </div>
+      </div>
+      <!-- FEEDING OF BIRD -->
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="feeding" name="feeding" class="materialize-textarea">
+{{- bird.feeding -}}</textarea
+          >
           <label for="feeding">Feeding habbit of bird</label>
         </div>
       </div>
-    <div class="row">
-      <!-- Image link -->
-      <div class="col s12">
-        <div class="input-field">
-          <input
-            id="image"
-            name="image"
-            type="text"
-            value="{{ bird.image }}"
-            required
-          />
+      <div class="row">
+        <!-- IMAGE LINK -->
+        <div class="col s12">
+          <div class="input-field">
+            <input
+              id="image"
+              name="image"
+              type="text"
+              value="{{ bird.image }}"
+              required
+            />
 
-          <label for="image">Image Link:</label>
-          <span
-            class="helper-text"
-            data-error="Please enter a link to the image of bird"
-          ></span>
+            <label for="image">Image Link:</label>
+            <span
+              class="helper-text"
+              data-error="Please enter a link to the image of bird"
+            ></span>
+          </div>
         </div>
       </div>
-      </div>
-
-      <!-- Where to see bird -->
+      <!-- WHERE TO SEE THE BIRD -->
       <div class="row">
         <div class="input-field col s12">
           <textarea id="where" name="where" class="materialize-textarea">
@@ -212,11 +204,12 @@
           <label for="where">Where to see the bird</label>
         </div>
       </div>
-
-      <!-- Cancel / Submit buttons -->
+      <!-- CANCEL / SUBMIT FORM -->
       <div class="row">
         <div class="col s6 center-align">
-          <a href="{{ url_for('view_bird', bird_id=bird._id) }}" class="btn-large clear_button"
+          <a
+            href="{{ url_for('view_bird', bird_id=bird._id) }}"
+            class="btn-large clear_button"
             >Cancel Edit</a
           >
         </div>

@@ -1,13 +1,18 @@
 {% extends "base.html" %} {% block content %}
 
 <div class="container">
-  <div class="row">
-    <div class="col s12">
-      <h3 class="center-align welcome_title">Report Sighting</h3>
+  <section>
+    <div class="row">
+      <div class="col s12">
+        <!-- REPORT SIGHTING TITLE -->
+        <h3 class="center-align welcome_title">Report Sighting</h3>
+      </div>
     </div>
-  </div>
-  <!-- Select Name of bird -->
+  </section>
+
+  <!-- FORM TO REPORT BIRD SIGHTING -->
   <form class="col s12" method="POST" action="{{ url_for('report_sighting') }}">
+    <!-- SELECT BIRD SEEN -->
     <div class="row">
       <div class="col s12 m6 center form_field_title">
         Name of Bird:
@@ -23,41 +28,45 @@
       </div>
     </div>
 
-    <!-- Select date seen -->
+    <!-- SELECT DATE SEEN -->
     <div class="row">
       <div class="col s12 m6 center form_field_title">
         Date Spotted:
       </div>
       <div class="col s12 m6">
-        <input id="date_seen" name="date_seen" type="text" class="datepicker center" required/>
+        <input
+          id="date_seen"
+          name="date_seen"
+          type="text"
+          class="datepicker center"
+          required
+        />
         <label for="date_seen">Select Date</label>
       </div>
     </div>
 
-    <!-- Select Location -->
+    <!-- SELECT LOCATION -->
     <div class="row">
       <div class="col s12 m6 center form_field_title">
         County:
-        </div>
-        <div class="col s12 m6">
+      </div>
+      <div class="col s12 m6">
         <select id="location" name="location" required="required">
           <option value="" disabled selected>Location</option>
           {% for county in counties %}
-            <option value="{{ county.county_name}}">{{ county.county_name}}</option>
-          {% endfor %}  
+          <option value="{{ county.county_name}}"
+            >{{ county.county_name}}</option
+          >
+          {% endfor %}
         </select>
         <label>Choose the county where you saw this bird</label>
       </div>
     </div>
 
-    <!-- Submit button -->
+    <!-- SUBMIT FORM -->
     <div class="row">
       <div class="col s12 center">
-        <button
-          class="btn-large"
-          type="submit"
-          name="action"
-        >
+        <button class="btn-large" type="submit" name="action">
           Add to my sightings
         </button>
       </div>
@@ -66,19 +75,27 @@
 
   <div class="row">
     <div class="col s12 m6 grid-layout">
-			<h3 class="homepage_box_heading">ALL<br>BIRDS</h3>
-            <p class="homepage_box_text">
-                Struggling to know where to find a bird, click below to find where to spot them and more interesting facts about all birds of Britain.
-            </p>
-            <a href="{{ url_for('uk_birds') }}" class="btn-large homepage_button">VIEW ALL BIRDS</a>  
-		</div>
+      <h3 class="homepage_box_heading">ALL<br />BIRDS</h3>
+      <p class="homepage_box_text">
+        Struggling to know where to find a bird, click below to find where to
+        spot them and more interesting facts about all birds of Britain.
+      </p>
+      <a href="{{ url_for('uk_birds') }}" class="btn-large homepage_button"
+        >VIEW ALL BIRDS</a
+      >
+    </div>
     <div class="col s12 m6 grid-layout">
-			<h3 class="homepage_box_heading">MY<br>SIGHTINGS</h3>
-            <p class="homepage_box_text">
-                Want to see which birds you have spotted so far? You can see your progress of the challenge by clicking the button below.
-            </p>
-            <a href="{{ url_for('my_sightings', username=session['user']) }}" class="btn-large homepage_button">GO TO MY SIGHTINGS</a>  
-		</div>
+      <h3 class="homepage_box_heading">MY<br />SIGHTINGS</h3>
+      <p class="homepage_box_text">
+        Want to see which birds you have spotted so far? You can see your
+        progress of the challenge by clicking the button below.
+      </p>
+      <a
+        href="{{ url_for('my_sightings', username=session['user']) }}"
+        class="btn-large homepage_button"
+        >GO TO MY SIGHTINGS</a
+      >
+    </div>
   </div>
 </div>
 

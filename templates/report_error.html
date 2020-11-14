@@ -1,38 +1,43 @@
 {% extends "base.html" %} {% block content %}
 
 <div class="container">
-  <div class="row">
-    <div class="col s12">
-      <h3 class="center-align welcome_title">
-        Seen an error on one of our birds
-      </h3>
-      <br />
-      <h4 class="center-align sub_heading">Report it here</h4>
+  <section>
+    <div class="row">
+      <div class="col s12">
+        <!-- ERROR PAGE TITLE -->
+        <h3 class="center-align welcome_title">
+          Seen an error on one of our birds?
+        </h3>
+        <br />
+        <h4 class="center-align sub_heading">Report it here</h4>
+      </div>
     </div>
-  </div>
+  </section>
 
+  <!-- FORM TO REPORT ERROR-->
   <div class="row">
     <form class="col s12" method="POST" action="{{ url_for('report_error') }}">
       <div class="row">
-      <div class="col s12 m6 center form_field_title">
-        Name of Bird:
+        <div class="col s12 m6 center form_field_title">
+          Name of Bird:
+        </div>
+        <div class="col s12 m6">
+          <!-- DROPDOWN TO SELECT BIRD OR GENERAL ERROR -->
+          <select id="bird_seen" name="bird_seen" required="required">
+            <option value="" disabled selected>Choose your option</option>
+            <option value="General Error">General Error</option>
+            {% for birds in bird_species %}
+            <option value="{{ birds.bird_name }}">{{ birds.bird_name }}</option>
+            {% endfor %}
+          </select>
+          <label>Please Select</label>
+        </div>
       </div>
-      <div class="col s12 m6">
-        <select id="bird_seen" name="bird_seen" required="required">
-          <option value="" disabled selected>Choose your option</option>
-          <option value="General Error">General Error</option>
-          {% for birds in bird_species %}
-          <option value="{{ birds.bird_name }}">{{ birds.bird_name }}</option>
-          {% endfor %}
-        </select>
-        <label>Please Select</label>
-      </div>
-    </div>
-
       <div class="row">
-      <div class="col s12 m6 center form_field_title">
-        Description
-      </div>
+        <!-- DESCRIPTION OF ERROR -->
+        <div class="col s12 m6 center form_field_title">
+          Description
+        </div>
         <div class="input-field col s12 m6">
           <textarea
             id="description"
@@ -42,20 +47,14 @@
           <label for="description">Description of error</label>
         </div>
       </div>
-
-      <!-- Submit button -->
-
+      <!-- SUBMIT BUTTON -->
       <div class="row">
-      <div class="col s12 center">
-        <button
-          class="btn-large"
-          type="submit"
-          name="action"
-        >
-          REPORT ERROR
-        </button>
+        <div class="col s12 center">
+          <button class="btn-large" type="submit" name="action">
+            REPORT ERROR
+          </button>
+        </div>
       </div>
-    </div>
     </form>
   </div>
 </div>

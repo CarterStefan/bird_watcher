@@ -1,19 +1,22 @@
 {% extends "base.html" %} {% block content %}
 
 <div class="container">
-  <div class="row">
-    <div class="col s12">
-      <h3 class="center-align welcome_title">
-        {{ username }}, you have seen {{ number }} / {{ bird_count }} birds
-      </h3>
-      {% if number == 0 %}
+  <section>
+    <div class="row">
+      <div class="col s12">
+        <!-- MY SIGHTINGS PAGE TITLE -->
+        <h3 class="center-align welcome_title">
+          {{ username }}, you have seen {{ number }} / {{ bird_count }} birds
+        </h3>
+        {% if number == 0 %}
         <h4 class="center-align sub_heading">
-            Get out there and get spotting.
+          Get out there and get spotting.
         </h4>
-      {% endif %}
+        {% endif %}
+      </div>
     </div>
-  </div>
-
+  </section>
+  <!-- DISPLAY CARDS FOR EACH BIRD SEEN BY USER -->
   <div class="row">
     {% for bird in birds_seen %}
     <div class="col s12 m6 l4 center">
@@ -31,11 +34,12 @@
             >View {{ bird.bird_name }}</a
           >
           <div class="row my_sightings_options">
-            
-            <div class="col s12">             
-                <a class="bird_card_link"
+            <div class="col s12">
+              <a
+                class="bird_card_link"
                 href="{{ url_for('remove_sighting', bird_name=bird.bird_name) }}"
-                >REMOVE SIGHTING</a>
+                >REMOVE SIGHTING</a
+              >
             </div>
           </div>
         </div>
@@ -43,22 +47,30 @@
     </div>
     {% endfor %}
   </div>
-
+  <!-- LINK TO REPORT SIGHTING / All BIRDS -->
   <div class="row">
     <div class="col s12 m6 grid-layout">
-			<h3 class="homepage_box_heading">REPORT<br>SIGHTING</h3>
-            <p class="homepage_box_text">
-                Have you spotted a bird recently? Add it to your list of birds seen to put you one step closer to completing the Birdwatcher challenge.
-            </p>
-            <a href="{{ url_for('report_sighting', username=session['user']) }}" class="btn-large homepage_button">ADD TO SIGHTINGS</a>     
-		</div>
+      <h3 class="homepage_box_heading">REPORT<br />SIGHTING</h3>
+      <p class="homepage_box_text">
+        Have you spotted a bird recently? Add it to your list of birds seen to
+        put you one step closer to completing the Birdwatcher challenge.
+      </p>
+      <a
+        href="{{ url_for('report_sighting', username=session['user']) }}"
+        class="btn-large homepage_button"
+        >ADD TO SIGHTINGS</a
+      >
+    </div>
     <div class="col s12 m6 grid-layout">
-			<h3 class="homepage_box_heading">ALL<br>BIRDS</h3>
-            <p class="homepage_box_text">
-                Struggling to know where to find a bird, click below to find where to spot them and more interesting facts about all birds of Britain.
-            </p>
-            <a href="{{ url_for('uk_birds') }}" class="btn-large homepage_button">VIEW ALL BIRDS</a>  
-		</div>
+      <h3 class="homepage_box_heading">ALL<br />BIRDS</h3>
+      <p class="homepage_box_text">
+        Struggling to know where to find a bird, click below to find where to
+        spot them and more interesting facts about all birds of Britain.
+      </p>
+      <a href="{{ url_for('uk_birds') }}" class="btn-large homepage_button"
+        >VIEW ALL BIRDS</a
+      >
+    </div>
   </div>
 </div>
 

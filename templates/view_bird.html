@@ -1,10 +1,10 @@
 {% extends "base.html" %} {% block content %}
-
 <div class="container">
   <div class="row">
     <div class="col s12 bird_image">
       <div class="image_container">
         <img height="100%" width="100%" src=" {{ bird.image }} " />
+        <!-- LINK TO EDIT BIRD IF USER IS ADMIN -->
         {% if session.user == 'admin' %}
         <button class="edit-btn">
           <a href="{{ url_for('edit_bird', bird_id=bird._id) }}"
@@ -18,29 +18,30 @@
 </div>
 <div class="container">
   <div class="row">
+    <!-- BIRD NAME -->
     <div class="col s12 m6 bird_title">
       Bird Name: <br /><span class="bird_facts_text">{{ bird.bird_name }}</span>
     </div>
-
+    <!-- BIRD FAMILY -->
     <div class="col s12 m6 bird_title">
       Scientific Name: <br /><span class="bird_facts_text"
         >{{ bird.scientific_name }}</span
       >
     </div>
-
+    <!-- BIRD LENGTH -->
     <div class="col s12 m4 bird_title">
       Length: <br /><span class="bird_facts_text">{{ bird.length }}cm</span>
     </div>
-
+    <!-- BIRD WINGSPAN -->
     <div class="col s12 m4 bird_title">
       Wingspan: <br /><span class="bird_facts_text">{{ bird.wingspan }}cm</span>
     </div>
-
+    <!-- BIRD WEIGHT -->
     <div class="col s12 m4 bird_title">
       Weight: <br /><span class="bird_facts_text">{{ bird.weight }}g</span>
     </div>
   </div>
-
+  <!-- BIRD DESCRIPTION -->
   <div class="row">
     <div class="col s12 bird_title">
       Description:<br />
@@ -48,19 +49,21 @@
     </div>
   </div>
   <div class="row">
+    <!-- BIRD FEEDING -->
     <div class="col s12 bird_title">
       Feeding:<br />
       <p class="bird_feeding_where_text">{{ bird.feeding }}</p>
     </div>
   </div>
   <div class="row">
+    <!-- BIRD LOCATION -->
     <div class="col s12 bird_title">
       Where:<br />
       <p class="bird_feeding_where_text">{{ bird.where }}</p>
     </div>
   </div>
 </div>
-
+<!-- OPTIONS TO REPORT ERROR / VIEW ALL BIRDS / REPORT SIGHITNG -->
 <div class="row">
   <div class="col s12 m4 grid-layout">
     <h3 class="homepage_box_heading">REPORT<br />ERROR</h3>
@@ -95,5 +98,4 @@
     >
   </div>
 </div>
-
 {% endblock %}

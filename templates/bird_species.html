@@ -1,12 +1,15 @@
 {% extends "base.html" %} {% block content %}
 
 <div>
-  <div class="row">
-    <div class="col s12">
-        <h2 class="welcome_title"> UK BIRDS </h2>
+  <section>
+    <!-- UK BIRDS TITLE -->
+    <div class="row">
+      <div class="col s12">
+        <h2 class="welcome_title">UK BIRDS</h2>
+      </div>
     </div>
-  </div>
-
+  </section>
+  <!-- SEARCH TO FILTER BY BIRD TYPE -->
   <div class="row">
     <div class="col s12 m6 offset-m3">
       <div class="nav-wrapper">
@@ -33,52 +36,71 @@
           </select>
           <label for="bird_family_search"></label>
           <div class="col s12 form_buttons center">
-            <a href="{{ url_for('uk_birds') }}" class="btn-large clear_button">Clear</a>
-            <button class="btn-large submit_button" type="submit">Submit</button>
+            <a href="{{ url_for('uk_birds') }}" class="btn-large clear_button"
+              >Clear</a
+            >
+            <button class="btn-large submit_button" type="submit">
+              Submit
+            </button>
           </div>
         </form>
       </div>
     </div>
-  </div> 
-
+  </div>
+  <!-- SEARCH DATA BASE TO CREATE CARD FOR EACH BIRD-->
   <div class="row">
     {% for birds in bird_species %}
     <div class="col s12 m6 l3">
       <div class="card">
         <div class="card-image">
-          <img class="bird_card_image" src=" {{ birds.image }} ">
+          <img class="bird_card_image" src="{{ birds.image }}" />
           <span class="card-title">{{ birds.bird_name }}</span>
         </div>
         <div class="card-action">
-          <a href="{{ url_for('view_bird', bird_id=birds._id) }}" class="bird_card_link">View <br> {{ birds.bird_name }}</a>
-        </div>                
+          <a
+            href="{{ url_for('view_bird', bird_id=birds._id) }}"
+            class="bird_card_link"
+            >View <br />
+            {{ birds.bird_name }}</a
+          >
+        </div>
       </div>
     </div>
     {% endfor %}
   </div>
   <div class="row">
     <div class="col s12 center">
-        <a href="{{ url_for('uk_birds') }}" class="bird_card_link">BACK TO TOP</a>
+      <a href="{{ url_for('uk_birds') }}" class="bird_card_link">BACK TO TOP</a>
     </div>
   </div>
 
-  <!-- Only show Report Sighting and Add Bird if user is logged in -->
+  <!-- ONLY SHOW REPORT SIGHTING AND MY SIGHTINGS IF USER IS LOGGED IN -->
   {% if session.user %}
   <div class="row">
     <div class="col s12 m6 grid-layout">
-			<h3 class="homepage_box_heading">REPORT<br>SIGHTING</h3>
-            <p class="homepage_box_text">
-                Have you spotted a bird recently? Add it to your list of birds seen to put you one step closer to completing the Birdwatcher challenge.
-            </p>
-            <a href="{{ url_for('report_sighting', username=session['user']) }}" class="btn-large homepage_button">ADD TO SIGHTINGS</a>     
-		</div>
+      <h3 class="homepage_box_heading">REPORT<br />SIGHTING</h3>
+      <p class="homepage_box_text">
+        Have you spotted a bird recently? Add it to your list of birds seen to
+        put you one step closer to completing the Birdwatcher challenge.
+      </p>
+      <a
+        href="{{ url_for('report_sighting', username=session['user']) }}"
+        class="btn-large homepage_button"
+        >ADD TO SIGHTINGS</a
+      >
+    </div>
     <div class="col s12 m6 grid-layout">
-			<h3 class="homepage_box_heading">MY<br>SIGHTINGS</h3>
-            <p class="homepage_box_text">
-                Want to see which birds you have spotted so far? You can see your progress of the challenge by clicking the button below.
-            </p>
-            <a href="{{ url_for('my_sightings', username=session['user']) }}" class="btn-large homepage_button">GO TO MY SIGHTINGS</a>  
-		</div>
+      <h3 class="homepage_box_heading">MY<br />SIGHTINGS</h3>
+      <p class="homepage_box_text">
+        Want to see which birds you have spotted so far? You can see your
+        progress of the challenge by clicking the button below.
+      </p>
+      <a
+        href="{{ url_for('my_sightings', username=session['user']) }}"
+        class="btn-large homepage_button"
+        >GO TO MY SIGHTINGS</a
+      >
+    </div>
   </div>
   {% endif %}
 </div>

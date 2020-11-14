@@ -1,130 +1,171 @@
 {% extends "base.html" %} {% block content %}
 
-<div class="container">
-  <div class="row">
-    <div class="col s12">
-      <h2 class="page_heading">Log In</h2>
-      <!-- Registration Form -->
-      <div class="row">
-        <form
-          class="col s12"
-          method="POST"
-          action="{{ url_for('login') }}"
-        >
-          <div>
-            <!-- Username Field -->
-            <div class="row">
-              <div class="input-field col s12 m6 offset-m3">
-                <i class="material-icons prefix form_icon">person</i>
-                <input
-                  id="username"
-                  name="username"
-                  type="text"
-                  minlength="5"
-                  maxlength="15"
-                  pattern="^[a-zA-Z0-9]{5,15}$"
-                  class="validate form_text"
-                  required
-                />
-                <label for="username">Username</label>
-                <span
-                  class="helper-text"
-                  data-error="Username must be 5-15 characters and only use letters and numbers"
-                  data-success="This works"
-                  >Username must be 5-15 characters using only letters and
-                  numbers</span
-                >
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col s12">
+        <!-- LOG IN PAGE TITLE -->
+        <h2 class="page_heading">Log In</h2>
+        <!-- LOGIN FORM -->
+        <div class="row">
+          <form class="col s12" method="POST" action="{{ url_for('login') }}">
+            <div>
+              <!-- USERNAME FIELD -->
+              <div class="row">
+                <div class="input-field col s12 m6 offset-m3">
+                  <i class="material-icons prefix form_icon">person</i>
+                  <input
+                    id="username"
+                    name="username"
+                    type="text"
+                    minlength="5"
+                    maxlength="15"
+                    pattern="^[a-zA-Z0-9]{5,15}$"
+                    class="validate form_text"
+                    required
+                  />
+                  <label for="username">Username</label>
+                  <span
+                    class="helper-text"
+                    data-error="Username must be 5-15 characters and only use letters and numbers"
+                    data-success="This works"
+                    >Username must be 5-15 characters using only letters and
+                    numbers</span
+                  >
+                </div>
+              </div>
+              <!-- PASSWORD FIELD -->
+              <div class="row">
+                <div class="input-field col s12 m6 offset-m3">
+                  <i class="material-icons prefix form_icon">lock</i>
+                  <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    minlength="5"
+                    maxlength="15"
+                    pattern="^[a-zA-Z0-9]{5,15}$"
+                    class="validate"
+                    required
+                  />
+                  <label for="password">Password</label>
+                  <span
+                    class="helper-text"
+                    data-error="Password must be 5-15 characters and only use letters and numbers"
+                    data-success="This works"
+                    >Password must be 5-15 characters using only letters and
+                    numbers</span
+                  >
+                </div>
+              </div>
+              <!-- SUBMIT LOGIN FORM -->
+              <div class="row">
+                <button type="submit" class="col s12 m6 offset-m3 btn-large">
+                  Log In
+                </button>
+              </div>
+              <div class="row">
+                <div class="col s12 center form_text">
+                  Not Registered?
+                  <a href="{{ url_for('register') }}"
+                    ><span class="register_login_form_link"
+                      >Register Here</span
+                    ></a
+                  >
+                </div>
               </div>
             </div>
-            <!-- Password Field -->
-            <div class="row">
-              <div class="input-field col s12 m6 offset-m3">
-                <i class="material-icons prefix form_icon">lock</i>
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  minlength="5"
-                  maxlength="15"
-                  pattern="^[a-zA-Z0-9]{5,15}$"
-                  class="validate"
-                  required
-                />
-                <label for="password">Password</label>
-                <span
-                  class="helper-text"
-                  data-error="Password must be 5-15 characters and only use letters and numbers"
-                  data-success="This works"
-                  >Password must be 5-15 characters using only letters and
-                  numbers</span
-                >
-              </div>
-            </div>
-            <!-- Submit Button -->
-            <div class="row">
-              <button type="submit" class="col s12 m6 offset-m3 btn-large">
-                Log In
-              </button>
-            </div>
-            <div class="row">
-              <div class="col s12 center form_text">
-                Not Registered?
-                <a href="{{ url_for('register') }}"><span class="register_login_form_link">Register Here</span></a>
-              </div>
-            </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-  </div>
-  <!-- ABOUT THE SITE -->
-  <div>  
-  <div class="row">
-    <div class="col s12">
-        <h2 class="welcome_title"> WHAT IS BIRDWATCHER? </h2>
+</section>
+<!-- ABOUT THE SITE -->
+<section>
+  <div>
+    <div class="row">
+      <div class="col s12">
+        <h2 class="welcome_title">WHAT IS BIRDWATCHER?</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12 m6 l4 offset-l1 homepage_image">
+        <img
+          src="static/images/homepage_images/geese_sketch.jpg"
+          alt="geese"
+          width="100%"
+          height="300"
+        />
+      </div>
+      <div class="col s12 m6 grid-layout">
+        <p class="homepage_box_text">
+          Birdwatcher a one stop place for keen twitchers to keep track of the
+          birds they have seen in UK. Using our database of British birds,
+          birdwatchers can see information about a particular bird and where to
+          spot them, and mark those that have been seen. Are you up for the
+          challenge to spot them all? If so please log in above or if you
+          haven't signed up yet
+          <a href="{{ url_for('register') }}"
+            ><span class="register_login_welcome_link">Register Here</span></a
+          >
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <h2 class="welcome_title">UK BIRDS</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12 m6 l4 offset-l1 homepage_image">
+        <img
+          src="static/images/homepage_images/view_birds_screenshot_sketch.jpg"
+          alt="View Birds Screenshot"
+          width="100%"
+          height="300"
+        />
+      </div>
+      <div class="col s12 m6 grid-layout">
+        <p class="homepage_box_text">
+          We have put together a list of all the birds that can be found around
+          the British Isles. Browsing through the
+          <a href="{{ url_for('uk_birds') }}"
+            ><span class="register_login_welcome_link">UK BIRDS</span></a
+          >
+          section of the site, you are able to view all the birds and click on a
+          bird to view more information about it. This will help you find where
+          to spot them to help you complete the challenge.
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <h2 class="welcome_title">YOUR SIGHTINGS</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12 m6 l4 offset-l1 homepage_image">
+        <img
+          src="static/images/homepage_images/swans_sketch.jpg"
+          alt="Swans"
+          width="100%"
+          height="300"
+        />
+      </div>
+      <div class="col s12 m6 grid-layout">
+        <p class="homepage_box_text">
+          Using our report sighitng feature, users of BIRDWATCHER can keep track
+          of all the birds they have seen, what date they were spotted on and
+          the location of the sighitng. This will save you keeping notes on your
+          phone or pieces of paper. Simply click the bird you have seen, add the
+          date and location and the sighting will be added to your list. You
+          will be able to see how many you have seen to keep you motivated for
+          the challenege.
+        </p>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col s12 m6 l4 offset-l1 homepage_image">
-        <img src="static/images/homepage_images/geese_sketch.jpg" alt="geese" width="100%" height="300">
-    </div>
-    <div class="col s12 m6 grid-layout">
-      <p class="homepage_box_text">
-        Birdwatcher a one stop place for keen twitchers to keep track of the birds they have seen in UK. Using our database of British birds, birdwatchers can see information about a particular bird and where to spot them, and mark those that have been seen. Are you up for the challenge to spot them all? If so please log in above or if you haven't signed up yet <a href="{{ url_for('register') }}"><span class="register_login_welcome_link">Register Here</span></a>
-      </p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col s12">
-        <h2 class="welcome_title"> UK BIRDS </h2>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col s12 m6 l4 offset-l1 homepage_image">
-        <img src="static/images/homepage_images/view_birds_screenshot_sketch.jpg" alt="View Birds Screenshot" width="100%" height="300">
-    </div>
-    <div class="col s12 m6 grid-layout">
-      <p class="homepage_box_text">
-        We have put together a list of all the birds that can be found around the British Isles. Browsing through the <a href="{{ url_for('uk_birds') }}"><span class="register_login_welcome_link">UK BIRDS</span></a> section of the site, you are able to view all the birds and click on a bird to view more information about it. This will help you find where to spot them to help you complete the challenge.
-      </p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col s12">
-        <h2 class="welcome_title"> YOUR SIGHTINGS </h2>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col s12 m6 l4 offset-l1 homepage_image">
-        <img src="static/images/homepage_images/swans_sketch.jpg" alt="Swans" width="100%" height="300">
-    </div>
-    <div class="col s12 m6 grid-layout">
-      <p class="homepage_box_text">
-        Using our report sighitng feature, users of BIRDWATCHER can keep track of all the birds they have seen, what date they were spotted on and the location of the sighitng. This will save you keeping notes on your phone or pieces of paper. Simply click the bird you have seen, add the date and location and the sighting will be added to your list. You will be able to see how many you have seen to keep you motivated for the challenege.
-      </p>
-    </div>
-  </div>
-  </div>
+</section>
 
 {% endblock %}

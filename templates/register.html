@@ -1,14 +1,16 @@
 {% extends "base.html" %} {% block content %}
 
+<section>
 <div class="container">
   <div class="row">
     <div class="col s12 jumbotron">
+    <!-- LOG IN PAGE TITLE -->
       <h2 class="page_heading">Register</h2>
-      <!-- Registration Form -->
+      <!-- REGISTRATION FORM -->
       <div class="row">
         <form class="col s12" method="POST" action="{{ url_for('register') }}">
           <div>
-            <!-- Username Field -->
+            <!-- USERNAME FIELD -->
             <div class="row">
               <div class="input-field col s12 m6 offset-m3">
                 <i class="material-icons prefix form_icon">person_add</i>
@@ -32,7 +34,7 @@
                 >
               </div>
             </div>
-            <!-- Password Field -->
+            <!-- PASSWORD FIELD -->
             <div class="row">
               <div class="input-field col s12 m6 offset-m3">
                 <i class="material-icons prefix form_icon">lock</i>
@@ -56,7 +58,7 @@
                 >
               </div>
             </div>
-            <!-- Submit Button -->
+            <!-- SUBMIT BUTTON -->
             <div class="row">
               <button type="submit" class="col s12 m6 offset-m3 btn-large">
                 Register
@@ -74,9 +76,11 @@
         </form>
       </div>
     </div>
-  </div>
+  </div>  
 </div>
+</section>
 <!-- ABOUT THE SITE -->
+<section>
 <div>
   <div class="row">
     <div class="col s12">
@@ -160,5 +164,6 @@
     </div>
   </div>
 </div>
+</section>
 
 {% endblock %}

@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- STYLES -->
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -28,7 +29,7 @@
 
   <body>
     <header>
-      <!-- Desktop Navbar -->
+      <!-- SIGHTING DROPDOWN OPTIONS -->
       <ul id="dropdown1" class="dropdown-content">
         <li>
           <a href="{{ url_for('my_sightings', username=session['user']) }}"
@@ -42,6 +43,7 @@
         </li>
       </ul>
       <div class="navbar-fixed">
+        <!-- DESKTOP NAVBAR -->
         <nav>
           <div class="nav-wrapper">
             <a href="{{ url_for('home') }}" class="brand-logo">BirdWatcher</a>
@@ -50,6 +52,7 @@
             >
             <ul class="right hide-on-med-and-down">
               {% if session.user == 'admin' %}
+              <!-- ONLY SHOW IF USER IS ADMIN -->
               <li><a href="{{ url_for('admin_errors') }}">Errors</a></li>
               <li>
                 <a
@@ -59,8 +62,9 @@
               </li>
               {% endif %}
               <li><a href="{{ url_for('home') }}">Home</a></li>
-              <li><a href="{{ url_for('uk_birds') }}">UK Birds</a></li>
+              <li><a href="{{ url_for('uk_birds') }}">UK Birds</a></li>              
               {% if session.user %}
+              <!-- ONLY SHOW IF USER IS LOGGED IN -->
               <li>
                 <a class="dropdown-trigger" href="#!" data-target="dropdown1"
                   >Sightings<i class="material-icons right"
@@ -78,13 +82,14 @@
         </nav>
       </div>
 
-      <!-- Mobile Sidenav -->
+      <!-- MOBILE SIDENAV -->
       <ul class="sidenav" id="mobile-demo">
         <li>
           <a href="{{ url_for('home') }}" class="brand-logo">BW</a>
         </li>
         <li><a href="{{ url_for('home') }}">Home</a></li>
         {% if session.user == 'admin' %}
+        <!-- ONLY SHOW IF USER IS ADMIN -->
         <li><a href="{{ url_for('admin_errors') }}">Errors</a></li>
         <li>
           <a href="{{ url_for('add_new_bird', username=session['user']) }}"
@@ -94,6 +99,7 @@
         {% endif %}
         <li><a href="{{ url_for('uk_birds') }}">UK Birds</a></li>
         {% if session.user %}
+        <!-- ONLY SHOW IF USER IS LOGGED IN -->
         <li>
           <a href="{{ url_for('my_sightings', username=session['user']) }}"
             >My Sightings</a
@@ -113,7 +119,7 @@
     </header>
 
     <section>
-      <!-- Display Flash Messages -->
+      <!-- DISPLAY FLASH MESSAGES -->
       {% with messages = get_flashed_messages() %} {% if messages %}
       <div class="row flashes">
         <div class="col s12">
@@ -125,7 +131,10 @@
       {% endif %} {% endwith %}
     </section>
 
+    <!-- DISPLAY BLOCK CONTENT -->
     {% block content %} {% endblock %}
+
+    <!-- FOOTER -->
     <div class="footer">
       <div class="row footer-row">
         <div class="col s12">
@@ -134,6 +143,7 @@
               <ul class="footer_list">
                 <li><a href="{{ url_for('uk_birds') }}">UK Birds</a></li>
                 {% if session.user %}
+                <!-- OPTIONS IF USER IS LOGGED IN -->
                 <li>
                   <a
                     href="{{ url_for('my_sightings', username=session['user']) }}"
@@ -161,6 +171,7 @@
               </ul>
             </div>
             {% if not session.user %}
+            <!-- OPTIONS IF USER IS LOGGED OUT -->
             <div class="col s12 m4">
               <ul class="footer_list">
                 <li><a href="{{ url_for('login') }}">Login</a></li>
@@ -178,6 +189,7 @@
       </div>
     </div>
 
+    <!-- SCRIPTS -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
       integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
