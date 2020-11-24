@@ -82,6 +82,11 @@ input[type=text]:not(.browser-default){
     font-weight: 900;
 }
 
+input[type=password]:not(.browser-default){
+    border-bottom: 2px solid #732002;
+    font-weight: 900;
+}
+
 textarea.materialize-textarea{
     border-bottom: 2px solid #732002;
 }
