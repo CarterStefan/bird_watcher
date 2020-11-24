@@ -108,10 +108,35 @@ textarea.materialize-textarea{
 
 /* ---------------------------------- BUTTONS */
 
+.btn-large{
+    background-color: #732002;
+    color: #fafafa;
+    font-family: 'Roboto Condensed', sans-serif;
+    box-shadow: none;
+    border: 2px solid #732002;
+}
+
+.btn-large:hover{
+    background-color: #fafafa;
+    color: #732002;
+    font-family: 'Roboto Condensed', sans-serif;
+    box-shadow: none;
+    border: 2px solid #732002;
+}
+
+.btn-large:focus{
+    background-color: #fafafa;
+    color: #732002;
+    font-family: 'Roboto Condensed', sans-serif;
+    box-shadow: none;
+    border: 2px solid #732002;
+}
+
 .submit_button{
     background-color: #0B8CBF !important;
     font-family: 'Roboto Condensed', sans-serif!important;
     color: #fafafa !important;
+    border: 2px solid #0B8CBF !important;
 }
 
 .submit_button:hover{
@@ -125,6 +150,7 @@ textarea.materialize-textarea{
     background-color: #BF4904 !important;
     font-family: 'Roboto Condensed', sans-serif!important;
     color: #fafafa !important;
+    border: 2px solid #BF4904 !important;
 }
 
 .clear_button:hover{
@@ -139,6 +165,7 @@ textarea.materialize-textarea{
     font-family: 'Roboto Condensed', sans-serif!important;
     color: #732002 !important;
     margin-bottom: 30px;
+    border: 2px solid #fafafa !important;
 }
 
 .homepage_button:hover{
@@ -269,29 +296,6 @@ textarea.materialize-textarea{
 .register_login_welcome_link:hover{
     padding-bottom: 5px;
     border-bottom: 3px solid #fafafa;
-}
-
-.btn-large{
-    background-color: #732002;
-    color: #fafafa;
-    font-family: 'Roboto Condensed', sans-serif;
-    box-shadow: none;
-}
-
-.btn-large:hover{
-    background-color: #fafafa;
-    color: #732002;
-    font-family: 'Roboto Condensed', sans-serif;
-    box-shadow: none;
-    border: 2px solid #732002;
-}
-
-.btn-large:focus{
-    background-color: #fafafa;
-    color: #732002;
-    font-family: 'Roboto Condensed', sans-serif;
-    box-shadow: none;
-    border: 2px solid #732002;
 }
 
 .helper-text{
@@ -474,11 +478,12 @@ textarea.materialize-textarea{
   cursor: pointer;
   border-radius: 5px;
   background-color: #fafafa;
-  color: #0B8CBF;
+  color: #732002;
+  border-color: #732002;
 }
 
 .image_container .edit-btn:hover {
-  background-color: #0B8CBF;
+  background-color: #732002;
   color: #fafafa;
 }
 

@@ -147,6 +147,7 @@ def search():
 
 
 # PAGE TO VIEW SPECIFIC BIRD INFORMATION
+# BIRD_ID PASSED IN FROM CLICK ON UK BIRDS PAGE
 @app.route("/view_bird/<bird_id>")
 def view_bird(bird_id):
 
@@ -250,6 +251,7 @@ def report_sighting():
 
 
 # FUNCTION TO REMOVE USER SIGHTING
+# BIRD_NAME PASSED IN FROM CLICK ON MY_SIGHTINGS PAGE
 @app.route("/remove_sighting/<bird_name>", methods=["GET", "POST"])
 def remove_sighting(bird_name):
     mongo.db.bird_sightings.remove({
@@ -306,6 +308,7 @@ def add_new_bird():
 
 
 # PAGE TO EDIT INFORMATION ABOUT SPECIFIC BIRD
+# BIRD_ID PASSED IN FROM CLICK ON VIEW BIRD
 @app.route("/edit_bird/<bird_id>", methods=["GET", "POST"])
 def edit_bird(bird_id):
     # Edit bird on database when user clicks submit
@@ -394,7 +397,7 @@ def admin_errors():
     return redirect(url_for("uk_birds"))
 
 
-# FUNCTION TO MARK ERROR AS RESOLVED
+# FUNCTION TO MARK ERROR AS RESOLVED - ERROR_ID PASSED IN FROM ERRORS PAGE
 @app.route("/delete_error/<error_id>", methods=["GET", "POST"])
 def delete_error(error_id):
     mongo.db.errors.remove({"_id": ObjectId(error_id)})
