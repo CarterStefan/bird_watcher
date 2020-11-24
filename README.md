@@ -12,13 +12,15 @@ Bird watcher is my third milestone project as part of my Full Stack Web Developm
 2. [**UX**](#ux)
   - [**User Stories**](#user-stories)
   - [**Design**](#design)
-    - [**Libraries**](#libraries)
+    - [**Libraries**](#third-party-libraries)
     - [**Color Scheme**](#color-scheme)
     - [**Typography**](#typography)
   - [**Wireframes**](#wireframes)
 3. [**Features**](#features)
   - [**Existing Features**](#existing-features)
   - [**Features Left to Implement**](#features-left-to-implemement)
+4. [**Technologies Used**](#technologies-used)
+5. [**Databases Used**](#databases-used)
 ---
  
 ## Project overview
@@ -90,8 +92,6 @@ You can view the wireframes that I based my site on in the UX folder.
 
 - View Bird - Here is where a user can view more detailed information about a specific bird. The top of the page will display an illustration of the bird, with information underneath of the birds name, scientific name, size, description, feeding habit and where the bird is located. Underneath the user has multiple options available to them to navigate around the site. If they have read some information on the bird they have the option to edit the bird directly themselves, or they can log an error report to admin.
 
-- Edit Bird - A user will click through to this page only from the view bird page. In doing so, the birds information is prepopulated on the form. The user can then find the field they want to change and edit the text. There is a submit button at the bottom of the form which will amend the information on that bird on the database.
-
 - Log Error - The user can submit an error report if they have seen misinformation on a bird, or if they are unhappy with something on the birds page. There are two parts to the form. The first is the name of the bird they are unhappy with, or they can submit a general error not relating to a bird. The second part is a free text box which the user can put a description of the problem they are facing. 
 
 - Home - This page also shows a count at the top showing the user how far through the challenge they are. It features a hero image at the top and three options underneath to navigate around the site. They can direct to the report sighting page, my sightings page or view all uk birds page.
@@ -100,6 +100,57 @@ You can view the wireframes that I based my site on in the UX folder.
 
 - Add New Bird (Admin Only) - If the user is logged in as admin, they can add a new bird. This form is a duplicate of the form seen on the Edit Bird page. This is so the admin can extend the challenge if they wish by adding more birds to be spotted. By adding a new bird here, the changes will be reflected in the birds seen count on my homepage and my sightings page, also the new birds will be showing straight away on the view all birds page.
 
+- Edit Bird (Admin only) - If the user is logged in as admin, they can edit a birds information. The admin will click through to this page only from the view bird page. In doing so, the birds information is prepopulated on the form. The admin can then find the field they want to change and edit the text. There is a submit button at the bottom of the form which will amend the information on that bird on the database.
+
 - Errors page (Admin Only) - If the user is logged in as admin, the errors page will show a list of all the errors which have been reported by users. These will be displayed in the form of cards similar to the view birds / my sightings page, to be consistent with the rest of the site. The admin will be able to see the username of the user which submitted the error, the bird the error relates to and the error message. Once the admin has actioned the error and made the required changes, there is the option to mark the error as resolved, which will remove the erorr from the list.
 
 ### Features Left to Implement
+- Automatic location detection - I would like to add in a feature where the report sighting form could automatically detect where the user is and prepopulate the location field in the form based on this.
+
+## Technologies Used
+1. [HTML 5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
+- HTML is the standard markup language for Web pages.
+
+2. [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language such as HTML.
+
+3. [JQUERY](https://jquery.com/)
+- jQuery is a fast, small, and feature-rich JavaScript library
+
+4. [MATERIALIZE](https://materializecss.com/)
+- A modern responsive front-end framework based on Material Design
+
+5. [PYTHON](https://www.python.org/)
+- Python is a programming language that lets you work quickly and integrate systems more effectively.
+
+6. [FLASK](https://flask.palletsprojects.com/en/1.1.x/)
+- Flask is a lightweight WSGI web application framework
+
+7. [FLASK PYMONGO](https://flask-pymongo.readthedocs.io/en/latest/)
+- MongoDB support for Flask applications
+
+8. [WERKZEUG SECURITY](https://werkzeug.palletsprojects.com/en/1.0.x/)
+- Werkzeug is a comprehensive WSGI web application library
+
+9. [BSON](https://www.mongodb.com/json-and-bson)
+- BSON is the binary encoding of JSON-like documents that MongoDB uses when storing documents in collections
+
+10. [JINJA](https://jinja.palletsprojects.com/en/2.11.x/)
+- Jinja is a modern and designer-friendly templating language for Python, modelled after Django’s templates
+
+11. [MONGODB](https://www.mongodb.com/)
+MongoDB is a general purpose, document-based, distributed database built for modern application developers and for the cloud era
+
+12. [PYMONGO](https://pymongo.readthedocs.io/en/stable/index.html)
+- PyMongo is a Python distribution containing tools for working with MongoDB, and is the recommended way to work with MongoDB from Python
+
+13. [GITPOD](https://www.gitpod.io/)
+- Gitpod streamlines developer workflows by providing prebuilt, collaborative development environments in your browser - powered by VS Code
+
+14. [GITHUB](https://github.com/)
+- Hosting for software development and version control using Git
+
+15. [HEROKU](https://www.heroku.com/home)
+- Heroku is a cloud platform as a service supporting several programming languages
+
+## Databases Used
