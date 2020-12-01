@@ -345,6 +345,8 @@ textarea.materialize-textarea{
     color: #fafafa;
     font-family: 'Roboto Condensed', sans-serif;
     padding: 10px;
+    font-size: 1.5em;
+    text-align: justify;
 }
 
 /* ---------------------------------- FOOTER */
