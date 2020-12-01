@@ -21,6 +21,9 @@ Bird watcher is my third milestone project as part of my Full Stack Web Developm
   - [**Features Left to Implement**](#features-left-to-implemement)
 4. [**Technologies Used**](#technologies-used)
 5. [**Databases Used**](#databases-used)
+6. [**Deployment**](#Deployment)
+7. [**Testing**](#Testing)
+8. [**Acknowledgments**](#Acknowledgments)
 ---
  
 ## Project overview
@@ -154,3 +157,71 @@ MongoDB is a general purpose, document-based, distributed database built for mod
 - Heroku is a cloud platform as a service supporting several programming languages
 
 ## Databases Used
+
+### MongoDB
+MongoDB is a cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas. MongoDB is developed by MongoDB Inc. I created the following collections for my project:
+
+- bird_family : This was used to created a list of bird species and an icon to represent each species.
+
+- bird_sightings : This was used to keep a record of all members sightings which can be retrived by using the corresponding username to display the sightiings on the users my sightings page.
+
+- bird_species : This contains a list of 159 bird and some corresponding information for each one to display on the UK birds page.
+
+- counties : This contains a list of all counties in the UK. This is used when a user is reporting a sighting and can choose where they spotted the bird.
+
+- errors : When a user logs an error against a bird, or a general error they are then displayed on the errors page when logged in as admin after being read from this collection.
+
+- users : When a user registered on the site, there username and password are stored on this collection. 
+
+## Deployment
+
+I used GitPod for the devlopment of my project and Heroku has been used for the hosting of the app. All com,its were pushed to Heroku from within GitPod.
+
+To get my application to a standard which was ready for deployment I followed along with the Code Institues tutorials for setting up a project. This included:
+
+- Removing any hardcoded environment variables from the app.py file so that any users were unable to see the database name, secret key and URI. These were then put in an env.py file and the values placed in the Heroku Config Vars.
+
+- A requirements.txt file was created which contains a list of the specified packages needed to run the project and their versions.
+
+- A Procfile was set up with the contents "web: python app.py". This indicates to Heroku that it must runt this as a web application and to run the file app.py.
+
+- In my Heroku project I set up numerous Config Vars to contain the secret information that I wanted kept from the app. This included IP, MONGO_DBNAME, MONGO_URI, PORT, SECRET_KEY, KEY.
+
+- Once I was happy with my project, I set the flask debugging to 'False'.
+
+- I then pushed the final code to Heroku using GitPod. 
+
+## Testing
+
+One of the requirements for the submission of the project is extensive testing to ensure the site works correctly with no bugs. I used a mix of online validators and manual testing to ensure my code would pass.
+
+### HTML
+- [W3CValidator](https://validator.w3.org/) I ran all my HTTML files through the validator, the only errors I received were relating to the Jinja syntax.
+
+### CSS
+- [W3CValidator CSS](http://jigsaw.w3.org/css-validator/) I recieved no errors with my CSS file.
+
+### Javascript
+- [JShint](https://jshint.com/) - No errors
+
+### Manual Testing
+To ensure my website was in good working order I tested all links on the pages across a range of devices using the chrome developer tools and Chrome, Edge and Firefox to ensure it works okay on different browsers. 
+
+## Acknowledgments
+
+### Media
+- The images of birds on the site are taken from the [RSPB](https://www.rspb.org.uk/birds-and-wildlife/wildlife-guides/bird-a-z/) website. I then added the sketch effect to them and saved them locally.
+
+- The silhouette images used for the bird families were taken from The Cornell Lab website [All About Birds](https://www.allaboutbirds.org/)
+
+### Content
+The information displayed on the birds indivudual pages was taken from a combination of:
+- [RSPB](https://www.rspb.org.uk/birds-and-wildlife/wildlife-guides/bird-a-z/)
+- [BirdSpot](https://www.birdspot.co.uk/)
+- [Collins](https://collins.co.uk/collections/collins-gem) - Book on UK bird species
+
+I would like to thank my mentor Gbenga for his help and guidance throughout this project and the Code Institute for teaching me skills required to do so.
+
+The inspiration for this project was from my own passion of a good walk in the countryside.
+
+
