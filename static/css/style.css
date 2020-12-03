@@ -22,6 +22,13 @@
 
 body{
     background-color: #fafafa;
+    min-height: 100vh; 
+    display: flex; 
+    flex-direction: column;
+}
+
+html {
+    height: 100%;
 }
 
 a{
@@ -363,6 +370,7 @@ textarea.materialize-textarea{
     background-color: #732002;
     font-family: 'Roboto Condensed', sans-serif;
     text-transform: uppercase;
+    margin-top:30px;
 }
 
 .footer a:hover{
@@ -377,8 +385,8 @@ textarea.materialize-textarea{
 
 .footer-row{
     margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 0px;
+    margin-right: auto;    
+    margin-bottom: -1px;    
 }
 
 /* ---------------------------------- BIRD CARDS */
