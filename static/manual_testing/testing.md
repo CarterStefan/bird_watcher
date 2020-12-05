@@ -370,3 +370,21 @@ Click Delete Account - You are taken to the delete account page (route to /delet
 - Click 'Take Me Home' - You are taken to the homepage if logged in
 
 - Click 'Take Me Home - You are taken to the login page if logged out
+
+## Devices
+
+I have tested my page on the following devises.
+
+- Huwawei P30 Pro - Physical Device
+
+- iPhone X - Google Chrome Dev tools
+
+- iPhone 6/7/8 - Google Chrome Dev tools
+
+- iPhone 6/7/8 plus - Google Chrome Dev tools
+
+- iPphone 5/se - Google Chrome Dev tools
+
+- iPpad - Google Chrome Dev tools
+
+- iPad Pro - Google Chrome Dev tools
