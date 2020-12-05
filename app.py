@@ -117,7 +117,7 @@ def home():
 @app.route("/uk_birds")
 def uk_birds():
     # Get all bird species from DB and sort alpabetically
-    bird_species = mongo.db.bird_species.find().sort("bird_name").capitalize()
+    bird_species = mongo.db.bird_species.find().sort("bird_name")
     bird_family = mongo.db.bird_family.find().sort("family_name")
     return render_template(
         "bird_species.html", bird_species=bird_species,
@@ -414,4 +414,4 @@ def page_not_found(e):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=False)
+            debug=True)
