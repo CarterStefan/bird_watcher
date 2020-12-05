@@ -39,7 +39,7 @@
             <label for="bird_name">Name of bird</label>
             <span
               class="helper-text"
-              data-error="Please input name of bird"
+              data-error="Please input name of bird with no numbers or symbols"
             ></span>
           </div>
         </div>
@@ -60,7 +60,7 @@
             <label for="scientific_name">Scientific Name</label>
             <span
               class="helper-text"
-              data-error="Please input scientific name of bird"
+              data-error="Please input scientific name of bird with no numbers or symbols"
             ></span>
           </div>
         </div>
@@ -82,7 +82,7 @@
             <label for="length">Length CM</label>
             <span
               class="helper-text"
-              data-error="Please enter length of bird in cm with no spaces (5-7)"
+              data-error="Please enter length of bird in cm with no spaces e.g (5-7)"
             ></span>
           </div>
         </div>
@@ -102,7 +102,7 @@
             <label for="wingspan">Wingpsan CM</label>
             <span
               class="helper-text"
-              data-error="Please enter wingspan of bird in cm with no spaces (5-7)"
+              data-error="Please enter wingspan of bird in cm with no spaces e.g (5-7)"
             ></span>
           </div>
         </div>
@@ -124,7 +124,7 @@
             <label for="weight">Weight g</label>
             <span
               class="helper-text"
-              data-error="Please enter weight of bird in g"
+              data-error="Please enter weight of bird in g with no spaces e.g (5-7)"
             ></span>
           </div>
         </div>
@@ -161,8 +161,8 @@
             name="description"
             class="materialize-textarea"
           >
-{{- bird.description -}}</textarea
-          >
+            {{- bird.description -}}
+          </textarea>       
           <label for="description">Description of bird</label>
         </div>
       </div>
@@ -170,7 +170,7 @@
       <div class="row">
         <div class="input-field col s12">
           <textarea id="feeding" name="feeding" class="materialize-textarea">
-{{- bird.feeding -}}</textarea
+            {{- bird.feeding -}}</textarea
           >
           <label for="feeding">Feeding habbit of bird</label>
         </div>
@@ -199,7 +199,7 @@
       <div class="row">
         <div class="input-field col s12">
           <textarea id="where" name="where" class="materialize-textarea">
-{{- bird.where -}}</textarea
+            {{- bird.where -}}</textarea
           >
           <label for="where">Where to see the bird</label>
         </div>
