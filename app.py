@@ -117,7 +117,7 @@ def home():
 @app.route("/uk_birds")
 def uk_birds():
     # Get all bird species from DB and sort alpabetically
-    bird_species = mongo.db.bird_species.find().sort("bird_name")
+    bird_species = mongo.db.bird_species.find().sort("bird_name").capitalize()
     bird_family = mongo.db.bird_family.find().sort("family_name")
     return render_template(
         "bird_species.html", bird_species=bird_species,
@@ -269,7 +269,7 @@ def add_new_bird():
     # Add bird to database using form when user clicks submit
     if request.method == "POST":
         bird = {
-            "bird_name": request.form.get("bird_name"),
+            "bird_name": request.form.get("bird_name").capitalize(),
             "scientific_name": request.form.get("scientific_name"),
             "length": request.form.get("length"),
             "wingspan": request.form.get("wingspan"),
