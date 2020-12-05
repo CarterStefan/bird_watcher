@@ -259,7 +259,7 @@ textarea.materialize-textarea{
 }
 
 .grid-layout{
-    min-height: 300px !important;
+    min-height: 350px !important;
     background-color: #732002;
     border: 1px solid white;
     text-align: center;
