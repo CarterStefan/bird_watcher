@@ -130,7 +130,7 @@
         </div>
         <!-- CATEGORY OF BIRD -->
         <div class="input-field col s12 m6">
-          <select id="bird_family" name="bird_family" class="icons">
+          <select id="bird_family" name="bird_family" class="icons" required>
             <option value="bird.bird_family"></option>
             {% for family in bird_family %} {% if family.family_name ==
             bird.bird_family %}
@@ -160,6 +160,7 @@
             id="description"
             name="description"
             class="materialize-textarea"
+            required
           >
             {{- bird.description -}}
           </textarea>       
@@ -191,6 +192,7 @@
             <span
               class="helper-text"
               data-error="Please enter a link to the image of bird"
+              required
             ></span>
           </div>
         </div>
@@ -198,7 +200,7 @@
       <!-- WHERE TO SEE THE BIRD -->
       <div class="row">
         <div class="input-field col s12">
-          <textarea id="where" name="where" class="materialize-textarea">
+          <textarea id="where" name="where" class="materialize-textarea" required>
             {{- bird.where -}}</textarea
           >
           <label for="where">Where to see the bird</label>
