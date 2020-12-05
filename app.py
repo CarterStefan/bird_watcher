@@ -117,8 +117,8 @@ def home():
 @app.route("/uk_birds")
 def uk_birds():
     # Get all bird species from DB and sort alpabetically
-    bird_species = mongo.db.bird_species.find().sort("bird_name", 1)
-    bird_family = mongo.db.bird_family.find().sort("family_name", 1)
+    bird_species = mongo.db.bird_species.find().sort("bird_name")
+    bird_family = mongo.db.bird_family.find().sort("family_name")
     return render_template(
         "bird_species.html", bird_species=bird_species,
         bird_family=bird_family)
