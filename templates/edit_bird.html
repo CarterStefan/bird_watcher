@@ -130,7 +130,7 @@
         </div>
         <!-- CATEGORY OF BIRD -->
         <div class="input-field col s12 m6">
-          <select id="bird_family" name="bird_family" class="icons" required>
+          <select id="bird_family" name="bird_family" class="icons" minlength="1" required>
             <option value="bird.bird_family"></option>
             {% for family in bird_family %} {% if family.family_name ==
             bird.bird_family %}
