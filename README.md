@@ -205,7 +205,7 @@ One of the requirements for the submission of the project is extensive testing t
 - [JShint](https://jshint.com/) - No errors
 
 ### Manual Testing
-To ensure my website was in good working order I tested all links on the pages across a range of devices using the chrome developer tools and Chrome, Edge and Firefox to ensure it works okay on different browsers. I have documented this [here](static/testing/manual/testing.md).
+To ensure my website was in good working order I tested all links on the pages across a range of devices using the chrome developer tools and Chrome, Edge and Firefox to ensure it works okay on different browsers. I have documented this [here]({{ url_for('static', filename='testing.md') }})
 
 ## Acknowledgments
 
