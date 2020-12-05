@@ -560,4 +560,5 @@ textarea.materialize-textarea{
 
 .card-content{
     font-family: 'Roboto Condensed', sans-serif;
+    min-height: 250px;
 }
