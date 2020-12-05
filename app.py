@@ -314,7 +314,7 @@ def edit_bird(bird_id):
     # Edit bird on database when user clicks submit
     if request.method == "POST":
         bird_submit = {
-            "bird_name": request.form.get("bird_name"),
+            "bird_name": request.form.get("bird_name").capitalize(),
             "scientific_name": request.form.get("scientific_name"),
             "length": request.form.get("length"),
             "wingspan": request.form.get("wingspan"),
