@@ -125,7 +125,7 @@
           </div>
           <!-- select family of bird -->
           <div class="input-field col s12 m6">
-            <select id="bird_family" name="bird_family" class="icons">
+            <select id="bird_family" name="bird_family" class="icons" required>
               <option value="" disabled selected>Select Bird Family</option>
               {% for family in bird_family %}
               <option
@@ -146,6 +146,7 @@
               id="description"
               name="description"
               class="materialize-textarea"
+              required
             ></textarea>
             <label for="description">Description of bird</label>
           </div>
@@ -168,6 +169,7 @@
               id="feeding"
               name="feeding"
               class="materialize-textarea"
+              required
             ></textarea>
             <label for="feeding">Feeding habbit of bird</label>
           </div>
@@ -179,6 +181,7 @@
               id="where"
               name="where"
               class="materialize-textarea"
+              required
             ></textarea>
             <label for="where">Where to see the bird</label>
           </div>
