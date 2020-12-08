@@ -405,6 +405,7 @@ textarea.materialize-textarea{
 
 .card-action{
     border: 3px solid #BF4904 !important;
+    text-align: center;
 }
 
 .bird_card_link{
