@@ -53,17 +53,26 @@
     <div class="col s12 m6 l3">
       <div class="card">
         <div class="card-image">
-          <img class="bird_card_image" src="{{ birds.image }}" alt="Bird Image" />
-          <span class="card-title">{{ birds.bird_name }}</span>
-        </div>
-        <div class="card-action">
           <a
             href="{{ url_for('view_bird', bird_id=birds._id) }}"
             class="bird_card_link"
-            >View <br />
-            {{ birds.bird_name }}</a
           >
+            <img
+              class="bird_card_image"
+              src="{{ birds.image }}"
+              alt="Bird Image"
+            />
+          </a>          
         </div>
+        <a
+            href="{{ url_for('view_bird', bird_id=birds._id) }}"
+            class="bird_card_link"
+            >
+        <div class="card-action">
+          <span class="card-title">{{ birds.bird_name }}</span>
+        </div>
+        </a
+          >
       </div>
     </div>
     {% endfor %}
