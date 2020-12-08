@@ -32,12 +32,12 @@ Bird Watcher was built using [Python](https://www.python.org/) - programming lan
  
 ## UX
  
-Bird Watcher is an online web application and birdwatching challenege. It is focused on users which have an interest in bird watching, both experienced and beginners. Using Bird Watcher, users will be able to:
+Bird Watcher is an online web application and birdwatching challenege. It is focused on UK users which have an interest in bird watching, both experienced and beginners. Using Bird Watcher, users will be able to:
 
 - Register an account
 - See a list of all birds on the database
 - See more information about a particular bird (registered user only)
-- Report an error to the site for admin to change (registered user only
+- Report an error on the site for admin to change (registered user only)
 - Search for a bird by species (registered user only)
 - Add a bird to the users list of seen birds (registered user only)
 - See a list of all birds the user has seen (registered user only)
@@ -47,11 +47,11 @@ The website will be easy to use, and have a familiar feel on all pages throughou
  
 ### User Stories
 
-##### Bird Watcher - Experienced
+##### Bird Watcher UK - Experienced
 - I enjoy going out to see all kinds of birds.
-- As a user, I would like a place to be able to record the birds that I see when out. I have a notebook, but I want a one stop place which is easy to use. I should be able to find a bird and mark it as seen. I should then also be able to see a list of all the birds I have spotted in one page and be able to see when and where I saw the bird. I am very knowledgable about birds and would like to correct any issues I spot on a birds information.
+- As a user, I would like a place to be able to record the birds that I see when out. I have a notebook, but I want a one stop place which is easy to use. I should be able to find a bird and mark it as seen. I should then also be able to see a list of all the birds I have spotted in one page and be able to see when and where I saw the bird. I am very knowledgable about birds and would like to correct any issues I spot on a birds information using an error form on the website.
  
-##### Bird Watcher - Beginner
+##### Bird Watcher UK - Beginner
 - I enjoy going to see the birds at my local nature reserve.
 - As a user, I would like a place to be able to record the birds that I seen in the hope of seeing all bird species in the UK one day.
 - I would like to see a list of common birds and mark them off once I have seen them. As a beginner, I do not know a lot of information about each bird and do not know where to find them. I should be able to click on a bird to see more information about that particular species. This should apply to both birds that I have seen and not yet seen to achieve the goal of finding where to spot them.
@@ -202,7 +202,10 @@ One of the requirements for the submission of the project is extensive testing t
 - [W3CValidator CSS](http://jigsaw.w3.org/css-validator/) I recieved no errors with my CSS file.
 
 ### Javascript
-- [JShint](https://jshint.com/) - No errors
+- [JShint](https://jshint.com/) - No errors.
+
+### Python
+- [Pep8](http://pep8online.com/) - My code is Pep8 complient. I had confirmation of this through the message 'All Right' when running my code through the check.
 
 ### Manual Testing
 To ensure my website was in good working order I tested all links on the pages across a range of devices using the chrome developer tools and Chrome, Edge and Firefox to ensure it works okay on different browsers. I have documented this [here](static/manual_testing/testing.md)
