@@ -85,27 +85,41 @@ You can view the wireframes that I based my site on in the UX folder.
 ### Existing Features
 - Login - The login page is the first page a user will come to when visiting the site. It has two fields for the user input a username and a password field. Then there is a button for the user to submit the form to login, or if they are not a registered user to the site, they can use the link underneath to go to the register page. Underneath the form there is some information about the site for new users.
 
+![Login Page](https://user-images.githubusercontent.com/64138643/101936385-6b0e3500-3bd8-11eb-84a7-3b34ae6b46c5.PNG)
+
 - Register - The register page is in the same layout as the login page. The only differences being that a user will create an account instead of logging in to their exisitng account. Also, the link underneath the login button directs to the login page instead of the register page. The information below is the same, and informs people about the site and its features. 
 
 - My Sightings - The first page a user will be taken to once logging in / registering will be the my sightings page. This page shows a list of all the birds which that particular user has reported as being spotted. A message will display at the top to keep users updated how many of the birds they have spotted and how many there are to go. If the user has seen no birds a message will display encouraging the user to get out and get spotting. If a user has reported sightings, they will appear as 'cards' on this page with information where the user spotted the bird and on what date. The user can then click on the bird to see more information about it, or remove the sighitng if it was made by mistake.
 
+![My Sightings Page](https://user-images.githubusercontent.com/64138643/101936478-84af7c80-3bd8-11eb-8fb7-e649bd1fdac5.PNG)
+
 - All Birds - This page will show the user the full list of birds which are on the database. This is the 159 most popular birds in the UK (at the time of creating the site) which are displayed in alphabetical order. On this page a user can browse through all the birds along with an image of them and have the option to click into the bird to find more information about the bird. As there is a lot of birds on here, the user has the option to filter by birds type (species) to reduce the number of birds that is displayed. You can clear the search to bring back the full list.
+
+![UK Birds page](https://user-images.githubusercontent.com/64138643/101936516-8f6a1180-3bd8-11eb-88b0-d42298765ead.PNG)
 
 - Report Sighting - The report sighting page is where a user inputs the details of the sighting once he has seen a bird. There are three parts to the form. The user must first specify the name of the bird he has seen. This is done through a selection field which lists all the birds on the database preventing a user incorrectly spelling a bird. The second part is for the user to specify the date they saw the bird. This is done through a date selector, again to avoid incorrect user input. The final part of the form is the location field. This has a list of all the counties in the UK so the user can sleect the location they spotted the bird from the dropdown. This will be stored in the database as a sighting where the information will be displayed on the users 'my sightings' page. If the user has already marked this bird as seen, a flash message will display informing the user.
 
 - View Bird - Here is where a user can view more detailed information about a specific bird. The top of the page will display an illustration of the bird, with information underneath of the birds name, scientific name, size, description, feeding habit and where the bird is located. Underneath the user has multiple options available to them to navigate around the site. If they have read some information on the bird they have the option to edit the bird directly themselves, or they can log an error report to admin.
 
+![View Bird Page](https://user-images.githubusercontent.com/64138643/101936662-bb859280-3bd8-11eb-8a6f-bb9486142443.PNG)
+
 - Log Error - The user can submit an error report if they have seen misinformation on a bird, or if they are unhappy with something on the birds page. There are two parts to the form. The first is the name of the bird they are unhappy with, or they can submit a general error not relating to a bird. The second part is a free text box which the user can put a description of the problem they are facing. 
 
 - Home - This page also shows a count at the top showing the user how far through the challenge they are. It features a hero image at the top and three options underneath to navigate around the site. They can direct to the report sighting page, my sightings page or view all uk birds page.
+
+![Homepage](https://user-images.githubusercontent.com/64138643/101936696-c9d3ae80-3bd8-11eb-803a-c223a1dd64fe.PNG)
 
 - Delete Account - In the footer the user has the option to delete their account if they are unhappy with site and no longer wish to use it.
 
 - Add New Bird (Admin Only) - If the user is logged in as admin, they can add a new bird. This form is a duplicate of the form seen on the Edit Bird page. This is so the admin can extend the challenge if they wish by adding more birds to be spotted. By adding a new bird here, the changes will be reflected in the birds seen count on my homepage and my sightings page, also the new birds will be showing straight away on the view all birds page.
 
+![Add New Bird](https://user-images.githubusercontent.com/64138643/101936730-d526da00-3bd8-11eb-852d-1b1bc34ed590.PNG)
+
 - Edit Bird (Admin only) - If the user is logged in as admin, they can edit a birds information. The admin will click through to this page only from the view bird page. In doing so, the birds information is prepopulated on the form. The admin can then find the field they want to change and edit the text. There is a submit button at the bottom of the form which will amend the information on that bird on the database.
 
 - Errors page (Admin Only) - If the user is logged in as admin, the errors page will show a list of all the errors which have been reported by users. These will be displayed in the form of cards similar to the view birds / my sightings page, to be consistent with the rest of the site. The admin will be able to see the username of the user which submitted the error, the bird the error relates to and the error message. Once the admin has actioned the error and made the required changes, there is the option to mark the error as resolved, which will remove the erorr from the list.
+
+![Errors Page](https://user-images.githubusercontent.com/64138643/101936771-e1ab3280-3bd8-11eb-8395-d24b2b365755.PNG)
 
 ### Features Left to Implement
 - Automatic location detection - I would like to add in a feature where the report sighting form could automatically detect where the user is and prepopulate the location field in the form based on this.
@@ -226,5 +240,3 @@ The information displayed on the birds indivudual pages was taken from a combina
 I would like to thank my mentor Gbenga for his help and guidance throughout this project and the Code Institute for teaching me skills required to do so.
 
 The inspiration for this project was from my own passion of a good walk in the countryside.
-
-
