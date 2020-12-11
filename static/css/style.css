@@ -404,8 +404,10 @@ textarea.materialize-textarea{
 }
 
 .card-action{
+    min-height: 100px;
     border: 3px solid #BF4904 !important;
     text-align: center;
+    padding: 10px 5px;
 }
 
 .bird_card_link{
