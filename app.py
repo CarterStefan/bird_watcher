@@ -24,6 +24,9 @@ mongo = PyMongo(app)
 # PAGE FOR USER REGISTRATION
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    if session.get('user'):
+        return redirect(url_for("home"))
+
     if request.method == "POST":
         # This will check if the username exists in the DB
         existing_user = mongo.db.users.find_one(
