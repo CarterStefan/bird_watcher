@@ -119,6 +119,8 @@ Click Delete Account - You are taken to the delete account page (route to /delet
 
 - Click the 'UK Birds' link in the UK Birds box - You are taken to the UK Birds page
 
+- One bug I found when testing the login form was that the form was displayed when pressing the back button once logged in. I corrected this by adding a check for if the user is logged in and if so to redirect to the homepage.
+
 
 ### Register Page
 
@@ -151,6 +153,8 @@ Click Delete Account - You are taken to the delete account page (route to /delet
 - Click the 'Login Here' link in the 'What is birdwatcher' box - You are taken to the register page
 
 - Click the 'UK Birds' link in the UK Birds box - You are taken to the UK Birds page
+
+- One bug I found when testing the register form was that the form was displayed when pressing the back button once registered. I corrected this by adding a check for if the user is logged in and if so to redirect to the homepage.
 
 ### Homepage
 
